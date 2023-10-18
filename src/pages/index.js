@@ -12,8 +12,8 @@ function IndexPage(props) {
     <>
       <Meta />
       <HeroSection
-        title="Premium leads for all your SaaS projects"
-        subtitle="Focus on building your amazing service and we will do the rest. We grew more than 10,000 online businesses."
+        title="Dividend tracking automated"
+        subtitle="No more custom spreadsheets or manually entering trades. Kura handles the complexity of tracking, so you can easily stay on top of your trading."
         strapline=""
         size="lg"
         bgColor="bg-white"
@@ -22,9 +22,9 @@ function IndexPage(props) {
         textColor=""
       />
       <FeaturesSection
-        title="The best tech under the hood"
-        subtitle="Build user friendly and modern dashboards using the latest tech. Now is the time with a best selling UI framework."
-        strapline="Created with passion"
+        title="What's your breakeven after taking into account dividends and DCA?"
+        subtitle="Many try to answer these questions by tracking trades in a spreadsheet."
+        strapline="MEET YOUR DIVIDEND TRACKING ASSISTANT"
         size="md"
         bgColor="bg-white"
         bgImage=""

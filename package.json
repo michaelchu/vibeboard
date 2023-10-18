@@ -1,9 +1,9 @@
 {
-  "name": "my-divjoy-project",
+  "name": "kura",
   "version": "0.1.0",
   "private": true,
   "keywords": [
-    "divjoy"
+    "kura"
   ],
   "dependencies": {
     "react": "17.0.2",
