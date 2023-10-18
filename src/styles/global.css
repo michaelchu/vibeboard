@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  #root {
+    /* Full height of screen and flex so that we can push footer */
+    /* to the bottom even if content is shorter than screen */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Prevent child elements from shrinking when content */
+  /* is taller than the screen (quirk of having flex parent) */
+  #root > * {
+    flex-shrink: 0;
+  }
+}
+
+@layer utilities {
+  .section.bg-white + .section.bg-white {
+    border-top: 1px solid #f0f0f0;
+  }
+  .pattern-dots {
+    background-image: radial-gradient(currentColor 2px, transparent 2px);
+    background-size: calc(10 * 2px) calc(10 * 2px);
+  }
+}
