@@ -3,7 +3,7 @@ import Section from "./Section";
 import SectionHeader from "./SectionHeader";
 import DashboardItems from "./DashboardItems";
 import { Link } from "./../util/router";
-import { useAuth } from "./../util/auth";
+import { useAuth } from "../util/auth";
 
 function DashboardSection(props) {
   const auth = useAuth();
@@ -53,32 +53,10 @@ function DashboardSection(props) {
                 You are signed in as <strong>{auth.user.email}</strong>.
               </div>
 
-              {auth.user.stripeSubscriptionId && (
-                <>
-                  <div>
-                    You are subscribed to the{" "}
-                    <strong>{auth.user.planId} plan</strong>.
-                  </div>
-                  <div>
-                    Your plan status is{" "}
-                    <strong>{auth.user.stripeSubscriptionStatus}</strong>.
-                  </div>
-                </>
-              )}
-
               <div>
                 You can change your account info{` `}
-                {auth.user.stripeSubscriptionId && <>and plan{` `}</>}
-                in{` `}
                 <Link to="/settings/general">settings</Link>.
               </div>
-
-              {!auth.user.stripeSubscriptionId && (
-                <div>
-                  You can signup for a plan in{" "}
-                  <Link to="/pricing">pricing</Link>.
-                </div>
-              )}
             </div>
           </div>
         </div>
