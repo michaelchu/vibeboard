@@ -1,29 +1,35 @@
-
 ## 👉 Get Started
+
 Install dependencies
+
 ```
 npm install
 ```
+
 Update your `.env` file with values for each environment variable
+
 ```
 API_KEY=AIzaSyBkkFF0XhNZeWuDmOfEhsgdfX1VBG7WTas
 etc ...
 ```
 
 Run the development server
+
 ```
 npm run start
 ```
+
 When the above command completes you'll be able to view your website at `http://localhost:3000`
 
 ## 🥞 Stack
+
 This project uses the following libraries and services:
+
 - Framework - [Create React App](https://create-react-app.dev) with React Router
 - UI Kit - [Tailwind](https://tailwindcss.com)
 - Authentication - [Supabase](https://supabase.com)
 - Database - [Supabase](https://supabase.com)
 - Hosting - [Render](https://render.com/)
-
 
 ## 📚 Guide
 
@@ -56,6 +62,7 @@ function MyComponent() {
   );
 }
 ```
+
 </p>
 </details>
 
@@ -78,12 +85,15 @@ function MyComponent() {
       {auth.user ? (
         <button onClick={(e) => auth.signout()}>Signout</button>
       ) : (
-        <button onClick={(e) => auth.signin("hello@divjoy.com", "yolo")}>Signin</button>
+        <button onClick={(e) => auth.signin("hello@divjoy.com", "yolo")}>
+          Signin
+        </button>
       )}
     </div>
   );
 }
 ```
+
 </p>
 </details>
 
@@ -118,6 +128,7 @@ function ItemsPage(){
   );
 }
 ```
+
 </p>
 </details>
 
@@ -127,4 +138,3 @@ function ItemsPage(){
   This project was created using <a href="https://divjoy.com?ref=readme_other">Divjoy</a>, the React codebase generator. You can find more info in the <a href="https://docs.divjoy.com">Divjoy Docs</a>.
 </p>
 </details>
-  

@@ -94,7 +94,6 @@ function SettingsSection(props) {
 
         {section === "general" && <SettingsGeneral onStatus={handleStatus} />}
         {section === "password" && <SettingsPassword onStatus={handleStatus} />}
-
       </div>
     </Section>
   );

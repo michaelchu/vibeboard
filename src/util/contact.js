@@ -9,8 +9,8 @@
 function submit(data) {
   return Promise.reject(
     new Error(
-      "Contact form integration is disabled. See src/util/contact.js for more details."
-    )
+      "Contact form integration is disabled. See src/util/contact.js for more details.",
+    ),
   );
 }
 

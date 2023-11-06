@@ -137,28 +137,19 @@
           "tagName": "section",
           "id": 9317042,
           "attributes": "{\n\t...otherProps,\n}",
-          "classNames": [
-            "section",
-            "relative"
-          ],
+          "classNames": ["section", "relative"],
           "classNameExpressions": [
             {
               "js": "bgColor",
-              "classNames": [
-                "{bgColor}"
-              ]
+              "classNames": ["{bgColor}"]
             },
             {
               "js": "textColor",
-              "classNames": [
-                "{textColor}"
-              ]
+              "classNames": ["{textColor}"]
             },
             {
               "js": "className",
-              "classNames": [
-                "{className}"
-              ]
+              "classNames": ["{className}"]
             }
           ],
           "children": [
@@ -182,29 +173,19 @@
               "type": "element",
               "tagName": "div",
               "id": 9027450,
-              "classNames": [
-                "[&>.container]:relative"
-              ],
+              "classNames": ["[&>.container]:relative"],
               "classNameExpressions": [
                 {
                   "js": "size === \"sm\"",
-                  "classNames": [
-                    "py-10"
-                  ]
+                  "classNames": ["py-10"]
                 },
                 {
                   "js": "size === \"md\"",
-                  "classNames": [
-                    "py-10",
-                    "md:py-20"
-                  ]
+                  "classNames": ["py-10", "md:py-20"]
                 },
                 {
                   "js": "size === \"lg\"",
-                  "classNames": [
-                    "py-10",
-                    "md:py-32"
-                  ]
+                  "classNames": ["py-10", "md:py-32"]
                 }
               ],
               "children": [
@@ -257,18 +238,11 @@
           "classNameExpressions": [
             {
               "js": "props.repeat",
-              "classNames": [
-                "bg-auto",
-                "bg-left-top",
-                "bg-repeat"
-              ]
+              "classNames": ["bg-auto", "bg-left-top", "bg-repeat"]
             },
             {
               "js": "!props.repeat",
-              "classNames": [
-                "bg-center",
-                "bg-cover"
-              ]
+              "classNames": ["bg-center", "bg-cover"]
             }
           ],
           "isVisible": true,
@@ -305,21 +279,15 @@
           "classNameExpressions": [
             {
               "js": "Element === \"a\"",
-              "classNames": [
-                "{classes.link}"
-              ]
+              "classNames": ["{classes.link}"]
             },
             {
               "js": "isBlock",
-              "classNames": [
-                "{classes.block}"
-              ]
+              "classNames": ["{classes.block}"]
             },
             {
               "js": "className",
-              "classNames": [
-                "{className}"
-              ]
+              "classNames": ["{className}"]
             }
           ],
           "children": [
@@ -436,19 +404,13 @@
               "type": "element",
               "tagName": "div",
               "id": 9935837,
-              "classNames": [
-                "container",
-                "py-4"
-              ],
+              "classNames": ["container", "py-4"],
               "children": [
                 {
                   "type": "element",
                   "tagName": "div",
                   "id": 3066218,
-                  "classNames": [
-                    "flex",
-                    "justify-between"
-                  ],
+                  "classNames": ["flex", "justify-between"],
                   "children": [
                     {
                       "type": "element",
@@ -554,10 +516,7 @@
                               "type": "element",
                               "tagName": "li",
                               "id": 1086686,
-                              "classNames": [
-                                "relative",
-                                "group"
-                              ],
+                              "classNames": ["relative", "group"],
                               "children": [
                                 {
                                   "type": "element",
@@ -594,9 +553,7 @@
                                     }
                                   ],
                                   "id": 4030469,
-                                  "classNames": [
-                                    "{classes.navLink}"
-                                  ],
+                                  "classNames": ["{classes.navLink}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -625,18 +582,13 @@
                                           "type": "element",
                                           "tagName": "div",
                                           "id": 4571728,
-                                          "classNames": [
-                                            "p-3"
-                                          ],
+                                          "classNames": ["p-3"],
                                           "children": [
                                             {
                                               "type": "element",
                                               "tagName": "div",
                                               "id": 1208818,
-                                              "classNames": [
-                                                "px-3",
-                                                "pt-3"
-                                              ],
+                                              "classNames": ["px-3", "pt-3"],
                                               "children": [
                                                 {
                                                   "type": "element",
@@ -1043,10 +995,7 @@
                               "type": "element",
                               "tagName": "li",
                               "id": 3322302,
-                              "classNames": [
-                                "relative",
-                                "group"
-                              ],
+                              "classNames": ["relative", "group"],
                               "children": [
                                 {
                                   "type": "element",
@@ -1083,9 +1032,7 @@
                                     }
                                   ],
                                   "id": 9696677,
-                                  "classNames": [
-                                    "{classes.navLink}"
-                                  ],
+                                  "classNames": ["{classes.navLink}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -1114,10 +1061,7 @@
                                           "type": "element",
                                           "tagName": "div",
                                           "id": 3638146,
-                                          "classNames": [
-                                            "grid",
-                                            "grid-cols-2"
-                                          ],
+                                          "classNames": ["grid", "grid-cols-2"],
                                           "children": [
                                             {
                                               "type": "element",
@@ -1633,10 +1577,7 @@
                               "type": "element",
                               "tagName": "li",
                               "id": 8031395,
-                              "classNames": [
-                                "relative",
-                                "group"
-                              ],
+                              "classNames": ["relative", "group"],
                               "children": [
                                 {
                                   "type": "element",
@@ -1665,9 +1606,7 @@
                                     }
                                   ],
                                   "id": 3936279,
-                                  "classNames": [
-                                    "{classes.navLink}"
-                                  ],
+                                  "classNames": ["{classes.navLink}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -1691,10 +1630,7 @@
                                   "type": "element",
                                   "tagName": "li",
                                   "id": 5454711,
-                                  "classNames": [
-                                    "relative",
-                                    "group"
-                                  ],
+                                  "classNames": ["relative", "group"],
                                   "children": [
                                     {
                                       "type": "element",
@@ -1723,9 +1659,7 @@
                                         }
                                       ],
                                       "id": 2963259,
-                                      "classNames": [
-                                        "{classes.navLink}"
-                                      ],
+                                      "classNames": ["{classes.navLink}"],
                                       "isVisible": true,
                                       "image": "",
                                       "name": "",
@@ -1752,10 +1686,7 @@
                                   "type": "element",
                                   "tagName": "li",
                                   "id": 4513572,
-                                  "classNames": [
-                                    "relative",
-                                    "group"
-                                  ],
+                                  "classNames": ["relative", "group"],
                                   "children": [
                                     {
                                       "type": "element",
@@ -1784,9 +1715,7 @@
                                         }
                                       ],
                                       "id": 4693936,
-                                      "classNames": [
-                                        "{classes.navLink}"
-                                      ],
+                                      "classNames": ["{classes.navLink}"],
                                       "isVisible": true,
                                       "image": "",
                                       "name": "",
@@ -2109,15 +2038,11 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 4028133,
-                  "classNames": [
-                    "lg:hidden"
-                  ],
+                  "classNames": ["lg:hidden"],
                   "classNameExpressions": [
                     {
                       "js": "!mobileNavOpen",
-                      "classNames": [
-                        "hidden"
-                      ]
+                      "classNames": ["hidden"]
                     }
                   ],
                   "children": [
@@ -2138,20 +2063,13 @@
                           "type": "element",
                           "tagName": "div",
                           "id": 6788956,
-                          "classNames": [
-                            "col-span-2",
-                            "p-3",
-                            "space-y-6"
-                          ],
+                          "classNames": ["col-span-2", "p-3", "space-y-6"],
                           "children": [
                             {
                               "type": "element",
                               "tagName": "div",
                               "id": 2352355,
-                              "classNames": [
-                                "px-3",
-                                "pt-3"
-                              ],
+                              "classNames": ["px-3", "pt-3"],
                               "children": [
                                 {
                                   "type": "element",
@@ -2165,9 +2083,7 @@
                                     }
                                   ],
                                   "id": 4861326,
-                                  "classNames": [
-                                    "{classes.dropdown.title}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.title}"],
                                   "isVisible": true,
                                   "attributes": "{\n\n}",
                                   "image": "",
@@ -2187,11 +2103,7 @@
                               "type": "element",
                               "tagName": "nav",
                               "id": 3571213,
-                              "classNames": [
-                                "flex",
-                                "flex-col",
-                                "space-y-1"
-                              ],
+                              "classNames": ["flex", "flex-col", "space-y-1"],
                               "children": [
                                 {
                                   "type": "element",
@@ -2534,10 +2446,7 @@
                           "type": "element",
                           "tagName": "div",
                           "id": 2866568,
-                          "classNames": [
-                            "p-6",
-                            "space-y-6"
-                          ],
+                          "classNames": ["p-6", "space-y-6"],
                           "children": [
                             {
                               "type": "element",
@@ -2551,9 +2460,7 @@
                                 }
                               ],
                               "id": 8330608,
-                              "classNames": [
-                                "{classes.dropdown.title}"
-                              ],
+                              "classNames": ["{classes.dropdown.title}"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -2565,11 +2472,7 @@
                               "type": "element",
                               "tagName": "nav",
                               "id": 9712026,
-                              "classNames": [
-                                "flex",
-                                "flex-col",
-                                "space-y-3"
-                              ],
+                              "classNames": ["flex", "flex-col", "space-y-3"],
                               "children": [
                                 {
                                   "type": "element",
@@ -2584,9 +2487,7 @@
                                     }
                                   ],
                                   "id": 9759937,
-                                  "classNames": [
-                                    "{classes.dropdown.link}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.link}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -2606,9 +2507,7 @@
                                     }
                                   ],
                                   "id": 3703030,
-                                  "classNames": [
-                                    "{classes.dropdown.link}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.link}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -2628,9 +2527,7 @@
                                     }
                                   ],
                                   "id": 4599012,
-                                  "classNames": [
-                                    "{classes.dropdown.link}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.link}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -2657,9 +2554,7 @@
                                 }
                               ],
                               "id": 4678014,
-                              "classNames": [
-                                "{classes.dropdown.title}"
-                              ],
+                              "classNames": ["{classes.dropdown.title}"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -2671,11 +2566,7 @@
                               "type": "element",
                               "tagName": "nav",
                               "id": 3624895,
-                              "classNames": [
-                                "flex",
-                                "flex-col",
-                                "space-y-3"
-                              ],
+                              "classNames": ["flex", "flex-col", "space-y-3"],
                               "children": [
                                 {
                                   "type": "element",
@@ -2690,9 +2581,7 @@
                                     }
                                   ],
                                   "id": 4398542,
-                                  "classNames": [
-                                    "{classes.dropdown.link}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.link}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -2712,9 +2601,7 @@
                                     }
                                   ],
                                   "id": 4986748,
-                                  "classNames": [
-                                    "{classes.dropdown.link}"
-                                  ],
+                                  "classNames": ["{classes.dropdown.link}"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -2739,9 +2626,7 @@
                                         }
                                       ],
                                       "id": 1176758,
-                                      "classNames": [
-                                        "{classes.dropdown.link}"
-                                      ],
+                                      "classNames": ["{classes.dropdown.link}"],
                                       "isVisible": true,
                                       "image": "",
                                       "name": "",
@@ -2794,11 +2679,7 @@
           "isVisible": true
         }
       ],
-      "tags": [
-        "Navigation",
-        "Popular",
-        "not:landing"
-      ],
+      "tags": ["Navigation", "Popular", "not:landing"],
       "id": 8558642,
       "creator": "tailkit",
       "description": "Navbar with row of links and fancy dropdowns",
@@ -2842,9 +2723,7 @@
           "classNameExpressions": [
             {
               "js": "props.className",
-              "classNames": [
-                "{props.className}"
-              ]
+              "classNames": ["{props.className}"]
             }
           ],
           "children": [
@@ -3175,16 +3054,11 @@
           "type": "element",
           "tagName": "header",
           "id": 9312029,
-          "classNames": [
-            "mb-8",
-            "last:mb-0"
-          ],
+          "classNames": ["mb-8", "last:mb-0"],
           "classNameExpressions": [
             {
               "js": "props.className",
-              "classNames": [
-                "{props.className}"
-              ]
+              "classNames": ["{props.className}"]
             }
           ],
           "children": [
@@ -3240,11 +3114,7 @@
                     }
                   ],
                   "id": 9375869,
-                  "classNames": [
-                    "text-3xl",
-                    "md:text-4xl",
-                    "font-extrabold"
-                  ],
+                  "classNames": ["text-3xl", "md:text-4xl", "font-extrabold"],
                   "isVisible": true,
                   "attributes": "{\n\n}",
                   "image": "",
@@ -3336,10 +3206,7 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 9287386,
-                  "classNames": [
-                    "lg:w-1/2",
-                    "lg:self-center"
-                  ],
+                  "classNames": ["lg:w-1/2", "lg:self-center"],
                   "children": [
                     {
                       "type": "instance",
@@ -3431,9 +3298,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 7061703,
-                      "classNames": [
-                        "relative"
-                      ],
+                      "classNames": ["relative"],
                       "children": [
                         {
                           "type": "element",
@@ -3589,10 +3454,7 @@
         }
       ],
       "id": 3455400,
-      "tags": [
-        "Hero",
-        "Popular"
-      ],
+      "tags": ["Hero", "Popular"],
       "creator": "tailkit",
       "description": "Hero with buttons, large image, and decorations",
       "isVisible": true,
@@ -3620,9 +3482,7 @@
           "classNameExpressions": [
             {
               "js": "props.className",
-              "classNames": [
-                "{props.className}"
-              ]
+              "classNames": ["{props.className}"]
             }
           ],
           "children": [
@@ -3738,10 +3598,7 @@
               "type": "element",
               "tagName": "div",
               "id": 5455421,
-              "classNames": [
-                "space-y-16",
-                "container"
-              ],
+              "classNames": ["space-y-16", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -3819,11 +3676,7 @@
                                 }
                               ],
                               "id": 8707398,
-                              "classNames": [
-                                "text-lg",
-                                "font-bold",
-                                "mb-2"
-                              ],
+                              "classNames": ["text-lg", "font-bold", "mb-2"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -3887,10 +3740,7 @@
       ],
       "code": "  const features = [\n    {\n      title: \"Customizable\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.AdjustmentsVerticalIcon,\n      iconColor: \"orange\",\n    },\n    {\n      title: \"Rich Statistics\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.ChartPieIcon,\n      iconColor: \"red\",\n    },\n\n    {\n      title: \"Works globally\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.GlobeAmericasIcon,\n      iconColor: \"emerald\",\n    },\n    {\n      title: \"Lighting fast UI\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.BoltIcon,\n      iconColor: \"purple\",\n    },\n    {\n      title: \"Components\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.PuzzlePieceIcon,\n      iconColor: \"blue\",\n    },\n    {\n      title: \"Auto Auth\",\n      description:\n        \"Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque. Proin rhoncus dui at ligula vestibulum ut facilisis.\",\n      icon: HI.UsersIcon,\n      iconColor: \"pink\",\n    },\n  ];\n",
       "id": 1543705,
-      "tags": [
-        "Features",
-        "Popular"
-      ],
+      "tags": ["Features", "Popular"],
       "creator": "tailkit",
       "description": "Features in three column grid with icons",
       "isVisible": true,
@@ -3911,9 +3761,7 @@
               "type": "element",
               "tagName": "div",
               "id": 52449,
-              "classNames": [
-                "container"
-              ],
+              "classNames": ["container"],
               "children": [
                 {
                   "type": "instance",
@@ -4163,10 +4011,7 @@
       ],
       "code": "  const clientsRowOne = [\n    {\n      name: \"boxspot\",\n      logo: HI.CubeIcon,\n    },\n    {\n      name: \"TechCode\",\n      logo: HI.CodeBracketIcon,\n    },\n    {\n      name: \"cCLICK\",\n      logo: HI.CursorArrowRaysIcon,\n    },\n  ];\n\n  const clientsRowTwo = [\n    {\n      name: \"sBoard\",\n      logo: HI.VariableIcon,\n    },\n    {\n      name: \"uptruck\",\n      logo: HI.TruckIcon,\n    },\n    {\n      name: \"freshloc\",\n      logo: HI.MapPinIcon,\n    },\n  ];\n",
       "id": 4014507,
-      "tags": [
-        "Clients",
-        "Popular"
-      ],
+      "tags": ["Clients", "Popular"],
       "creator": "tailkit",
       "description": "Clients with logos in 3 column grid",
       "isVisible": true,
@@ -4194,9 +4039,7 @@
           "classNameExpressions": [
             {
               "js": "className",
-              "classNames": [
-                "{className}"
-              ]
+              "classNames": ["{className}"]
             }
           ],
           "children": [
@@ -4242,10 +4085,7 @@
               "type": "element",
               "tagName": "div",
               "id": 612702,
-              "classNames": [
-                "space-y-16",
-                "container"
-              ],
+              "classNames": ["space-y-16", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -4346,10 +4186,7 @@
                                           "isVisible": true
                                         }
                                       ],
-                                      "classNames": [
-                                        "leading-7",
-                                        "mb-5"
-                                      ],
+                                      "classNames": ["leading-7", "mb-5"],
                                       "isVisible": true,
                                       "attributes": "{\n\n}",
                                       "image": "",
@@ -4494,10 +4331,7 @@
       ],
       "code": "  const testimonials = [\n    {\n      avatar: \"https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&fit=crop&h=160&&q=80&w=160\",\n      name: \"Elsa King\",\n      body: \"I’ve been using Divjoy templates for years. The code is consistently high-quality and pleasant to work with, so I highly recommended them.\",\n      role: \"Web Developer\",\n    },\n    {\n      avatar: \"https://images.unsplash.com/photo-1463453091185-61582044d556?crop=entropy&fit=crop&h=160&&q=80&w=160\",\n      name: \"Alex Saunders\",\n      body: \"I’ve been using Divjoy templates for years. The code is consistently high-quality and pleasant to work with, so I highly recommended them.\",\n      role: \"Graphic Designer\",\n    },\n    {\n      avatar: \"https://images.unsplash.com/photo-1514846326710-096e4a8035e0?crop=entropy&fit=crop&h=160&&q=80&w=160\",\n      name: \"Sue Keller\",\n      body: \"I’ve been using Divjoy templates for years. The code is consistently high-quality and pleasant to work with, so I highly recommended them.\",\n      role: \"CEO and Founder \",\n    },\n  ];\n",
       "id": 4997646,
-      "tags": [
-        "Testimonials",
-        "Popular"
-      ],
+      "tags": ["Testimonials", "Popular"],
       "creator": "tailkit",
       "description": "Testimonials with avatar",
       "isVisible": true,
@@ -4514,15 +4348,11 @@
           "type": "element",
           "tagName": "div",
           "id": 4698684,
-          "classNames": [
-            "w-full"
-          ],
+          "classNames": ["w-full"],
           "classNameExpressions": [
             {
               "js": "className",
-              "classNames": [
-                "{className}"
-              ]
+              "classNames": ["{className}"]
             }
           ],
           "children": [
@@ -4544,11 +4374,7 @@
                       "isVisible": true
                     }
                   ],
-                  "classNames": [
-                    "block",
-                    "mb-1",
-                    "font-medium"
-                  ],
+                  "classNames": ["block", "mb-1", "font-medium"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -4568,10 +4394,7 @@
                   "tagName": "textarea",
                   "id": 7518885,
                   "attributes": "{\n\tref: inputRef,\n\t...inputProps,\n}",
-                  "classNames": [
-                    "{classes.base}",
-                    "{classes.size[size]}"
-                  ],
+                  "classNames": ["{classes.base}", "{classes.size[size]}"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -4592,10 +4415,7 @@
                   "tagName": "input",
                   "id": 3895023,
                   "attributes": "{\n\tref: inputRef,\n  type: type,\n\t...inputProps,\n}",
-                  "classNames": [
-                    "{classes.base}",
-                    "{classes.size[size]}"
-                  ],
+                  "classNames": ["{classes.base}", "{classes.size[size]}"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -4668,22 +4488,13 @@
               "type": "element",
               "tagName": "div",
               "id": 1928929,
-              "classNames": [
-                "container",
-                "py-10",
-                "md:py-0"
-              ],
+              "classNames": ["container", "py-10", "md:py-0"],
               "children": [
                 {
                   "type": "element",
                   "tagName": "div",
                   "id": 7634513,
-                  "classNames": [
-                    "lg:w-2/3",
-                    "xl:w-1/2",
-                    "mx-auto",
-                    "relative"
-                  ],
+                  "classNames": ["lg:w-2/3", "xl:w-1/2", "mx-auto", "relative"],
                   "children": [
                     {
                       "type": "element",
@@ -4849,11 +4660,7 @@
                                   "isVisible": true
                                 }
                               ],
-                              "classNames": [
-                                "prose",
-                                "prose-indigo",
-                                "mb-6"
-                              ],
+                              "classNames": ["prose", "prose-indigo", "mb-6"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -4870,10 +4677,7 @@
                                   "type": "element",
                                   "tagName": "div",
                                   "id": 9096192,
-                                  "classNames": [
-                                    "mt-3",
-                                    "text-center"
-                                  ],
+                                  "classNames": ["mt-3", "text-center"],
                                   "children": [
                                     {
                                       "type": "text",
@@ -4902,9 +4706,7 @@
                                   "tagName": "form",
                                   "id": 5356211,
                                   "attributes": "{\n\tonSubmit: handleSubmit(onSubmit),\n}",
-                                  "classNames": [
-                                    "space-y-3"
-                                  ],
+                                  "classNames": ["space-y-3"],
                                   "children": [
                                     {
                                       "type": "element",
@@ -5062,10 +4864,7 @@
       ],
       "code": "  const [subscribed, setSubscribed] = useState(false);\n  const { handleSubmit, register, errors } = useForm();\n\n  const onSubmit = ({ email }) => {\n    setSubscribed(true);\n    // Parent component can optionally\n    // find out when subscribed.\n    props.onSubscribed && props.onSubscribed();\n    // Subscribe them\n    newsletter.subscribe({ email });\n  };\n",
       "id": 8437150,
-      "tags": [
-        "Newsletter",
-        "Popular"
-      ],
+      "tags": ["Newsletter", "Popular"],
       "creator": "tailkit",
       "description": "Newsletter with centered form in block with decorations",
       "isVisible": true,
@@ -5086,18 +4885,13 @@
               "type": "element",
               "tagName": "div",
               "id": 8855959,
-              "classNames": [
-                "space-y-10",
-                "container"
-              ],
+              "classNames": ["space-y-10", "container"],
               "children": [
                 {
                   "type": "element",
                   "tagName": "div",
                   "id": 3634978,
-                  "classNames": [
-                    "text-center"
-                  ],
+                  "classNames": ["text-center"],
                   "children": [
                     {
                       "type": "element",
@@ -5161,9 +4955,7 @@
                           "type": "element",
                           "tagName": "div",
                           "id": 3838900,
-                          "classNames": [
-                            "relative"
-                          ],
+                          "classNames": ["relative"],
                           "children": [
                             {
                               "type": "instance",
@@ -5201,9 +4993,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 7312573,
-                      "classNames": [
-                        "text-center"
-                      ],
+                      "classNames": ["text-center"],
                       "children": [
                         {
                           "type": "instance",
@@ -5249,10 +5039,7 @@
         }
       ],
       "id": 8718735,
-      "tags": [
-        "Call to Action",
-        "Popular"
-      ],
+      "tags": ["Call to Action", "Popular"],
       "creator": "tailkit",
       "description": "Call to action with logo, description, and centered button",
       "isVisible": true,
@@ -5292,9 +5079,7 @@
               "type": "element",
               "tagName": "footer",
               "id": 3458471,
-              "classNames": [
-                "container"
-              ],
+              "classNames": ["container"],
               "children": [
                 {
                   "type": "element",
@@ -5633,9 +5418,7 @@
                               "type": "element",
                               "tagName": "div",
                               "id": 1882640,
-                              "classNames": [
-                                "mt-3"
-                              ],
+                              "classNames": ["mt-3"],
                               "children": [
                                 {
                                   "type": "text",
@@ -5675,9 +5458,7 @@
                                   "type": "element",
                                   "tagName": "div",
                                   "id": 7498529,
-                                  "classNames": [
-                                    "grow"
-                                  ],
+                                  "classNames": ["grow"],
                                   "children": [
                                     {
                                       "type": "instance",
@@ -5749,10 +5530,7 @@
           "isVisible": true
         }
       ],
-      "tags": [
-        "Footer",
-        "Popular"
-      ],
+      "tags": ["Footer", "Popular"],
       "id": 5989784,
       "creator": "tailkit",
       "description": "Footer with 3 columns, social links, and newsletter form",
@@ -5895,10 +5673,7 @@
               "type": "element",
               "tagName": "div",
               "id": 3875456,
-              "classNames": [
-                "space-y-16",
-                "container"
-              ],
+              "classNames": ["space-y-16", "container"],
               "children": [
                 {
                   "type": "element",
@@ -5934,10 +5709,7 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 6199817,
-                  "classNames": [
-                    "flex",
-                    "space-x-2"
-                  ],
+                  "classNames": ["flex", "space-x-2"],
                   "children": [
                     {
                       "type": "element",
@@ -6033,17 +5805,11 @@
                                   "type": "element",
                                   "tagName": "item.icon",
                                   "id": 3549702,
-                                  "classNames": [
-                                    "inline-block",
-                                    "w-5",
-                                    "h-5"
-                                  ],
+                                  "classNames": ["inline-block", "w-5", "h-5"],
                                   "classNameExpressions": [
                                     {
                                       "js": "item.iconColor",
-                                      "classNames": [
-                                        "{item.iconColor}"
-                                      ]
+                                      "classNames": ["{item.iconColor}"]
                                     }
                                   ],
                                   "isVisible": true,
@@ -6149,10 +5915,7 @@
       ],
       "code": "  const items = [\n    {\n      title: \"Passion\",\n      description:\n        \"We are passionate with what we do and love crafting products that can make your life easier and help you succeed. We pay attention to small details and always aiming for the best.\",\n      icon: HI.HeartIcon,\n      iconColor: \"text-red-500\",\n    },\n    {\n      title: \"Commitment\",\n      description:\n        \"We are committed to our work and stand by our projects. Our aim is to improve them in every update and offer the most full-featured packages with the smallest possible footprint.\",\n      icon: HI.ArrowDownIcon,\n      iconColor: \"text-blue-500\",\n    },\n    {\n      title: \"Less is more\",\n      description:\n        \"We believe that design should be invisible and enhance the user experience, not get in the way. This gives room for your content to breath and attracts your users’ attention.\",\n      icon: HI.CubeTransparentIcon,\n      iconColor: \"text-pink-500\",\n    },\n  ];\n",
       "id": 5183771,
-      "tags": [
-        "Hero",
-        "Popular"
-      ],
+      "tags": ["Hero", "Popular"],
       "creator": "tailkit",
       "description": "Hero with logo, two column image grid, and three column info grid",
       "isVisible": true,
@@ -6173,10 +5936,7 @@
               "type": "element",
               "tagName": "div",
               "id": 2265644,
-              "classNames": [
-                "space-y-16",
-                "container"
-              ],
+              "classNames": ["space-y-16", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -6212,19 +5972,13 @@
                           "tagName": "dl",
                           "id": 5358518,
                           "attributes": "{\n\tkey: index,\n}",
-                          "classNames": [
-                            "space-y-1",
-                            "p-5"
-                          ],
+                          "classNames": ["space-y-1", "p-5"],
                           "children": [
                             {
                               "type": "element",
                               "tagName": "dt",
                               "id": 6231380,
-                              "classNames": [
-                                "text-4xl",
-                                "font-extrabold"
-                              ],
+                              "classNames": ["text-4xl", "font-extrabold"],
                               "children": [
                                 {
                                   "type": "text",
@@ -6299,10 +6053,7 @@
       ],
       "code": "  const stats = [\n    {\n      title: \"Projects\",\n      count: \"3,500+\",\n    },\n    {\n      title: \"Clients\",\n      count: \"260+\",\n    },\n    {\n      title: \"Earnings\",\n      count: \"175k+\",\n    },\n  ];\n",
       "id": 2874887,
-      "tags": [
-        "Stats",
-        "Popular"
-      ],
+      "tags": ["Stats", "Popular"],
       "creator": "tailkit",
       "description": "Stats row with header and numbers",
       "isVisible": true,
@@ -6323,10 +6074,7 @@
               "type": "element",
               "tagName": "div",
               "id": 2293214,
-              "classNames": [
-                "space-y-16",
-                "container"
-              ],
+              "classNames": ["space-y-16", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -6360,9 +6108,7 @@
                           "tagName": "div",
                           "id": 2314456,
                           "attributes": "{\n\tkey: index,\n}",
-                          "classNames": [
-                            "text-center"
-                          ],
+                          "classNames": ["text-center"],
                           "children": [
                             {
                               "type": "element",
@@ -6516,10 +6262,7 @@
                               "type": "element",
                               "tagName": "div",
                               "id": 389827,
-                              "classNames": [
-                                "space-x-1",
-                                "mb-3"
-                              ],
+                              "classNames": ["space-x-1", "mb-3"],
                               "children": [
                                 {
                                   "type": "if",
@@ -6678,10 +6421,7 @@
       ],
       "code": "  const teamBios = [\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1492814580460-1f9a2a463cfe?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Irma Norton\",\n      role: \"Founder & CEO\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1489980557514-251d61e3eeb6?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Alejandro Lee\",\n      role: \"Product Design\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Elsa King\",\n      role: \"Web Developer\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1463453091185-61582044d556?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Alex Saunders\",\n      role: \"Marketing\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1567186937675-a5131c8a89ea?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Herman Reese\",\n      role: \"Support Specialist\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1514846326710-096e4a8035e0?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Sue Keller\",\n      role: \"Web Developer\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Julio Rivera\",\n      role: \"Marketing\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n    {\n      avatar:\n        \"https://images.unsplash.com/photo-1514222709107-a180c68d72b4?crop=entropy&fit=crop&h=800&q=80&w=640\",\n      name: \"Shawn Bates\",\n      role: \"SEO Expert\",\n      twitter: \"https://twitter.com\",\n      linkedin: \"https://linkedin.com\",\n    },\n  ];\n",
       "id": 2451172,
-      "tags": [
-        "Team",
-        "Popular"
-      ],
+      "tags": ["Team", "Popular"],
       "creator": "tailkit",
       "description": "Team bios with full portrait image and hover effect",
       "isVisible": true,
@@ -6730,10 +6470,7 @@
               "type": "element",
               "tagName": "div",
               "id": 7541535,
-              "classNames": [
-                "space-y-12",
-                "container"
-              ],
+              "classNames": ["space-y-12", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -6767,10 +6504,7 @@
                           "tagName": "div",
                           "id": 1953290,
                           "attributes": "{\n\tkey: index,\n}",
-                          "classNames": [
-                            "prose",
-                            "prose-indigo"
-                          ],
+                          "classNames": ["prose", "prose-indigo"],
                           "children": [
                             {
                               "type": "element",
@@ -6840,9 +6574,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 9794672,
-                      "classNames": [
-                        "text-center"
-                      ],
+                      "classNames": ["text-center"],
                       "children": [
                         {
                           "type": "instance",
@@ -6884,10 +6616,7 @@
       ],
       "code": "  const faqItems = [\n    {\n      question: \"What features are included?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n    {\n      question: \"Can I use PayPal to pay you?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n    {\n      question: \"Do I get access to the community?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n    {\n      question: \"Can I get a refund just in case?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n    {\n      question: \"Do you offer email support?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n    {\n      question: \"Are the updates free for life?\",\n      answer:\n        \"Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque.\",\n    },\n  ];\n",
       "id": 3769765,
-      "tags": [
-        "FAQ",
-        "Popular"
-      ],
+      "tags": ["FAQ", "Popular"],
       "creator": "tailkit",
       "description": "FAQ with two column grid",
       "isVisible": true,
@@ -6948,10 +6677,7 @@
               "type": "element",
               "tagName": "div",
               "id": 6658050,
-              "classNames": [
-                "space-y-10",
-                "container"
-              ],
+              "classNames": ["space-y-10", "container"],
               "children": [
                 {
                   "type": "instance",
@@ -7104,9 +6830,7 @@
                                   "type": "element",
                                   "tagName": "div",
                                   "id": 5394016,
-                                  "classNames": [
-                                    "mb-1"
-                                  ],
+                                  "classNames": ["mb-1"],
                                   "children": [
                                     {
                                       "type": "element",
@@ -7215,9 +6939,7 @@
                                   "classNameExpressions": [
                                     {
                                       "js": "plan.featured",
-                                      "classNames": [
-                                        "text-blue-900"
-                                      ]
+                                      "classNames": ["text-blue-900"]
                                     }
                                   ],
                                   "children": [
@@ -7372,11 +7094,7 @@
       ],
       "code": "  const auth = useAuth();\n\n  const plans = [\n    {\n      id: \"starter\",\n      name: \"Starter\",\n      price: \"10\",\n      subtitle: \"For solo developers\",\n      perks: [\n        <>\n          <strong>100</strong> Custom Projects\n        </>,\n        <>\n          <strong>50</strong> Paying Clients\n        </>,\n        <>\n          <strong>10GB</strong> SSD Storage\n        </>,\n        <>\n          <strong>1TB</strong> Bandwidth\n        </>,\n        <>\n          <strong>24/7</strong> Email Support\n        </>,\n      ],\n    },\n    {\n      id: \"pro\",\n      name: \"Pro\",\n      price: \"20\",\n      subtitle: \"For large teams\",\n      featured: true,\n      perks: [\n        <>\n          <strong>1000</strong> Custom Projects\n        </>,\n        <>\n          <strong>200</strong> Paying Clients\n        </>,\n        <>\n          <strong>100GB</strong> SSD Storage\n        </>,\n        <>\n          <strong>10TB</strong> Bandwidth\n        </>,\n        <>\n          <strong>24/7</strong> Email Support\n        </>,\n      ],\n    },\n    {\n      id: \"business\",\n      name: \"Business\",\n      price: \"50\",\n      subtitle: \"Custom solutions\",\n      perks: [\n        <>\n          <strong>Unlimited</strong> Custom Projects\n        </>,\n        <>\n          <strong>Unlimited</strong> Paying Clients\n        </>,\n        <>\n          <strong>Unlimited</strong> SSD Storage\n        </>,\n        <>\n          <strong>Unlimited</strong> Bandwidth\n        </>,\n        <>\n          <strong>24/7</strong> Priority Email Support\n        </>,\n      ],\n    },\n  ];\n",
       "id": 724083,
-      "tags": [
-        "Pricing",
-        "not:landing",
-        "Popular"
-      ],
+      "tags": ["Pricing", "not:landing", "Popular"],
       "creator": "tailkit",
       "description": "Pricing with 3 plans and feature list",
       "isVisible": true,
@@ -7453,9 +7171,7 @@
               "type": "element",
               "tagName": "div",
               "id": 345730,
-              "classNames": [
-                "container"
-              ],
+              "classNames": ["container"],
               "children": [
                 {
                   "type": "instance",
@@ -7469,20 +7185,13 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 7364698,
-                  "classNames": [
-                    "flex",
-                    "flex-wrap"
-                  ],
+                  "classNames": ["flex", "flex-wrap"],
                   "children": [
                     {
                       "type": "element",
                       "tagName": "div",
                       "id": 3006940,
-                      "classNames": [
-                        "p-4",
-                        "w-full",
-                        "md:w-1/2"
-                      ],
+                      "classNames": ["p-4", "w-full", "md:w-1/2"],
                       "children": [
                         {
                           "type": "element",
@@ -7522,11 +7231,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 1584453,
-                      "classNames": [
-                        "p-4",
-                        "w-full",
-                        "md:w-1/2"
-                      ],
+                      "classNames": ["p-4", "w-full", "md:w-1/2"],
                       "children": [
                         {
                           "type": "element",
@@ -7554,9 +7259,7 @@
                                 }
                               ],
                               "id": 1351198,
-                              "classNames": [
-                                "mb-4"
-                              ],
+                              "classNames": ["mb-4"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -7636,9 +7339,7 @@
                                 }
                               ],
                               "id": 2693366,
-                              "classNames": [
-                                "mb-4"
-                              ],
+                              "classNames": ["mb-4"],
                               "isVisible": true,
                               "attributes": "{\n\n}",
                               "image": "",
@@ -7892,9 +7593,7 @@
               "type": "element",
               "tagName": "div",
               "id": 4835764,
-              "classNames": [
-                "mb-4"
-              ],
+              "classNames": ["mb-4"],
               "children": [
                 {
                   "type": "instance",
@@ -7937,9 +7636,7 @@
                   "type": "element",
                   "tagName": "span",
                   "id": 546262,
-                  "classNames": [
-                    "text-xl"
-                  ],
+                  "classNames": ["text-xl"],
                   "children": [
                     {
                       "type": "text",
@@ -7987,9 +7684,7 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 6341948,
-                  "classNames": [
-                    "p-8"
-                  ],
+                  "classNames": ["p-8"],
                   "children": [
                     {
                       "type": "if",
@@ -8056,9 +7751,7 @@
                       "classNameExpressions": [
                         {
                           "js": "item.featured",
-                          "classNames": [
-                            "bg-yellow-200"
-                          ]
+                          "classNames": ["bg-yellow-200"]
                         }
                       ],
                       "children": [
@@ -8094,22 +7787,15 @@
                               ],
                               "id": 8258573,
                               "attributes": "{\n\tonClick: () => handleStarItem(item),\n}",
-                              "classNames": [
-                                "w-5",
-                                "h-5"
-                              ],
+                              "classNames": ["w-5", "h-5"],
                               "classNameExpressions": [
                                 {
                                   "js": "item.featured",
-                                  "classNames": [
-                                    "text-yellow-500"
-                                  ]
+                                  "classNames": ["text-yellow-500"]
                                 },
                                 {
                                   "js": "!item.featured",
-                                  "classNames": [
-                                    "text-slate-600"
-                                  ]
+                                  "classNames": ["text-slate-600"]
                                 }
                               ],
                               "isVisible": true,
@@ -8132,11 +7818,7 @@
                               ],
                               "id": 353198,
                               "attributes": "{\n\tonClick: () => setUpdatingItemId(item.id),\n}",
-                              "classNames": [
-                                "w-5",
-                                "h-5",
-                                "text-slate-600"
-                              ],
+                              "classNames": ["w-5", "h-5", "text-slate-600"],
                               "isVisible": true,
                               "image": "",
                               "name": "",
@@ -8158,11 +7840,7 @@
                               ],
                               "id": 1309873,
                               "attributes": "{\n\tonClick: () => deleteItem(item.id),\n}",
-                              "classNames": [
-                                "w-5",
-                                "h-5",
-                                "text-slate-600"
-                              ],
+                              "classNames": ["w-5", "h-5", "text-slate-600"],
                               "isVisible": true,
                               "image": "",
                               "name": "",
@@ -8261,11 +7939,7 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 1411018,
-                  "classNames": [
-                    "px-4",
-                    "min-h-screen",
-                    "text-center"
-                  ],
+                  "classNames": ["px-4", "min-h-screen", "text-center"],
                   "children": [
                     {
                       "type": "instance",
@@ -8353,9 +8027,7 @@
                               "type": "element",
                               "tagName": "div",
                               "id": 226534,
-                              "classNames": [
-                                "mt-4"
-                              ],
+                              "classNames": ["mt-4"],
                               "children": [
                                 {
                                   "type": "if",
@@ -8366,9 +8038,7 @@
                                       "type": "element",
                                       "tagName": "div",
                                       "id": 7698312,
-                                      "classNames": [
-                                        "mb-4"
-                                      ],
+                                      "classNames": ["mb-4"],
                                       "children": [
                                         {
                                           "type": "instance",
@@ -8476,9 +8146,7 @@
                                       "style": ""
                                     }
                                   ],
-                                  "classNames": [
-                                    "space-y-4"
-                                  ],
+                                  "classNames": ["space-y-4"],
                                   "isVisible": true,
                                   "image": "",
                                   "name": "",
@@ -8675,10 +8343,7 @@
               "type": "element",
               "tagName": "div",
               "id": 7945805,
-              "classNames": [
-                "container",
-                "max-w-md"
-              ],
+              "classNames": ["container", "max-w-md"],
               "children": [
                 {
                   "type": "instance",
@@ -8726,10 +8391,7 @@
       ],
       "code": "  // Options by auth type\n  const optionsByType = {\n    signup: {\n      // Top Title\n      title: \"Get yourself an account\",\n      // Button text\n      buttonAction: \"Sign up\",\n      // Footer text and links\n      showFooter: true,\n      signinText: \"Already have an account?\",\n      signinAction: \"Sign in\",\n      signinPath: \"/auth/signin\",\n      // Terms and privacy policy agreement\n      showAgreement: true,\n      termsPath: \"/legal/terms-of-service\",\n      privacyPolicyPath: \"/legal/privacy-policy\",\n    },\n    signin: {\n      title: \"Welcome back\",\n      buttonAction: \"Sign in\",\n      showFooter: true,\n      signupAction: \"Create an account\",\n      signupPath: \"/auth/signup\",\n      forgotPassAction: \"Forgot Password?\",\n      forgotPassPath: \"/auth/forgotpass\",\n    },\n    forgotpass: {\n      title: \"Get a new password\",\n      buttonAction: \"Reset password\",\n      showFooter: true,\n      signinText: \"Remember it after all?\",\n      signinAction: \"Sign in\",\n      signinPath: \"/auth/signin\",\n    },\n    changepass: {\n      title: \"Choose a new password\",\n      buttonAction: \"Change password\",\n    },\n  };\n\n  // Ensure we have a valid auth type\n  const type = optionsByType[props.type] ? props.type : \"signup\";\n\n  // Get options object for current auth type\n  const options = optionsByType[type];\n",
       "id": 4633229,
-      "tags": [
-        "Authentication",
-        "Form"
-      ],
+      "tags": ["Authentication", "Form"],
       "description": "Sign up form with social options",
       "isVisible": true,
       "nameLibrary": "",
@@ -8751,9 +8413,7 @@
               "type": "element",
               "tagName": "div",
               "id": 3071700,
-              "classNames": [
-                "mb-4"
-              ],
+              "classNames": ["mb-4"],
               "children": [
                 {
                   "type": "instance",
@@ -8823,18 +8483,11 @@
           "type": "element",
           "tagName": "div",
           "id": 3586784,
-          "classNames": [
-            "px-3",
-            "mt-6",
-            "text-sm",
-            "text-center"
-          ],
+          "classNames": ["px-3", "mt-6", "text-sm", "text-center"],
           "classNameExpressions": [
             {
               "js": "props.className",
-              "classNames": [
-                "{props.className}"
-              ]
+              "classNames": ["{props.className}"]
             }
           ],
           "children": [
@@ -8852,9 +8505,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 6467877,
-                      "classNames": [
-                        "mb-3"
-                      ],
+                      "classNames": ["mb-3"],
                       "children": [
                         {
                           "type": "text",
@@ -8875,9 +8526,7 @@
                             }
                           ],
                           "id": 9257451,
-                          "classNames": [
-                            "text-blue-600"
-                          ],
+                          "classNames": ["text-blue-600"],
                           "isVisible": true,
                           "image": "",
                           "name": "",
@@ -8903,9 +8552,7 @@
                             }
                           ],
                           "id": 1983446,
-                          "classNames": [
-                            "text-blue-600"
-                          ],
+                          "classNames": ["text-blue-600"],
                           "isVisible": true,
                           "image": "",
                           "name": "",
@@ -8948,10 +8595,7 @@
                     }
                   ],
                   "id": 8108213,
-                  "classNames": [
-                    "ml-3",
-                    "text-blue-600"
-                  ],
+                  "classNames": ["ml-3", "text-blue-600"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -8979,9 +8623,7 @@
                     }
                   ],
                   "id": 4947026,
-                  "classNames": [
-                    "text-blue-600"
-                  ],
+                  "classNames": ["text-blue-600"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -9006,10 +8648,7 @@
                         }
                       ],
                       "id": 8881532,
-                      "classNames": [
-                        "ml-4",
-                        "text-blue-600"
-                      ],
+                      "classNames": ["ml-4", "text-blue-600"],
                       "isVisible": true,
                       "image": "",
                       "name": "",
@@ -9046,10 +8685,7 @@
                     }
                   ],
                   "id": 6400715,
-                  "classNames": [
-                    "ml-3",
-                    "text-blue-600"
-                  ],
+                  "classNames": ["ml-3", "text-blue-600"],
                   "isVisible": true,
                   "image": "",
                   "name": "",
@@ -9086,9 +8722,7 @@
           "tagName": "form",
           "id": 5148917,
           "attributes": "{\n\tonSubmit: handleSubmit(onSubmit),\n}",
-          "classNames": [
-            "space-y-3"
-          ],
+          "classNames": ["space-y-3"],
           "children": [
             {
               "type": "if",
@@ -9202,10 +8836,7 @@
           "type": "element",
           "tagName": "div",
           "id": 426572,
-          "classNames": [
-            "mt-8",
-            "space-y-2"
-          ],
+          "classNames": ["mt-8", "space-y-2"],
           "children": [
             {
               "type": "foreach",
@@ -9218,9 +8849,7 @@
                   "tagName": "div",
                   "id": 6542177,
                   "attributes": "{\n\tkey: provider,\n}",
-                  "classNames": [
-                    "mb-2"
-                  ],
+                  "classNames": ["mb-2"],
                   "children": [
                     {
                       "type": "instance",
@@ -9382,10 +9011,7 @@
                       "classNameExpressions": [
                         {
                           "js": "tab.section === section",
-                          "classNames": [
-                            "text-blue-500",
-                            "border-blue-500"
-                          ]
+                          "classNames": ["text-blue-500", "border-blue-500"]
                         },
                         {
                           "js": "tab.section !== section",
@@ -9417,12 +9043,7 @@
               "type": "element",
               "tagName": "div",
               "id": 1536975,
-              "classNames": [
-                "container",
-                "mx-auto",
-                "mt-5",
-                "max-w-md"
-              ],
+              "classNames": ["container", "mx-auto", "mt-5", "max-w-md"],
               "children": [
                 {
                   "type": "if",
@@ -9433,9 +9054,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 9772304,
-                      "classNames": [
-                        "mb-4"
-                      ],
+                      "classNames": ["mb-4"],
                       "children": [
                         {
                           "type": "instance",
@@ -9536,9 +9155,7 @@
           "tagName": "form",
           "id": 5354602,
           "attributes": "{\n\tonSubmit: handleSubmit(onSubmit),\n}",
-          "classNames": [
-            "space-y-4"
-          ],
+          "classNames": ["space-y-4"],
           "children": [
             {
               "type": "instance",
@@ -9620,9 +9237,7 @@
           "tagName": "form",
           "id": 3977007,
           "attributes": "{\n\tonSubmit: handleSubmit(onSubmit),\n}",
-          "classNames": [
-            "space-y-4"
-          ],
+          "classNames": ["space-y-4"],
           "children": [
             {
               "type": "instance",
@@ -9709,10 +9324,7 @@
               "type": "element",
               "tagName": "div",
               "id": 290594,
-              "classNames": [
-                "mx-auto",
-                "w-7"
-              ],
+              "classNames": ["mx-auto", "w-7"],
               "children": [
                 {
                   "type": "instance",
@@ -9763,11 +9375,7 @@
                   "type": "element",
                   "tagName": "div",
                   "id": 1061674,
-                  "classNames": [
-                    "px-4",
-                    "min-h-screen",
-                    "text-center"
-                  ],
+                  "classNames": ["px-4", "min-h-screen", "text-center"],
                   "children": [
                     {
                       "type": "instance",
@@ -9855,9 +9463,7 @@
                               "type": "element",
                               "tagName": "div",
                               "id": 6673920,
-                              "classNames": [
-                                "mt-4"
-                              ],
+                              "classNames": ["mt-4"],
                               "children": [
                                 {
                                   "type": "if",
@@ -9868,9 +9474,7 @@
                                       "type": "element",
                                       "tagName": "div",
                                       "id": 4234157,
-                                      "classNames": [
-                                        "mb-4"
-                                      ],
+                                      "classNames": ["mb-4"],
                                       "children": [
                                         {
                                           "type": "instance",
@@ -9914,10 +9518,7 @@
                                           "type": "element",
                                           "tagName": "div",
                                           "id": 888783,
-                                          "classNames": [
-                                            "space-x-2",
-                                            "flex"
-                                          ],
+                                          "classNames": ["space-x-2", "flex"],
                                           "children": [
                                             {
                                               "type": "instance",
@@ -9982,9 +9583,7 @@
                                           "style": ""
                                         }
                                       ],
-                                      "classNames": [
-                                        "space-y-4"
-                                      ],
+                                      "classNames": ["space-y-4"],
                                       "isVisible": true,
                                       "image": "",
                                       "name": "",
@@ -10081,11 +9680,7 @@
           "type": "element",
           "tagName": "div",
           "id": 1992570,
-          "classNames": [
-            "prose",
-            "prose-a:text-blue-600",
-            "max-w-none"
-          ],
+          "classNames": ["prose", "prose-a:text-blue-600", "max-w-none"],
           "children": [
             {
               "type": "element",
@@ -10366,11 +9961,7 @@
           "type": "element",
           "tagName": "div",
           "id": 2018937,
-          "classNames": [
-            "prose",
-            "prose-a:text-blue-600",
-            "max-w-none"
-          ],
+          "classNames": ["prose", "prose-a:text-blue-600", "max-w-none"],
           "children": [
             {
               "type": "element",
@@ -10645,9 +10236,7 @@
               "type": "element",
               "tagName": "div",
               "id": 6102721,
-              "classNames": [
-                "container"
-              ],
+              "classNames": ["container"],
               "children": [
                 {
                   "type": "element",
@@ -10685,10 +10274,7 @@
                           "classNameExpressions": [
                             {
                               "js": "tab.section === section",
-                              "classNames": [
-                                "text-blue-500",
-                                "border-blue-500"
-                              ]
+                              "classNames": ["text-blue-500", "border-blue-500"]
                             },
                             {
                               "js": "tab.section !== section",
@@ -10771,9 +10357,7 @@
           "isVisible": true
         }
       ],
-      "tags": [
-        "Content"
-      ],
+      "tags": ["Content"],
       "id": 769880,
       "description": "Terms of Service",
       "isVisible": true,
@@ -10795,10 +10379,7 @@
               "type": "element",
               "tagName": "div",
               "id": 2078021,
-              "classNames": [
-                "relative",
-                "overflow-hidden"
-              ],
+              "classNames": ["relative", "overflow-hidden"],
               "children": [
                 {
                   "type": "element",
@@ -10878,10 +10459,7 @@
                       "type": "element",
                       "tagName": "div",
                       "id": 4294039,
-                      "classNames": [
-                        "mx-auto",
-                        "max-w-2xl"
-                      ],
+                      "classNames": ["mx-auto", "max-w-2xl"],
                       "children": [
                         {
                           "type": "if",
@@ -10892,9 +10470,7 @@
                               "type": "element",
                               "tagName": "div",
                               "id": 4832641,
-                              "classNames": [
-                                "mb-6"
-                              ],
+                              "classNames": ["mb-6"],
                               "children": [
                                 {
                                   "type": "instance",
@@ -10920,9 +10496,7 @@
                           "tagName": "form",
                           "id": 8488093,
                           "attributes": "{\n\tonSubmit: handleSubmit(onSubmit),\n}",
-                          "classNames": [
-                            "space-y-6"
-                          ],
+                          "classNames": ["space-y-6"],
                           "children": [
                             {
                               "type": "element",
@@ -11084,11 +10658,7 @@
         }
       ],
       "code": "  const [pending, setPending] = useState(false);\n  const [formAlert, setFormAlert] = useState(null);\n  const { handleSubmit, register, errors, reset } = useForm();\n\n  const onSubmit = (data) => {\n    // Show pending indicator\n    setPending(true);\n\n    console.log(data);\n\n    contact.submit(data)\n      .then(() => {\n        // Clear form\n        reset();\n        // Show success alert message\n        setFormAlert({\n          type: \"success\",\n          message: \"Your message has been sent!\",\n        });\n      })\n      .catch((error) => {\n        // Show error alert message\n        setFormAlert({\n          type: \"error\",\n          message: error.message,\n        });\n      })\n      .finally(() => {\n        // Hide pending indicator\n        setPending(false);\n      });\n  };\n",
-      "tags": [
-        "Contact",
-        "Form",
-        "Popular"
-      ],
+      "tags": ["Contact", "Form", "Popular"],
       "id": 8524174,
       "creator": "tailkit",
       "description": "Contact form with decorations",
@@ -11106,15 +10676,11 @@
           "tagName": "svg",
           "id": 1044390,
           "attributes": "{\n\tfill: \"none\",\n  viewBox: \"0 0 24 24\",\n}",
-          "classNames": [
-            "animate-spin"
-          ],
+          "classNames": ["animate-spin"],
           "classNameExpressions": [
             {
               "js": "props.className",
-              "classNames": [
-                "{props.className}"
-              ]
+              "classNames": ["{props.className}"]
             }
           ],
           "children": [
@@ -11123,9 +10689,7 @@
               "tagName": "circle",
               "id": 6675694,
               "attributes": "{\n\tcx: \"12\",\n  cy: \"12\",\n  r: \"10\",\n  stroke: \"currentColor\",\n  strokeWidth: \"4\",\n}",
-              "classNames": [
-                "opacity-25"
-              ],
+              "classNames": ["opacity-25"],
               "isVisible": true,
               "image": "",
               "name": "",
@@ -11138,9 +10702,7 @@
               "tagName": "path",
               "id": 8113593,
               "attributes": "{\n\tfill: \"currentColor\",\n  d: \"M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z\",\n}",
-              "classNames": [
-                "opacity-50"
-              ],
+              "classNames": ["opacity-50"],
               "isVisible": true,
               "image": "",
               "name": "",
@@ -11171,25 +10733,15 @@
           "type": "element",
           "tagName": "div",
           "id": 2040251,
-          "classNames": [
-            "text-center",
-            "p-4",
-            "rounded"
-          ],
+          "classNames": ["text-center", "p-4", "rounded"],
           "classNameExpressions": [
             {
               "js": "props.type === \"error\"",
-              "classNames": [
-                "text-red-600",
-                "bg-red-50"
-              ]
+              "classNames": ["text-red-600", "bg-red-50"]
             },
             {
               "js": "props.type === \"success\"",
-              "classNames": [
-                "text-green-600",
-                "bg-green-50"
-              ]
+              "classNames": ["text-green-600", "bg-green-50"]
             }
           ],
           "children": [

@@ -21,7 +21,7 @@ export function useUser(uid) {
     () =>
       supabase.from("users").select(`*`).eq("id", uid).single().then(handle),
     // Only call query function if we have a `uid`
-    { enabled: !!uid }
+    { enabled: !!uid },
   );
 }
 
@@ -51,7 +51,7 @@ export function useItem(id) {
   return useQuery(
     ["item", { id }],
     () => supabase.from("items").select().eq("id", id).single().then(handle),
-    { enabled: !!id }
+    { enabled: !!id },
   );
 }
 
@@ -66,7 +66,7 @@ export function useItemsByOwner(owner) {
         .eq("owner", owner)
         .order("createdAt", { ascending: false })
         .then(handle),
-    { enabled: !!owner }
+    { enabled: !!owner },
   );
 }
 

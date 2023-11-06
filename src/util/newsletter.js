@@ -8,7 +8,7 @@
 
 function subscribe(data) {
   alert(
-    "Newletter integration is disabled. See src/util/newsletter.js for more details."
+    "Newletter integration is disabled. See src/util/newsletter.js for more details.",
   );
 }
 

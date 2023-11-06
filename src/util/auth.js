@@ -49,7 +49,7 @@ function useAuthProvider() {
     // The user will be confirmed automatically if email confirmation is disabled in Supabase settings
     if (!user.email_confirmed_at) {
       throw new Error(
-        "Thanks for signing up! Please check your email to complete the process."
+        "Thanks for signing up! Please check your email to complete the process.",
       );
     }
 
@@ -132,7 +132,7 @@ function useAuthProvider() {
     if (email && email !== user.email) {
       await supabase.auth.updateUser({ email }).then(handleError);
       throw new Error(
-        "To complete this process click the confirmation links sent to your new and old email addresses"
+        "To complete this process click the confirmation links sent to your new and old email addresses",
       );
     }
 
