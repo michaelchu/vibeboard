@@ -1,8 +1,8 @@
 import React from "react";
 import Meta from "./../components/Meta";
 import SettingsSection from "./../components/SettingsSection";
-import { useRouter } from "./../util/router";
-import { requireAuth } from "./../util/auth";
+import { useRouter } from "../util/router";
+import { requireAuth } from "../util/auth";
 
 function SettingsPage(props) {
   const router = useRouter();

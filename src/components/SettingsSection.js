@@ -5,8 +5,7 @@ import { Link } from "./../util/router";
 import FormAlert from "./FormAlert";
 import SettingsGeneral from "./SettingsGeneral";
 import SettingsPassword from "./SettingsPassword";
-import SettingsBilling from "./SettingsBilling";
-import { useAuth } from "./../util/auth";
+import { useAuth } from "../util/auth";
 
 function SettingsSection(props) {
   const auth = useAuth();
@@ -68,7 +67,6 @@ function SettingsSection(props) {
         {[
           { section: "general", label: "General" },
           { section: "password", label: "Password" },
-          { section: "billing", label: "Billing" },
         ].map((tab) => (
           <Link
             to={`/settings/${tab.section}`}
@@ -95,10 +93,8 @@ function SettingsSection(props) {
         )}
 
         {section === "general" && <SettingsGeneral onStatus={handleStatus} />}
-
         {section === "password" && <SettingsPassword onStatus={handleStatus} />}
 
-        {section === "billing" && <SettingsBilling onStatus={handleStatus} />}
       </div>
     </Section>
   );

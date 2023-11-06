@@ -32,15 +32,13 @@ function Footer(props) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div>
             <h4 className="text-sm uppercase font-semibold tracking-wider text-gray-400">
-              Product
+              Showcase
             </h4>
             <nav className="flex flex-col space-y-3 mt-6">
               {[
-                { url: "/pricing", name: "Pricing" },
-                { url: "/faq", name: "FAQ" },
-                { url: "/", name: "Features" },
-                { url: "/", name: "Solutions" },
-                { url: "/", name: "Resources" },
+                { url: "/trending", name: "Trending" },
+                { url: "/top", name: "Top" },
+                { url: "/recently-updated", name: "Recently Updated" },
               ].map((link, index) => (
                 <Link
                   to={link.url}
@@ -54,15 +52,12 @@ function Footer(props) {
           </div>
           <div>
             <h4 className="text-sm uppercase font-semibold tracking-wider text-gray-400">
-              Company
+              Who We Are
             </h4>
             <nav className="flex flex-col space-y-3 mt-6">
               {[
-                { url: "/about", name: "About" },
-                { url: "/contact", name: "Contact" },
-                { url: "/", name: "Blog" },
-                { url: "/legal/terms-of-service", name: "Terms of Service" },
-                { url: "/legal/privacy-policy", name: "Privacy Policy" },
+                { url: "/", name: "About" },
+                { url: "/", name: "Contact" },
               ].map((link, index) => (
                 <Link
                   to={link.url}
