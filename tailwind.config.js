@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        '24': 'repeat(24, minmax(0, 1fr))',
-      }
+        25: "repeat(25, minmax(0, 1fr))",
+      },
     },
     container: {
       center: true,
