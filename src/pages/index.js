@@ -1,16 +1,14 @@
 import React from "react";
 import Meta from "./../components/Meta";
-import { keys } from "../keyboards/keys";
-import Keyboard from "../components/Keyboard";
+import { keys2 } from "../keyboards/keys2";
+import Keyboard2 from "../components/Keyboard2";
 
 function IndexPage(props) {
   return (
-    <>
+    <div className={"container"}>
       <Meta />
-      <div className="container flex flex-col lg:space-y-0 text-center lg:text-left">
-        <Keyboard layout={"104 Keys"} keysData={keys} />
-      </div>
-    </>
+      <Keyboard2 keys={keys2} />
+    </div>
   );
 }
 

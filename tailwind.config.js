@@ -5,9 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      gridTemplateColumns: {
-        25: "repeat(25, minmax(0, 1fr))",
-      },
+      minWidth: {
+        '10': '2.5rem'
+      }
     },
     container: {
       center: true,

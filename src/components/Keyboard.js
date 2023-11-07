@@ -19,8 +19,8 @@ function Keyboard({ layout = "104 Keys", keysData, fontSize = 9 }) {
 
   return (
     <div className="flex flex-col bg-gray-800 p-4 rounded-lg w-full">
-      <h2 className="text-lg text-gray-200 mb-2">{layout}</h2>
-      <div className="grid grid-cols-25 gap-2 mb-2">
+      <h2 className="text-lg text-gray-200 mb-1">{layout}</h2>
+      <div className="grid grid-cols-25 grid-rows-6 gap-1">
         {layoutData.map((row, rowIndex) => (
           <>
             {row.map((keyLayout, index) => {
@@ -28,26 +28,22 @@ function Keyboard({ layout = "104 Keys", keysData, fontSize = 9 }) {
               const isGap = keyLayout.key_id === 999;
 
               const colSpan = `col-span-${keyLayout.col_span}`;
-              const rowSpan = keyLayout.row_span
-                ? `row-span-${keyLayout.row_span}`
-                : "";
 
               return (
                 <div
                   key={`${keyLayout.key_id}-${index}`}
-                  className={`${colSpan} ${rowSpan}`}
+                  className={`${colSpan} ${
+                    keyLayout.row_span ? `row-span-${keyLayout.row_span}` : ""
+                  } ${
+                    isGap ? "invisible" : "bg-gray-700 text-gray-200"
+                  } p-2 rounded w-full font-extrabold text-center`}
+                  style={{
+                    fontSize: `${fontSize}px`,
+                    color: key?.color_code,
+                    textAlign: "center",
+                  }}
                 >
-                  <button
-                    className={`${
-                      isGap ? "invisible" : "bg-gray-700 text-gray-200"
-                    } p-2 rounded w-full`}
-                    style={{
-                      fontSize: `${fontSize}px`,
-                      color: key?.color_code,
-                    }}
-                  >
-                    {keyLayout.key_name}
-                  </button>
+                  {keyLayout.key_name}
                 </div>
               );
             })}

@@ -24,6 +24,7 @@ export const fullSizeLayout = [
     { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" },
   ],
   [
     { key_id: 14, col_span: "1", key_name: "`" },
@@ -47,7 +48,7 @@ export const fullSizeLayout = [
     { key_id: 1004, col_span: "1", key_name: "HOME" },
     { key_id: 1005, col_span: "1", key_name: "UP" },
     { key_id: 999, col_span: "1", key_name: "" },
-    { key_id: 2000, col_span: "1", key_name: "NUMLK" },
+    { key_id: 2000, col_span: "1", key_name: "NMLK" },
     { key_id: 2001, col_span: "1", key_name: "/" },
     { key_id: 2002, col_span: "1", key_name: "*" },
     { key_id: 2003, col_span: "1", key_name: "-" },
@@ -68,6 +69,7 @@ export const fullSizeLayout = [
     { key_id: 40, col_span: "1", key_name: "]" },
     { key_id: 41, col_span: "1", key_name: "\\" },
     { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" }, // temp
     { key_id: 999, col_span: "1", key_name: "" }, // temp
     { key_id: 1006, col_span: "1", key_name: "DEL" },
     { key_id: 1007, col_span: "1", key_name: "END" },
@@ -95,6 +97,8 @@ export const fullSizeLayout = [
     { key_id: 999, col_span: "1", key_name: "" }, // temp
     { key_id: 999, col_span: "1", key_name: "" }, // temp
     { key_id: 999, col_span: "1", key_name: "" }, // temp
+    { key_id: 999, col_span: "1", key_name: "" }, // temp
+    { key_id: 999, col_span: "1", key_name: "" }, // temp
     { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 999, col_span: "1", key_name: "" },
@@ -103,7 +107,7 @@ export const fullSizeLayout = [
     { key_id: 2006, col_span: "1", key_name: "6" },
   ],
   [
-    { key_id: 55, col_span: "1", key_name: "Shift" },
+    { key_id: 55, col_span: "1", key_name: "SHIFT" },
     { key_id: 56, col_span: "1", key_name: "Z" },
     { key_id: 57, col_span: "1", key_name: "X" },
     { key_id: 58, col_span: "1", key_name: "C" },
@@ -116,7 +120,12 @@ export const fullSizeLayout = [
     { key_id: 65, col_span: "1", key_name: "/" },
     { key_id: 66, col_span: "1", key_name: "SHIFT" },
     { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 1009, col_span: "1", key_name: "↑" },
+    { key_id: 999, col_span: "1", key_name: "" },
+    { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 999, col_span: "1", key_name: "" },
     { key_id: 2007, col_span: "1", key_name: "1" },
     { key_id: 2008, col_span: "1", key_name: "2" },
