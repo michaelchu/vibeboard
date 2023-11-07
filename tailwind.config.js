@@ -2,12 +2,13 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/keyboards/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       minWidth: {
-        '10': '2.5rem'
-      }
+        '12': "2rem",
+      },
     },
     container: {
       center: true,
