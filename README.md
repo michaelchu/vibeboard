@@ -9,8 +9,13 @@ yarn install
 Update your `.env` file with values for each environment variable
 
 ```
-API_KEY=AIzaSyBkkFF0XhNZeWuDmOfEhsgdfX1VBG7WTas
-etc ...
+SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+SUPABASE_URL=https://abcdefg.supabase.co
+
+# CLIENT-SIDE ENVIRONMENT VARS
+
+REACT_APP_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+REACT_APP_SUPABASE_URL=https://abcdefg.supabase.co
 ```
 
 Run the development server
