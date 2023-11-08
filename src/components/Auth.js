@@ -8,7 +8,7 @@ function Auth(props) {
   const router = useRouter();
   const [formAlert, setFormAlert] = useState(null);
 
-  const handleAuth = (user) => {
+  const handleAuth = () => {
     router.push(props.afterAuthPath);
   };
 

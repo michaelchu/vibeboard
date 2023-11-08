@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useRouter } from "./../util/router.js";
+import { useRouter } from "../util/router";
 
 function Meta(props) {
   const { children, ...customPageMeta } = props;

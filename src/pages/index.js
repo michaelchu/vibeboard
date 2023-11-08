@@ -3,7 +3,7 @@ import Meta from "./../components/Meta";
 import Keyboard from "../components/Keyboard/Keyboard";
 import { mac_os_75 } from "../components/Keyboard/layouts/mac_os_75";
 
-function IndexPage(props) {
+function IndexPage() {
   return (
     <div className={"dark"}>
       <Meta />

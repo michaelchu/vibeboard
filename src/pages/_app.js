@@ -11,7 +11,7 @@ import Footer from "./../components/Footer";
 import { AuthProvider } from "../util/auth";
 import { QueryClientProvider } from "../util/db";
 
-function App(props) {
+function App() {
   return (
     <QueryClientProvider>
       <AuthProvider>
