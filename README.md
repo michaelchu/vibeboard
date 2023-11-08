@@ -3,7 +3,7 @@
 Install dependencies
 
 ```
-npm install
+yarn install
 ```
 
 Update your `.env` file with values for each environment variable
@@ -16,7 +16,7 @@ etc ...
 Run the development server
 
 ```
-npm run start
+yarn run start
 ```
 
 When the above command completes you'll be able to view your website at `http://localhost:3000`
