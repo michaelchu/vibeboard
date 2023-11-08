@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormAlert from "./FormAlert";
 import AuthForm from "./AuthForm";
 import AuthSocial from "./AuthSocial";
-import { useRouter } from "./../util/router";
+import { useRouter } from "../util/router";
 
 function Auth(props) {
   const router = useRouter();

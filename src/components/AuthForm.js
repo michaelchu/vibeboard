@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import TextField from "./TextField";
 import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
-import { useAuth } from "./../util/auth";
+import { useAuth } from "../util/auth";
 
 function AuthForm(props) {
   const auth = useAuth();
