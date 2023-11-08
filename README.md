@@ -14,8 +14,8 @@ SUPABASE_URL=https://abcdefg.supabase.co
 
 # CLIENT-SIDE ENVIRONMENT VARS
 
-REACT_APP_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-REACT_APP_SUPABASE_URL=https://abcdefg.supabase.co
+VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+VITE_SUPABASE_URL=https://abcdefg.supabase.co
 ```
 
 Run the development server
