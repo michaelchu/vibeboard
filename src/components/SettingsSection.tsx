@@ -7,36 +7,65 @@ import SettingsGeneral from "./SettingsGeneral";
 import SettingsPassword from "./SettingsPassword";
 import { useAuth } from "../util/auth.jsx";
 
+interface Tab {
+  section: string;
+  label: string;
+}
+
 // Move tab configuration outside the component
-const tabs = [
+const tabs: Tab[] = [
   { section: "general", label: "General" },
   { section: "password", label: "Password" },
 ];
 
-function SettingsSection(props) {
-  const auth = useAuth();
-  const [formAlert, setFormAlert] = useState(null);
+interface Status {
+  type: string;
+  message: string;
+  callback?: () => void;
+}
 
-  const [reauthState, setReauthState] = useState({
+interface ReauthState {
+  show: boolean;
+  callback?: () => void;
+}
+
+interface FormAlertState {
+  type: "error" | "success";
+  message: string;
+}
+
+interface SettingsSectionProps {
+  size?: string;
+  bgColor?: string;
+  bgImage?: string;
+  bgImageOpacity?: number;
+  textColor?: string;
+  section?: string;
+}
+
+function SettingsSection(props: SettingsSectionProps) {
+  const auth = useAuth();
+  const [formAlert, setFormAlert] = useState<FormAlertState | null>(null);
+
+  const [reauthState, setReauthState] = useState<ReauthState>({
     show: false,
   });
-
   const validSections = {
     general: true,
     password: true,
     billing: true,
   };
 
-  const section = validSections[props.section] ? props.section : "general";
+  const section = validSections[props.section!] ? props.section : "general";
 
-  const handleStatus = ({ type, message, callback }) => {
+  const handleStatus = ({ type, message, callback }: Status) => {
     if (type === "requires-recent-login") {
       setFormAlert(null);
       setReauthState({
         show: true,
         callback: callback,
       });
-    } else {
+    } else if (type === "error" || type === "success") {
       setFormAlert({
         type: type,
         message: message,
@@ -83,7 +112,13 @@ function SettingsSection(props) {
   );
 }
 
-function TabLink({ section, label, active }) {
+interface TabLinkProps {
+  section: string;
+  label: string;
+  active: boolean;
+}
+
+function TabLink({ section, label, active }: TabLinkProps) {
   return (
     <Link
       to={`/settings/${section}`}

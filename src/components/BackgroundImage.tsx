@@ -1,6 +1,11 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 function BackgroundImage(props) {
+  const styles: CSSProperties = {
+    ["--image" as any]: `url("${props.image}")`,
+    ["--opacity" as any]: props.opacity,
+  };
+
   return (
     <div
       className={
@@ -8,10 +13,7 @@ function BackgroundImage(props) {
         (props.repeat ? " bg-auto bg-left-top bg-repeat" : "") +
         (!props.repeat ? " bg-center bg-cover" : "")
       }
-      style={{
-        "--image": `url("${props.image}")`,
-        "--opacity": props.opacity,
-      }}
+      style={styles}
     />
   );
 }
