@@ -16,7 +16,7 @@ function App(props) {
     <QueryClientProvider>
       <AuthProvider>
         <Router>
-          <>
+          <body className={""}>
             <Navbar bgColor="bg-white" />
 
             <Switch>
@@ -35,7 +35,7 @@ function App(props) {
               textColor=""
               sticky={true}
             />
-          </>
+          </body>
         </Router>
       </AuthProvider>
     </QueryClientProvider>
