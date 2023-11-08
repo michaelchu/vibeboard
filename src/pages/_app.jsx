@@ -1,13 +1,13 @@
 import React from "react";
 import "./../styles/global.css";
-import Navbar from "./../components/Navbar";
+import Navbar from "../components/Navbar";
 import IndexPage from "./index";
 import DashboardPage from "./dashboard";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
-import { Switch, Route, Router } from "./../util/router";
+import { Switch, Route, Router } from "../util/router";
 import NotFoundPage from "./404";
-import Footer from "./../components/Footer";
+import Footer from "../components/Footer";
 import { AuthProvider } from "../util/auth";
 import { QueryClientProvider } from "../util/db";
 

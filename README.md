@@ -38,10 +38,10 @@ This project uses the following libraries and services:
 <details>
 <summary><b>Routing</b></summary>
 <p>
-  This project uses <a target="_blank" href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a> and includes a convenient <code>useRouter</code> hook (located in <code><a href="src/util/router.js">src/util/router.js</a></code>) that wraps React Router and gives all the route methods and data you need.
+  This project uses <a target="_blank" href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a> and includes a convenient <code>useRouter</code> hook (located in <code><a href="src/util/router.jsx">src/util/router.jsx</a></code>) that wraps React Router and gives all the route methods and data you need.
 
 ```js
-import { Link, useRouter } from "./../util/router.js";
+import { Link, useRouter } from "./../util/router.jsx";
 
 function MyComponent() {
   // Get the router object
@@ -69,10 +69,10 @@ function MyComponent() {
 <details>
 <summary><b>Authentication</b></summary>
 <p>
-  This project uses <a href="https://supabase.com">Supabase</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth.js">src/util/auth.js</a></code>) that wraps Supabase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Supabase functionality.
+  This project uses <a href="https://supabase.com">Supabase</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth.jsx">src/util/auth.jsx</a></code>) that wraps Supabase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Supabase functionality.
 
 ```js
-import { useAuth } from "./../util/auth.js";
+import { useAuth } from "./../util/auth.jsx";
 
 function MyComponent() {
   // Get the auth object in any component
@@ -100,11 +100,11 @@ function MyComponent() {
 <details>
 <summary><b>Database</b></summary>
 <p>
-  This project uses <a href="https://supabase.com">Supabase</a> and includes some data fetching hooks to get you started (located in <code><a href="src/util/db.js">src/util/db.js</a></code>). You'll want to edit that file and add any additional query hooks you need for your project.
+  This project uses <a href="https://supabase.com">Supabase</a> and includes some data fetching hooks to get you started (located in <code><a href="src/util/db.jsx">src/util/db.jsx</a></code>). You'll want to edit that file and add any additional query hooks you need for your project.
 
 ```js
-import { useAuth } from './../util/auth.js';
-import { useItemsByOwner } from './../util/db.js';
+import { useAuth } from './../util/auth.jsx';
+import { useItemsByOwner } from './../util/db.jsx';
 import ItemsList from './ItemsList.js';
 
 function ItemsPage(){

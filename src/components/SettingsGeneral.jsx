@@ -3,36 +3,33 @@ import { useForm } from "react-hook-form";
 import TextField from "./TextField";
 import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
-import { useAuth } from "./../util/auth";
+import { useAuth } from "../util/auth";
 
-function SettingsPassword(props) {
+function SettingsGeneral(props) {
   const auth = useAuth();
   const [pending, setPending] = useState(false);
 
-  const { register, handleSubmit, errors, reset, getValues } = useForm();
+  const { register, handleSubmit, errors } = useForm();
 
   const onSubmit = (data) => {
     // Show pending indicator
     setPending(true);
 
-    auth
-      .updatePassword(data.pass)
+    return auth
+      .updateProfile(data)
       .then(() => {
-        // Clear form
-        reset();
         // Set success status
         props.onStatus({
           type: "success",
-          message: "Your password has been updated",
+          message: "Your profile has been updated",
         });
       })
       .catch((error) => {
         if (error.code === "auth/requires-recent-login") {
-          // Update state to show re-authentication modal
           props.onStatus({
             type: "requires-recent-login",
             // Resubmit after reauth flow
-            callback: () => onSubmit({ pass: data.pass }),
+            callback: () => onSubmit(data),
           });
         } else {
           // Set error status
@@ -51,32 +48,27 @@ function SettingsPassword(props) {
   return (
     <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
       <TextField
-        type="password"
-        id="pass"
-        name="pass"
-        placeholder="Password"
-        label="Password"
-        error={errors.pass}
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Name"
+        label="Name"
+        defaultValue={auth.user.name}
+        error={errors.name}
         inputRef={register({
-          required: "Please enter a password",
+          required: "Please enter your name",
         })}
       />
       <TextField
-        type="password"
-        id="confirmPass"
-        name="confirmPass"
-        placeholder="Confirm Password"
-        label="Confirm New Password"
-        error={errors.confirmPass}
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Email"
+        label="Email"
+        defaultValue={auth.user.email}
+        error={errors.email}
         inputRef={register({
-          required: "Please enter your password again",
-          validate: (value) => {
-            if (value === getValues().pass) {
-              return true;
-            } else {
-              return "This doesn't match your password";
-            }
-          },
+          required: "Please enter your email",
         })}
       />
       <Button
@@ -94,4 +86,4 @@ function SettingsPassword(props) {
   );
 }
 
-export default SettingsPassword;
+export default SettingsGeneral;

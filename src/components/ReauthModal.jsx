@@ -6,7 +6,7 @@ import TextField from "./TextField";
 import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
 import AuthSocial from "./AuthSocial";
-import { useAuth } from "./../util/auth";
+import { useAuth } from "../util/auth";
 
 function ReauthModal(props) {
   const auth = useAuth();

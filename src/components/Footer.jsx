@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Section from "./Section";
-import { Link } from "./../util/router";
+import { Link } from "../util/router";
 import TextField from "./TextField";
 import Button from "./Button";
-import newsletter from "./../util/newsletter";
+import newsletter from "../util/newsletter";
 
 function Footer(props) {
   const [subscribed, setSubscribed] = useState(false);

@@ -5,8 +5,8 @@ import FormAlert from "./FormAlert";
 import TextField from "./TextField";
 import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
-import { useAuth } from "./../util/auth";
-import { useItem, updateItem, createItem } from "./../util/db";
+import { useAuth } from "../util/auth";
+import { useItem, updateItem, createItem } from "../util/db";
 
 function EditItemModal(props) {
   const auth = useAuth();

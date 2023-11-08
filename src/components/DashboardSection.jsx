@@ -2,7 +2,7 @@ import React from "react";
 import Section from "./Section";
 import SectionHeader from "./SectionHeader";
 import DashboardItems from "./DashboardItems";
-import { Link } from "./../util/router";
+import { Link } from "../util/router";
 import { useAuth } from "../util/auth";
 
 function DashboardSection(props) {

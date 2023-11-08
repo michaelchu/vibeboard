@@ -8,7 +8,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { Menu, Transition } from "@headlessui/react";
 import Section from "./Section";
-import { Link } from "./../util/router";
+import { Link } from "../util/router";
 import Button from "./Button";
 import { useAuth } from "../util/auth";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "./../util/router";
+import { Link } from "../util/router";
 
 function AuthFooter(props) {
   return (

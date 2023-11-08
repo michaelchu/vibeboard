@@ -12,6 +12,7 @@
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "0.5.6",
     "@tailwindcss/typography": "0.5.10",
+    "@vitejs/plugin-react": "^4.1.1",
     "history": "4.10.1",
     "prop-types": "^15.8.1",
     "query-string": "6.13.8",
@@ -21,13 +22,13 @@
     "react-hook-form": "6.15.1",
     "react-query": "3.32.1",
     "react-router-dom": "5.2.0",
-    "react-scripts": "5.0.1"
+    "vite": "^4.5.0",
+    "vite-tsconfig-paths": "^4.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "tsc": "tsc"
   },
   "eslintConfig": {

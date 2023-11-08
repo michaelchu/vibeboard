@@ -7,8 +7,8 @@ import {
 import FormAlert from "./FormAlert";
 import Button from "./Button";
 import EditItemModal from "./EditItemModal";
-import { useAuth } from "./../util/auth";
-import { updateItem, deleteItem, useItemsByOwner } from "./../util/db";
+import { useAuth } from "../util/auth";
+import { updateItem, deleteItem, useItemsByOwner } from "../util/db";
 
 function DashboardItems(props) {
   const auth = useAuth();

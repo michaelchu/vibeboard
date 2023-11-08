@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Section from "./Section";
 import ReauthModal from "./ReauthModal";
-import { Link } from "./../util/router";
+import { Link } from "../util/router";
 import FormAlert from "./FormAlert";
 import SettingsGeneral from "./SettingsGeneral";
 import SettingsPassword from "./SettingsPassword";

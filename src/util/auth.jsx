@@ -9,7 +9,7 @@ import queryString from "query-string";
 import supabase from "./supabase";
 import { useUser, updateUser } from "./db";
 import { history } from "./router";
-import PageLoader from "./../components/PageLoader";
+import PageLoader from "../components/PageLoader";
 
 // Whether to merge extra user data from database into `auth.user`
 const MERGE_DB_USER = true;
@@ -18,7 +18,7 @@ const MERGE_DB_USER = true;
 // any component to subscribe to auth and re-render when it changes.
 const authContext = createContext();
 export const useAuth = () => useContext(authContext);
-// This should wrap the app in `src/pages/_app.js`
+// This should wrap the app in `src/pages/_app.jsx`
 export function AuthProvider({ children }) {
   const auth = useAuthProvider();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;

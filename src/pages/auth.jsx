@@ -1,7 +1,7 @@
 import React from "react";
-import Meta from "./../components/Meta";
-import AuthSection from "./../components/AuthSection";
-import { useRouter } from "./../util/router";
+import Meta from "../components/Meta";
+import AuthSection from "../components/AuthSection";
+import { useRouter } from "../util/router";
 
 function AuthPage(props) {
   const router = useRouter();

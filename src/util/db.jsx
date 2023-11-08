@@ -11,7 +11,7 @@ const client = new QueryClient();
 /**** USERS ****/
 
 // Fetch user data
-// Note: This is called automatically in `auth.js` and data is merged into `auth.user`
+// Note: This is called automatically in `auth.jsx` and data is merged into `auth.user`
 export function useUser(uid) {
   // Manage data fetching with React Query: https://react-query.tanstack.com/overview
   return useQuery(
