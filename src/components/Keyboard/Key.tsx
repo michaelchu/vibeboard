@@ -41,7 +41,7 @@ export default function Key({
           <span
             className={`leading-none ${
               keyInfo.font_size ? keyInfo.font_size : "text-[14px]"
-            } font-bold 
+            } font-semibold 
           ${darkMode ? "text-orange-400" : "text-gray-500"}`}
           >
             {keyInfo.label}
