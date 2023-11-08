@@ -1,24 +1,26 @@
 {
-  "name": "kura",
+  "name": "viteboard",
   "version": "0.1.0",
   "private": true,
   "keywords": [
-    "kura"
+    "rgb keyboard themes"
   ],
   "dependencies": {
     "@headlessui/react": "1.7.17",
-    "@heroicons/react": "2.0.18",
+    "@heroicons/react": "^2.0.18",
     "@supabase/supabase-js": "2.26.0",
     "@tailwindcss/aspect-ratio": "0.4.2",
     "@tailwindcss/forms": "0.5.6",
     "@tailwindcss/typography": "0.5.10",
+    "@types/react-helmet": "^6.1.9",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.1.1",
     "history": "4.10.1",
     "prop-types": "^15.8.1",
     "query-string": "6.13.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-helmet": "6.1.0",
+    "react-helmet": "^6.1.0",
     "react-hook-form": "6.15.1",
     "react-query": "3.32.1",
     "react-router-dom": "5.2.0",

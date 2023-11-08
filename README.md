@@ -41,43 +41,12 @@ This project uses the following libraries and services:
 <details> <summary><b>Styles</b></summary> <p> Styles are applied within each component using Tailwind classes. You can customize your Tailwind colors, breakpoints, and other high-level values in <code>tailwind.config.js</code> (<a href="https://tailwindcss.com/docs/configuration">docs</a>). You can add new global classes in <code>src/styles/global.css</code> (<a href="https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes">docs</a>). Your template contains Tailwind components designed by <a href="https://tailkit.com">Tailkit</a>. You can find a larger selection of nicely designed components at <a href="https://tailkit.com">tailkit.com</a>. </p> </details>
 
 <details>
-<summary><b>Routing</b></summary>
-<p>
-  This project uses <a target="_blank" href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a> and includes a convenient <code>useRouter</code> hook (located in <code><a href="src/util/router.jsx">src/util/router.jsx</a></code>) that wraps React Router and gives all the route methods and data you need.
-
-```js
-import { Link, useRouter } from "./../util/router.jsx";
-
-function MyComponent() {
-  // Get the router object
-  const router = useRouter();
-
-  // Get value from query string (?postId=123) or route param (/:postId)
-  console.log(router.query.postId);
-
-  // Get current pathname
-  console.log(router.pathname);
-
-  // Navigate with the <Link> component or with router.push()
-  return (
-    <div>
-      <Link to="/about">About</Link>
-      <button onClick={(e) => router.push("/about")}>About</button>
-    </div>
-  );
-}
-```
-
-</p>
-</details>
-
-<details>
 <summary><b>Authentication</b></summary>
 <p>
-  This project uses <a href="https://supabase.com">Supabase</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth.jsx">src/util/auth.jsx</a></code>) that wraps Supabase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Supabase functionality.
+  This project uses <a href="https://supabase.com">Supabase</a> and includes a convenient <code>useAuth</code> hook (located in <code><a href="src/util/auth.jsx">src/util/auth.tsx</a></code>) that wraps Supabase and gives you common authentication methods. Depending on your needs you may want to edit this file and expose more Supabase functionality.
 
 ```js
-import { useAuth } from "./../util/auth.jsx";
+import { useAuth } from "./../util/auth.tsx";
 
 function MyComponent() {
   // Get the auth object in any component
@@ -108,7 +77,7 @@ function MyComponent() {
   This project uses <a href="https://supabase.com">Supabase</a> and includes some data fetching hooks to get you started (located in <code><a href="src/util/db.jsx">src/util/db.jsx</a></code>). You'll want to edit that file and add any additional query hooks you need for your project.
 
 ```js
-import { useAuth } from './../util/auth.jsx';
+import { useAuth } from './../util/auth.tsx';
 import { useItemsByOwner } from './../util/db.jsx';
 import ItemsList from './ItemsList.js';
 

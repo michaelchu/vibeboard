@@ -8,15 +8,15 @@ import React, {
 import queryString from "query-string";
 import supabase from "./supabase";
 import { useUser, updateUser } from "./db";
-import { history } from "./router";
 import PageLoader from "../components/PageLoader";
+import { useHistory } from "react-router-dom";
 
 // Whether to merge extra user data from database into `auth.user`
 const MERGE_DB_USER = true;
 
 // Create a `useAuth` hook and `AuthProvider` that enables
 // any component to subscribe to auth and re-render when it changes.
-const authContext = createContext();
+const authContext = createContext(undefined);
 export const useAuth = () => useContext(authContext);
 // This should wrap the app in `src/pages/_app.jsx`
 export function AuthProvider({ children }) {
@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
 // This is called from `AuthProvider` above (extracted out for readability)
 function useAuthProvider() {
   // Store auth user in state
-  // `user` will be object, `null` (loading) or `false` (logged out)
+  // `user` will be an object, `null` (loading) or `false` (logged out)
   const [user, setUser] = useState(null);
 
   // Merge extra user data from the database
@@ -82,7 +82,7 @@ function useAuthProvider() {
           },
         })
         .then(handleError)
-        // Because `signInWithOAuth` resolves immediately we need to add this so
+        // Because `signInWithOAuth` resolves immediately we need to add this so that
         // it never resolves (component will display loading indicator indefinitely).
         // Once social signin is completed the page will redirect to value of `redirectTo`.
         .then(() => {
@@ -150,7 +150,7 @@ function useAuthProvider() {
     // If we have an `access_token` from OAuth or magic link flow avoid using
     // cached session so that user is `null` (loading state) until process completes.
     // Otherwise, a redirect to a protected page after social auth will redirect
-    // right back to login due to cached session indicating they are logged out.
+    // right back to log in due to cached session indicating they are logged out.
     if (!window.lastHash.access_token) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session) {
@@ -234,7 +234,7 @@ function useMergeExtraData(user, { enabled }) {
         // Return auth `user` merged with extra user `data`
         return { ...user, ...data };
       case "error":
-        // Uh oh.. Let's at least show a helpful error.
+        // Uh oh. Lets at least show a helpful error.
         throw new Error(`
           Error: ${error.message}
           This happened while attempting to fetch extra user data from the database
@@ -254,13 +254,14 @@ export const requireAuth = (Component) => {
   return function RequireAuthHOC(props) {
     // Get authenticated user
     const auth = useAuth();
+    const history = useHistory(); // Using `useHistory` hook here
 
     useEffect(() => {
       // Redirect if not signed in
       if (auth.user === false) {
-        history.replace("/auth/signin");
+        history.replace("/auth/signin"); // Using `history` from `useHistory` hook
       }
-    }, [auth]);
+    }, [auth, history]); // Add `history` to dependency array
 
     // Show loading indicator
     // We're either loading (user is `null`) or about to redirect from above `useEffect` (user is `false`)
@@ -273,8 +274,7 @@ export const requireAuth = (Component) => {
   };
 };
 
-// Throw error from auth response
-// so it can be caught and displayed by UI
+// Throw error from auth response, so it can be caught and displayed by UI
 function handleError(response) {
   if (response.error) throw response.error;
   return response;
