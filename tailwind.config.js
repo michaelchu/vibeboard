@@ -1,13 +1,16 @@
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/keyboards/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       minWidth: {
-        '12': "2rem",
+        10: "40px",
+        12: "60px",
+        14: "80px",
+        16: "100px",
       },
     },
     container: {

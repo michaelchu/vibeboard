@@ -9,7 +9,7 @@ function Meta(props) {
   // Meta values that are the same across all pages
   const globalMeta = {
     // Site name
-    siteName: "My App",
+    siteName: "VibeBoard",
     // Your production domain (example: https://myapp.com)
     domain: "",
     // Your Twitter handle (example: @divjoy)
@@ -19,7 +19,7 @@ function Meta(props) {
   // Default meta values for current page (override with props)
   const defaultPageMeta = {
     // Page title
-    title: "My App",
+    title: "VibeBoard",
     // Page description
     description: "My app description",
     // Social share image (create this file in /public/images/)
