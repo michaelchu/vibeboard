@@ -1,5 +1,5 @@
-import Key from "./Key";
-import { KeyProps } from "./types.js";
+import Key from "./Key.tsx";
+import { KeyProps } from "./types";
 
 interface KeyBoardProps {
   keys: KeyProps[];

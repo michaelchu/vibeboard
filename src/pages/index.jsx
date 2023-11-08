@@ -1,7 +1,7 @@
 import React from "react";
 import Meta from "../components/Meta";
-import Keyboard from "../components/Keyboard/Keyboard";
-import { mac_os_75 } from "../components/Keyboard/layouts/mac_os_75";
+import Keyboard from "../components/Keyboard/Keyboard.tsx";
+import { mac_os_75 } from "../components/Keyboard/layouts/mac_os_75.ts";
 
 function IndexPage() {
   return (
