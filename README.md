@@ -9,11 +9,6 @@ yarn install
 Update your `.env` file with values for each environment variable
 
 ```
-SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-SUPABASE_URL=https://abcdefg.supabase.co
-
-# CLIENT-SIDE ENVIRONMENT VARS
-
 VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 VITE_SUPABASE_URL=https://abcdefg.supabase.co
 ```
