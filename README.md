@@ -29,7 +29,7 @@ This project uses the following libraries and services:
 - UI Kit - [Tailwind](https://tailwindcss.com)
 - Authentication - [Supabase](https://supabase.com)
 - Database - [Supabase](https://supabase.com)
-- Hosting - [Render](https://render.com/)
+- Hosting - [Vercel](https://vercel.com/)
 
 ## 📚 Guide
 
