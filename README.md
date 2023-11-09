@@ -100,10 +100,3 @@ function ItemsPage(){
 
 </p>
 </details>
-
-<details>
-<summary><b>Other</b></summary>
-<p>
-  This project was created using <a href="https://divjoy.com?ref=readme_other">Divjoy</a>, the React codebase generator. You can find more info in the <a href="https://docs.divjoy.com">Divjoy Docs</a>.
-</p>
-</details>
