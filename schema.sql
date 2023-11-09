@@ -47,27 +47,3 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_updated
   after update of "email" on auth.users
   for each row execute procedure public.handle_update_user();
-
-
-
-/*** ITEMS ***/
-
-create table public.items (
-  -- Auto-generated UUID
-  "id" uuid primary key default uuid_generate_v4(),
-  -- UUID from public.users
-  "owner" uuid references public.users not null,
-  -- Item data
-  "name" text,
-  "featured" boolean,
-  "createdAt" timestamp with time zone default timezone('utc'::text, now()) not null
-  -- Validate data
-  constraint name check (char_length("name") >= 1 AND char_length("name") <= 144)
-);
-
--- Create security policies
-alter table public.items enable row level security;
-create policy "Can read items they own" on public.items for select using ( auth.uid() = "owner" );
-create policy "Can insert items they own" on public.items for insert with check ( auth.uid() = "owner" );
-create policy "Can update items they own" on public.items for update using ( auth.uid() = "owner" );
-create policy "Can delete items they own" on public.items for delete using ( auth.uid() = "owner" );
