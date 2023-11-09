@@ -16,7 +16,7 @@ function SettingsPage() {
       <Meta title="Settings" />
       <SettingsSection
         size="md"
-        bgColor="bg-white"
+        bgColor="bg-gray-700"
         bgImage=""
         bgImageOpacity={1}
         section={section}
