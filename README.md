@@ -6,7 +6,7 @@ Install dependencies
 yarn install
 ```
 
-Update your `.env` file with values for each environment variable
+Create your `.env` file with values for each environment variable
 
 ```
 VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
