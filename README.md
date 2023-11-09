@@ -25,7 +25,7 @@ When the above command completes you'll be able to view your website at `http://
 
 This project uses the following libraries and services:
 
-- Framework - [Create React App](https://create-react-app.dev) with React Router
+- Framework - [Vite](https://vitejs.dev/) with React Router
 - UI Kit - [Tailwind](https://tailwindcss.com)
 - Authentication - [Supabase](https://supabase.com)
 - Database - [Supabase](https://supabase.com)
