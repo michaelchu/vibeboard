@@ -1,18 +1,10 @@
 import React from "react";
-import Meta from "../components/Meta";
-import AuthSection from "../components/AuthSection";
-import { useLocation, useHistory } from "react-router-dom";
+import Meta from "./../components/Meta";
+import AuthSection from "./../components/AuthSection";
+import { useRouter } from "./../util/router";
 
-function AuthPage(props) {
-  const location = useLocation();
-  const history = useHistory();
-
-  // The `search` property of `location` is a string representing a query string
-  // including the leading '?'.
-  // We can use the `URLSearchParams` API to parse this query string.
-  const queryParams = new URLSearchParams(location.search);
-  const type = queryParams.get("type");
-  const next = queryParams.get("next") || "/dashboard";
+function AuthPage() {
+  const router = useRouter();
 
   return (
     <>
@@ -23,9 +15,9 @@ function AuthPage(props) {
         bgImage=""
         bgImageOpacity={1}
         textColor=""
-        type={type}
+        type={router.query.type}
         providers={["google", "facebook", "twitter"]}
-        afterAuthPath={next}
+        afterAuthPath={router.query.next || "/dashboard"}
       />
     </>
   );
