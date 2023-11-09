@@ -1,19 +1,11 @@
 import React from "react";
 import Meta from "../components/Meta";
-import DashboardSection from "../components/DashboardSection";
 import { requireAuth } from "../util/auth.jsx";
 
-function DashboardPage(props) {
+function DashboardPage() {
   return (
     <>
       <Meta title="Dashboard" />
-      <DashboardSection
-        title="Dashboard"
-        subtitle=""
-        strapline=""
-        size="md"
-        bgColor="bg-white"
-      />
     </>
   );
 }

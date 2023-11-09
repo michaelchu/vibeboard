@@ -11,7 +11,7 @@ function AuthPage() {
       <Meta title="Auth" />
       <AuthSection
         size="md"
-        bgColor="bg-white"
+        bgColor="bg-gray-700"
         bgImage=""
         bgImageOpacity={1}
         textColor=""

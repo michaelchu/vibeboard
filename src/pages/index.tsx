@@ -7,7 +7,7 @@ function IndexPage() {
   return (
     <div className={"dark"}>
       <Meta />
-      <main className="min-w-full bg-gray-200 dark:bg-gray-900 min-h-screen flex items-center justify-center">
+      <main className="min-w-full bg-gray-200 dark:bg-gray-700 min-h-screen flex items-center justify-center">
         <Keyboard keys={mac_os_75} darkMode={true} />
       </main>
     </div>
