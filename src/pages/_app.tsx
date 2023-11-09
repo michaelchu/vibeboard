@@ -9,10 +9,13 @@ import NotFoundPage from "./404";
 import Footer from "../components/Footer";
 import Header from "../components/Header.tsx";
 import Heading from "../components/Heading.tsx";
+import { inject } from "@vercel/analytics";
 
 // @ts-ignore
 import { AuthProvider } from "../util/auth.jsx";
 import { QueryClientProvider } from "../util/db";
+
+inject();
 
 function App() {
   return (
