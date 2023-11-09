@@ -9,6 +9,7 @@ yarn install
 Create your `.env` file with values for each environment variable
 
 ```
+# Get the actual values from Supabase admin
 VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 VITE_SUPABASE_URL=https://abcdefg.supabase.co
 ```
