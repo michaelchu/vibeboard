@@ -4,20 +4,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../util/auth.jsx";
 import { classNames } from "../util/helpers.js";
 
-//* const navigationStyles = [
-//   {
-//     name: "Active Desktop",
-//     className:
-//       "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent",
-//   },
-//   {
-//     name: "Not Active Desktop",
-//     className:
-//       "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
-//   },
-//   { name: "Active Mobile", className: "" },
-//   { name: "Not Active Mobile", className: "" },
-// ];
+const active = "group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent"
+const inactive = "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
 
 //Todo clean up array 
 const desktopNavigation = [
@@ -25,29 +13,21 @@ const desktopNavigation = [
     name: "Explore",
     to: "#",
     current: true,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent",
   },
   {
     name: "Trending",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
   {
     name: "Recently Updated",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
   {
     name: "Top",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
 ];
 
@@ -56,29 +36,21 @@ const mobileNavigation = [
     name: "Explore",
     to: "#",
     current: true,
-    className:
-      "group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent",
   },
   {
     name: "Trending",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
   {
     name: "Recently Updated",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
   {
     name: "Top",
     to: "#",
     current: false,
-    className:
-      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
   },
 ];
 
@@ -127,10 +99,7 @@ export default function Header() {
                         key={item.name}
                         href={item.to}
                         className={classNames(
-                          item.current === true
-                            ? "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent"
-                            : "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
-                        )}
+                          item.current ? active : inactive)}
                       >
                         <span>{item.name}</span>
                       </a>
@@ -336,9 +305,7 @@ export default function Header() {
                           key={item.name}
                           href={item.to}
                           className={classNames(
-                            item.current === true
-                              ? "group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent"
-                              : "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+                            item.current ? active : inactive
                           )}
                         >
                           <span>{item.name}</span>
