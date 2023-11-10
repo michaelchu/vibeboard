@@ -2,10 +2,90 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../util/auth.jsx";
+import { classNames } from "../util/helpers.js";
+
+//* const navigationStyles = [
+//   {
+//     name: "Active Desktop",
+//     className:
+//       "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent",
+//   },
+//   {
+//     name: "Not Active Desktop",
+//     className:
+//       "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+//   },
+//   { name: "Active Mobile", className: "" },
+//   { name: "Not Active Mobile", className: "" },
+// ];
+
+//Todo clean up array 
+const desktopNavigation = [
+  {
+    name: "Explore",
+    to: "#",
+    current: true,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent",
+  },
+  {
+    name: "Trending",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+  {
+    name: "Recently Updated",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+  {
+    name: "Top",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+];
+
+const mobileNavigation = [
+  {
+    name: "Explore",
+    to: "#",
+    current: true,
+    className:
+      "group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent",
+  },
+  {
+    name: "Trending",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+  {
+    name: "Recently Updated",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+  {
+    name: "Top",
+    to: "#",
+    current: false,
+    className:
+      "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+  },
+];
 
 export default function Header() {
   const auth = useAuth();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   return (
     <header
       id="page-header"
@@ -39,30 +119,25 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-2">
-              <a
-                href="#"
-                className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent"
-              >
-                <span>Explore</span>
-              </a>
-              <a
-                href="#"
-                className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-              >
-                <span>Trending</span>
-              </a>
-              <a
-                href="#"
-                className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-              >
-                <span>Recently Updated</span>
-              </a>
-              <a
-                href="#"
-                className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-              >
-                <span>Top</span>
-              </a>
+              <div className="flex flex-row">
+                {desktopNavigation.map((item) => (
+                  <div className="mx-0.5">
+                    {(
+                      <a
+                        key={item.name}
+                        href={item.to}
+                        className={classNames(
+                          item.current === true
+                            ? "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-100 bg-blue-50 dark:text-white dark:bg-gray-700 dark:border-transparent"
+                            : "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+                        )}
+                      >
+                        <span>{item.name}</span>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
             </nav>
             {/* END Desktop Navigation */}
           </div>
@@ -253,30 +328,25 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={`lg:hidden dark ${mobileNavOpen ? "" : "hidden"}`}>
           <nav className="flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
-            <a
-              href="#"
-              className="group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent"
-            >
-              <span>Explore</span>
-            </a>
-            <a
-              href="#"
-              className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-            >
-              <span>Trending</span>
-            </a>
-            <a
-              href="#"
-              className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-            >
-              <span>Recently Updated</span>
-            </a>
-            <a
-              href="#"
-              className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
-            >
-              <span>Top</span>
-            </a>
+            <div className="flex flex-row">
+                  {mobileNavigation.map((item) => (
+                    <div className="mx-0.5">
+                      {(
+                        <a
+                          key={item.name}
+                          href={item.to}
+                          className={classNames(
+                            item.current === true
+                              ? "group text-sm font-semibold flex items-center space-x-2 px-3 py-2 rounded-lg text-blue-600 border border-blue-50 bg-blue-50 dark:text-white dark:bg-gray-700/75 dark:border-transparent"
+                              : "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600",
+                          )}
+                        >
+                          <span>{item.name}</span>
+                        </a>
+                      )}
+                    </div>
+                  ))}
+            </div>
           </nav>
         </div>
         {/* END Mobile Navigation */}
