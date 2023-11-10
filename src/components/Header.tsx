@@ -69,7 +69,6 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-2">
-              <div className="flex flex-row">
                 {headerNavigation.map((item) => (
                   <div className="mx-0.5">
                     {
@@ -83,7 +82,6 @@ export default function Header() {
                     }
                   </div>
                 ))}
-              </div>
             </nav>
             {/* END Desktop Navigation */}
           </div>
