@@ -1,31 +1,23 @@
 import React from "react";
 import Meta from "../components/Meta";
-import Keyboard from "../components/Keyboard/Keyboard.tsx";
-import { mac_os_65 } from "../components/Keyboard/layouts/mac_os_65.ts";
-import { useKeyboardByTheme } from "../util/db.jsx";
-import { mergeArraysByKey } from "../util/helpers.ts";
+import Heading from "../components/Heading.tsx";
 
 function IndexPage() {
-  const { data: key_colors, status } = useKeyboardByTheme(
-    "38f65a21-dcf1-4f5c-8978-8b32c51d825b",
-  );
+  const title =
+    " The internet’s source for RGB keyboard designs. Powered by creators everywhere.";
 
   return (
-    <div className={"dark"}>
-      <Meta />
-      <div>
-        {status === "idle" || status === "loading" ? (
-          <span>One moment please</span>
-        ) : (
-          <main className="min-w-full bg-gray-200 dark:bg-gray-700 min-h-screen flex items-center justify-center">
-            <Keyboard
-              keys={mergeArraysByKey(mac_os_65, key_colors)}
-              variant={"dark"}
-            />
-          </main>
-        )}
+    <>
+      <Heading title={title} />
+      <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
+        <div>
+          <Meta />
+          <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 text-gray-400 py-64 dark:bg-gray-800 dark:border-gray-700">
+            Content (max width 1280px)
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

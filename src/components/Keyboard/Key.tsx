@@ -1,5 +1,5 @@
 export default function Key({ keyInfo }) {
-  const variant = "dark";
+  const variant = "darker";
   const fontSize = keyInfo.font_size ? keyInfo.font_size : "text-[14px]";
   const colorVariant = {
     dark: {
@@ -7,6 +7,13 @@ export default function Key({ keyInfo }) {
       leftShadow: "bg-gray-800",
       rightShadow: "bg-gray-800",
       border: "border-gray-800 bg-gray-800",
+      textColor: `text-${keyInfo.key_label_color}`,
+    },
+    darker: {
+      button: "bg-black bg-gradient-to-b from-gray-900 to-gray-950",
+      leftShadow: "bg-black",
+      rightShadow: "bg-black",
+      border: "border-gray-950 bg-gray-950",
       textColor: `text-${keyInfo.key_label_color}`,
     },
     light: {

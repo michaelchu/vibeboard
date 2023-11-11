@@ -7,7 +7,7 @@ import { mergeArraysByKey } from "../util/helpers.ts";
 import { mac_os_65 } from "../components/Keyboard/layouts/mac_os_65.ts";
 import { useKeyboardByTheme } from "../util/db.jsx";
 
-function DashboardPage() {
+function DesignPage() {
   const { data: key_colors, status } = useKeyboardByTheme(
     "38f65a21-dcf1-4f5c-8978-8b32c51d825b",
   );
@@ -18,8 +18,12 @@ function DashboardPage() {
           <div className="text-center sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">
             <div className="grow">
               <h1 className="text-xl font-bold mb-1">
-                Your Keyboard Collection
+                Customize Your Keyboard
               </h1>
+              <h2 className="text-sm text-gray-500 font-medium dark:text-gray-400">
+                Unleash your creativity and turn your keyboard into a stunning
+                work of art with our customizable RGB lighting options.
+              </h2>
             </div>
             <div className="flex-none flex items-center justify-center sm:justify-end space-x-2 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <Dropdown />
@@ -48,7 +52,7 @@ function DashboardPage() {
         {/* ADD YOUR MAIN CONTENT BELOW */}
 
         {/* Placeholder */}
-        <div className="flex items-center justify-center py-32 dark:bg-black">
+        <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-gray-200 text-gray-400 py-32 dark:bg-gray-600 dark:border-gray-500">
           <div>
             {status === "idle" || status === "loading" ? (
               <span>One moment please</span>
@@ -70,4 +74,4 @@ function DashboardPage() {
   );
 }
 
-export default requireAuth(DashboardPage);
+export default requireAuth(DesignPage);
