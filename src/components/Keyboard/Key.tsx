@@ -36,10 +36,10 @@ export default function Key({ keyInfo }) {
       >
         <div className="w-full h-10 absolute -top-[2px] left-0 flex items-center justify-between blur-sm">
           <div
-            className={`h-8 w-8 ${colorVariant[variant].leftShadow} flex-shrink-0 rotate-45 -left-5 relative`}
+            className={`h-8 w-8 ${colorVariant[variant].leftShadow} flex-shrink-0 rotate-45 -left-7 relative`}
           />
           <div
-            className={`h-8 w-8 ${colorVariant[variant].rightShadow} flex-shrink-0 rotate-45 -right-5 relative`}
+            className={`h-8 w-8 ${colorVariant[variant].rightShadow} flex-shrink-0 rotate-45 -right-8 relative`}
           />
         </div>
         <div
