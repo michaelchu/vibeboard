@@ -36,7 +36,7 @@ function IndexPage() {
       }
     }
 
-    return Object.values(map) as KeyProps[];
+    return left.map((item) => map[item.key_id] as KeyProps);
   };
 
   return (
