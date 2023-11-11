@@ -69,19 +69,19 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-2">
-                {headerNavigation.map((item) => (
-                  <div className="mx-0.5">
-                    {
-                      <a
-                        key={item.name}
-                        href={item.to}
-                        className={classNames(item.current ? active : inactive)}
-                      >
-                        <span>{item.name}</span>
-                      </a>
-                    }
-                  </div>
-                ))}
+              {headerNavigation.map((item, index) => (
+                <div key={`desktop-${index}`} className="mx-0.5">
+                  {
+                    <a
+                      key={item.name}
+                      href={item.to}
+                      className={classNames(item.current ? active : inactive)}
+                    >
+                      <span>{item.name}</span>
+                    </a>
+                  }
+                </div>
+              ))}
             </nav>
             {/* END Desktop Navigation */}
           </div>
@@ -272,9 +272,9 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={`lg:hidden dark ${mobileNavOpen ? "" : "hidden"}`}>
           <nav className="flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
-            {headerNavigation.map((item) => (
+            {headerNavigation.map((item, index) => (
               <a
-                key={item.name}
+                key={`mobile-${index}`}
                 href={item.to}
                 className={classNames(item.current ? active : inactive)}
               >

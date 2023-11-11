@@ -45,7 +45,7 @@ export default function Keyboard({ keys, variant = "dark" }: KeyBoardProps) {
             }`}
           >
             {keysByRow[rowNumber].map((key: KeyProps) => (
-              <Key key={key.label} keyInfo={key} />
+              <Key key={key.key_id} keyInfo={key} />
             ))}
           </div>
         ))}
