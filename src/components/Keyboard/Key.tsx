@@ -1,12 +1,5 @@
-import { KeyProps } from "./types";
-
-export default function Key({
-  keyInfo,
-  darkMode,
-}: {
-  keyInfo: KeyProps;
-  darkMode: Boolean;
-}) {
+export default function Key({ keyInfo }) {
+  const darkMode = true;
   return (
     <div
       key={keyInfo.label}

@@ -47,3 +47,43 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_updated
   after update of "email" on auth.users
   for each row execute procedure public.handle_update_user();
+
+
+/*** ENUMS ***/
+CREATE TYPE size_enum AS ENUM ('60 keys', '65 keys', '80 keys', '87 keys', '104 keys', '108 keys', '120 keys');
+CREATE TYPE layout_enum AS ENUM ('QWERTY', 'DVORAK', 'COLEMAK', 'WORKMAN', 'AZERTY');
+
+
+/*** KEYBOARDS ***/
+CREATE TABLE key_mappings (
+  id SERIAL PRIMARY KEY,
+  key_id INT NOT NULL,
+  key_name VARCHAR(50) NOT NULL,
+  UNIQUE (key_id)
+);
+
+CREATE TABLE IF NOT EXISTS keyboard_themes (
+  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  theme_name VARCHAR(255) NOT NULL UNIQUE,
+  description TEXT,
+  keyboard_size size_enum NOT NULL,
+  keyboard_layout layout_enum NOT NULL,
+  owner UUID NOT NULL,
+  created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (owner) REFERENCES users(id)
+);
+
+
+CREATE TABLE
+  keyboard_theme_keys (
+    theme_id UUID NOT NULL,
+    key_id INTEGER NOT NULL,
+    key_cap_color TEXT,
+    key_label_color TEXT,
+    PRIMARY KEY (theme_id, key_id),
+    FOREIGN KEY (key_id) REFERENCES key_mappings (id),
+    FOREIGN KEY (theme_id) REFERENCES keyboard_themes (id)
+  );
+
+CREATE INDEX ON keyboard_theme_keys (theme_id);
+CREATE INDEX ON keyboard_theme_keys (key_id);

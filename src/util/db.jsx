@@ -108,6 +108,20 @@ export async function deleteItem(id) {
   return response;
 }
 
+/**** KEYBOARDS ****/
+export function useKeyboardByTheme(theme) {
+  return useQuery(
+    ["keyboard", { theme }],
+    () =>
+      supabase
+        .from("keyboard_theme_keys")
+        .select("key_id, key_cap_color, key_label_color")
+        .eq("theme_id", theme)
+        .then(handle),
+    { enabled: !!theme },
+  );
+}
+
 /**** HELPERS ****/
 
 // Get response data or throw error if there is one
