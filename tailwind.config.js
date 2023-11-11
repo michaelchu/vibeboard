@@ -3,7 +3,11 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./util/**/*.{js,ts,jsx,tsx}",
   ],
+  // Safelist all possible tailwind defined colors, unfortunately does not
+  // cover all arbitrary colors
+  safelist: [{ pattern: /text-+/ }],
   theme: {
     extend: {
       minWidth: {

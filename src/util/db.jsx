@@ -115,7 +115,7 @@ export function useKeyboardByTheme(theme) {
     () =>
       supabase
         .from("keyboard_theme_keys")
-        .select("key_id, key_cap_color, key_label_color")
+        .select("key_id, key_label_color")
         .eq("theme_id", theme)
         .then(handle),
     { enabled: !!theme },

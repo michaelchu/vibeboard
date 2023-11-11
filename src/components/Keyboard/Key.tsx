@@ -3,11 +3,11 @@ export default function Key({ keyInfo }) {
   const fontSize = keyInfo.font_size ? keyInfo.font_size : "text-[14px]";
   const colorVariant = {
     dark: {
-      button: "bg-gray-900",
+      button: "bg-gray-900 bg-gradient-to-b from-gray-700 to-gray-900",
       leftShadow: "bg-gray-800",
       rightShadow: "bg-gray-800",
-      border: "border-gray-900 bg-gray-800",
-      textColor: `text-[${keyInfo.key_label_color}]`,
+      border: "border-gray-800 bg-gray-800",
+      textColor: `text-${keyInfo.key_label_color}`,
     },
     light: {
       button: "bg-gradient-to-b from-gray-50 to-gray-400",
