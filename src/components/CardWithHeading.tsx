@@ -53,19 +53,19 @@ export default function CardWithHeading() {
           <dl className="py-2 space-y-1">
             <dt className="text-lg font-bold">15</dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Projects
+              Likes
             </dd>
           </dl>
           <dl className="py-2 space-y-1">
             <dt className="text-lg font-bold">8.9k</dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Sales
+              Comments
             </dd>
           </dl>
           <dl className="py-2 space-y-1">
             <dt className="text-lg font-bold">1.6k</dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-              Followers
+              Board Views
             </dd>
           </dl>
         </div>

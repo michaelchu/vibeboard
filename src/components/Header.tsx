@@ -12,22 +12,22 @@ const inactive =
 const headerNavigation = [
   {
     name: "Explore",
-    to: "#",
+    to: "./explore",
     current: true,
   },
   {
     name: "Trending",
-    to: "#",
+    to: "./trending",
     current: false,
   },
   {
     name: "Recently Updated",
-    to: "#",
+    to: "./recently-updated",
     current: false,
   },
   {
     name: "Top",
-    to: "#",
+    to: "./top",
     current: false,
   },
 ];
