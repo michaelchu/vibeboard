@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../util/auth.jsx";
 import { classNames } from "../util/helpers.js";
 
@@ -9,32 +9,47 @@ const active =
 const inactive =
   "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600";
 
-const headerNavigation = [
-  {
-    name: "Explore",
-    to: "./explore",
-    current: true,
-  },
-  {
-    name: "Trending",
-    to: "./trending",
-    current: false,
-  },
-  {
-    name: "Recently Updated",
-    to: "./recently-updated",
-    current: false,
-  },
-  {
-    name: "Top",
-    to: "./top",
-    current: false,
-  },
-];
+enum ROUTES {
+  EXPLORE = "/explore/",
+  TRENDING = "/trending/",
+  RECENTLYUPDATED = "/recently-updated/",
+  TOP = "/top/",
+}
+
+//currentRoute.startsWith(ROUTES.EXPLORE)
+
+const headerNavigation = (currentRoute: string) => {
+  return [
+    {
+      name: "Explore",
+      to: ROUTES.EXPLORE,
+      current: (currentRoute.startsWith(ROUTES.EXPLORE) ? true : false),
+    },
+    {
+      name: "Trending",
+      to: ROUTES.TRENDING,
+      current: (currentRoute.startsWith(ROUTES.TRENDING) ? true : false),
+    },
+    {
+      name: "Recently Updated",
+      to: ROUTES.RECENTLYUPDATED,
+      current: (currentRoute.startsWith(ROUTES.RECENTLYUPDATED) ? true : false),
+    },
+    {
+      name: "Top",
+      to: ROUTES.TOP,
+      current: (currentRoute.startsWith(ROUTES.TOP) ? true : false),
+    },
+  ];
+};
 
 export default function Header() {
   const auth = useAuth();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const location = useLocation();
+  const currentRoute = location.pathname;
+
+  console.log(currentRoute);
 
   return (
     <header
@@ -69,7 +84,7 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-2">
-              {headerNavigation.map((item, index) => (
+              {headerNavigation(currentRoute).map((item, index) => (
                 <div key={`desktop-${index}`} className="mx-0.5">
                   {
                     <a
@@ -272,7 +287,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={`lg:hidden dark ${mobileNavOpen ? "" : "hidden"}`}>
           <nav className="flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
-            {headerNavigation.map((item, index) => (
+            {headerNavigation(currentRoute).map((item, index) => (
               <a
                 key={`mobile-${index}`}
                 href={item.to}
