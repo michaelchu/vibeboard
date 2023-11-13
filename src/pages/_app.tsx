@@ -25,7 +25,7 @@ function App() {
         <Router>
           <div
             id="page-container"
-            className="flex flex-col mx-auto w-full min-h-screen min-w-[320px] bg-gray-100 dark:text-gray-100 dark:bg-gray-900"
+            className="flex flex-col mx-auto w-full min-h-screen min-w-[320px] bg-gray-100 dark:text-gray-100 dark:bg-gray-950"
           >
             <Header />
 
