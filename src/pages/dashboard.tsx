@@ -1,11 +1,14 @@
 import React from "react";
+import { KeyboardProps } from "../components/Keyboard/types.ts";
 import Meta from "../components/Meta";
 import { requireAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
-import CardWithHeading from "../components/CardWithHeading.tsx";
+import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
+import { useKeyboardPaginated } from "../util/db.jsx";
 
 function DashboardPage() {
+  const { data, status } = useKeyboardPaginated(1, 10);
   return (
     <>
       <div className="bg-gray-50 dark:bg-gray-800/50">
@@ -41,12 +44,13 @@ function DashboardPage() {
       {/* Page Section */}
       <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          <CardWithHeading />
-          <CardWithHeading />
-          <CardWithHeading />
-          <CardWithHeading />
-          <CardWithHeading />
-          <CardWithHeading />
+          {status === "idle" || status === "loading" ? (
+            <span>One moment please</span>
+          ) : (
+            data.map((keyboard: KeyboardProps, idx: number) => (
+              <KeyboardCard key={idx} keyboard={keyboard} />
+            ))
+          )}
         </div>
       </div>
       {/* END Page Section */}

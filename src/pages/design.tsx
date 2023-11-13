@@ -9,7 +9,7 @@ import { useKeyboardByTheme } from "../util/db.jsx";
 
 function DesignPage() {
   const { data: key_colors, status } = useKeyboardByTheme(
-    "9e7ba3b7-9bc9-4e8e-8b1b-1f96cc404614",
+    "ca5d93da-28ab-4892-803d-13dad50b9a22",
   );
   return (
     <>
