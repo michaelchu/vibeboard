@@ -12,7 +12,7 @@ const inactive =
 enum ROUTES {
   EXPLORE = "/explore/",
   TRENDING = "/trending/",
-  RECENTLYUPDATED = "/recently-updated/",
+  RECENTLY_UPDATED = "/recently-updated/",
   TOP = "/top/",
 }
 
@@ -23,22 +23,22 @@ const headerNavigation = (currentRoute: string) => {
     {
       name: "Explore",
       to: ROUTES.EXPLORE,
-      current: (currentRoute.startsWith(ROUTES.EXPLORE) ? true : false),
+      current: currentRoute.startsWith(ROUTES.EXPLORE),
     },
     {
       name: "Trending",
       to: ROUTES.TRENDING,
-      current: (currentRoute.startsWith(ROUTES.TRENDING) ? true : false),
+      current: currentRoute.startsWith(ROUTES.TRENDING),
     },
     {
       name: "Recently Updated",
-      to: ROUTES.RECENTLYUPDATED,
-      current: (currentRoute.startsWith(ROUTES.RECENTLYUPDATED) ? true : false),
+      to: ROUTES.RECENTLY_UPDATED,
+      current: currentRoute.startsWith(ROUTES.RECENTLY_UPDATED),
     },
     {
       name: "Top",
       to: ROUTES.TOP,
-      current: (currentRoute.startsWith(ROUTES.TOP) ? true : false),
+      current: currentRoute.startsWith(ROUTES.TOP),
     },
   ];
 };
@@ -49,7 +49,6 @@ export default function Header() {
   const location = useLocation();
   const currentRoute = location.pathname;
 
-  console.log(currentRoute);
 
   return (
     <header
