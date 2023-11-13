@@ -10,8 +10,8 @@ Create your `.env` file with values for each environment variable
 
 ```
 # Get the actual values from Supabase admin
-VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
-VITE_SUPABASE_URL=https://abcdefg.supabase.co
+VITE_SUPABASE_PUBLIC_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1YW51ZHRwam5qandvcHZ0dHNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTc1NjgxMzcsImV4cCI6MjAxMzE0NDEzN30.H7OhQv6uQEKYhuYVa7vIHN6B6WJ9BRFQNWhMd2coLnw
+VITE_SUPABASE_URL=https://buanudtpjnjjwopvttso.supabase.co
 ```
 
 Run the development server
