@@ -4,14 +4,21 @@ export default function CardsApartment() {
       {/* Cards: Apartment */}
       <div className="flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-100 dark:bg-gray-950">
         {/* Photo */}
-        <img src="https://buanudtpjnjjwopvttso.supabase.co/storage/v1/object/sign/keyboards/sample_keyboard.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJrZXlib2FyZHMvc2FtcGxlX2tleWJvYXJkLkpQRyIsImlhdCI6MTY5OTg0OTc4MiwiZXhwIjoxNzMxMzg1NzgyfQ.PEOcHbHMvX99yQ_JWaak-5D9S90_ZVNrQNdx6TKa5qY&t=2023-11-13T04%3A29%3A43.029Z" />
+        <img
+          alt={"#"}
+          src="https://buanudtpjnjjwopvttso.supabase.co/storage/v1/object/sign/keyboards/sample_keyboard.JPG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJrZXlib2FyZHMvc2FtcGxlX2tleWJvYXJkLkpQRyIsImlhdCI6MTY5OTg0OTc4MiwiZXhwIjoxNzMxMzg1NzgyfQ.PEOcHbHMvX99yQ_JWaak-5D9S90_ZVNrQNdx6TKa5qY&t=2023-11-13T04%3A29%3A43.029Z"
+        />
         {/* END Photo */}
 
         {/* Basic Info */}
         <div className="px-5 py-2 grow">
-          <h3 className="text-lg text-gray-400 font-semibold mb-2">
+          <h3 className="text-lg text-gray-300 font-semibold mb-2">
             Sample Keyboard Title
           </h3>
+          <p className="text-gray-400 mb-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+            consequat turpis nec diam pretium, in consequat turpis lobortis.
+          </p>
         </div>
         {/* END Basic Info */}
 

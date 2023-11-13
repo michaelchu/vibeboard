@@ -2,7 +2,8 @@ import React from "react";
 import Meta from "../components/Meta";
 import { requireAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import CardWithHeading from "../components/CardWithHeading.tsx";
 
 function DashboardPage() {
   return (
@@ -39,8 +40,13 @@ function DashboardPage() {
       <Meta title="Design your Keyboard" />
       {/* Page Section */}
       <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-        <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 text-gray-400 py-64 dark:bg-gray-800 dark:border-gray-700">
-          Content (max width 1280px)
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+          <CardWithHeading />
+          <CardWithHeading />
+          <CardWithHeading />
+          <CardWithHeading />
+          <CardWithHeading />
+          <CardWithHeading />
         </div>
       </div>
       {/* END Page Section */}
