@@ -5,7 +5,7 @@ import FormAlert from "./FormAlert";
 import TextField from "./TextField";
 import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
-import AuthSocial from "./AuthSocial";
+import AuthSocial from "./Auth/AuthSocial.tsx";
 import { useAuth } from "../util/auth.jsx";
 
 interface FormAlertState {

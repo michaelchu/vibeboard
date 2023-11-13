@@ -46,7 +46,7 @@ export default function Key({ keyInfo }) {
           className={`relative h-7 border flex-grow ${colorVariant[variant].border} flex pt-1 pl-1 rounded`}
         >
           <span
-            className={`leading-none $font-semibold ${fontSize} ${colorVariant[variant].textColor}`}
+            className={`leading-none font-semibold ${fontSize} ${colorVariant[variant].textColor}`}
           >
             {keyInfo.label}
           </span>

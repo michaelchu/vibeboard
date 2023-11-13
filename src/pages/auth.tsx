@@ -1,6 +1,6 @@
 import React from "react";
 import Meta from "./../components/Meta";
-import AuthSection from "./../components/AuthSection";
+import AuthSection from "../components/Auth/AuthSection.tsx";
 import { useRouter } from "./../util/router";
 
 function AuthPage() {

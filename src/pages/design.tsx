@@ -9,7 +9,7 @@ import { useKeyboardByTheme } from "../util/db.jsx";
 
 function DesignPage() {
   const { data: key_colors, status } = useKeyboardByTheme(
-    "38f65a21-dcf1-4f5c-8978-8b32c51d825b",
+    "9e7ba3b7-9bc9-4e8e-8b1b-1f96cc404614",
   );
   return (
     <>
@@ -46,13 +46,10 @@ function DesignPage() {
           </div>
         </div>
       </div>
-      <Meta title="Design your Keyboard" />
-      {/* Page Section */}
-      <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-        {/* ADD YOUR MAIN CONTENT BELOW */}
 
-        {/* Placeholder */}
-        <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-gray-200 text-gray-400 py-32 dark:bg-gray-600 dark:border-gray-500">
+      <Meta title="Design your Keyboard" />
+      <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
+        <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-gray-200 text-gray-400 py-32 dark:bg-gray-800 dark:border-gray-700">
           <div>
             {status === "idle" || status === "loading" ? (
               <span>One moment please</span>
@@ -66,10 +63,7 @@ function DesignPage() {
             )}
           </div>
         </div>
-
-        {/* ADD YOUR MAIN CONTENT ABOVE */}
       </div>
-      {/* END Page Section */}
     </>
   );
 }

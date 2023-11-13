@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import TextField from "./TextField";
-import Button from "./Button";
-import LoadingIcon from "./LoadingIcon";
-import { useAuth } from "../util/auth.jsx";
+import TextField from "../TextField.tsx";
+import Button from "../Button.tsx";
+import LoadingIcon from "../LoadingIcon.tsx";
+import { useAuth } from "../../util/auth.jsx";
 
 function AuthForm(props) {
   const auth = useAuth();

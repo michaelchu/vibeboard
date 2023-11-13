@@ -1,6 +1,7 @@
 import React from "react";
 import Meta from "../components/Meta";
 import Heading from "../components/Heading.tsx";
+import Card from "../components/Card.tsx";
 
 function IndexPage() {
   const title =
@@ -12,8 +13,13 @@ function IndexPage() {
       <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
         <div>
           <Meta />
-          <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-dashed border-gray-200 text-gray-400 py-64 dark:bg-gray-800 dark:border-gray-700">
-            Content (max width 1280px)
+          <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8">
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
           </div>
         </div>
       </div>

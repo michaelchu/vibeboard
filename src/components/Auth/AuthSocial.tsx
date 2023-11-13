@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "./Button";
-import LoadingIcon from "./LoadingIcon";
-import { useAuth } from "../util/auth.jsx";
+import Button from "../Button.tsx";
+import LoadingIcon from "../LoadingIcon.tsx";
+import { useAuth } from "../../util/auth.jsx";
 
 function AuthSocial(props) {
   const auth = useAuth();

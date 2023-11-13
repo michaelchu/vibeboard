@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import FormAlert from "./FormAlert";
-import AuthForm from "./AuthForm";
-import AuthSocial from "./AuthSocial";
+import FormAlert from "../FormAlert.tsx";
+import AuthForm from "./AuthForm.tsx";
+import AuthSocial from "./AuthSocial.tsx";
 import { useHistory } from "react-router-dom";
 
 interface FormAlertState {
