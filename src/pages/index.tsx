@@ -2,6 +2,7 @@ import React from "react";
 import Meta from "../components/Meta";
 import Heading from "../components/Heading.tsx";
 import CardWithHeading from "../components/CardWithHeading.tsx";
+import Pagination from "../components/Pagination.tsx";
 
 function IndexPage() {
   const title =
@@ -20,6 +21,9 @@ function IndexPage() {
             <CardWithHeading />
             <CardWithHeading />
             <CardWithHeading />
+          </div>
+          <div className={"p-20"}>
+            <Pagination />
           </div>
         </div>
       </div>
