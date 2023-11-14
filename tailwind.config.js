@@ -17,7 +17,7 @@ module.exports = {
         16: "100px",
       },
       fontFamily: {
-        sans: ['"Bai Jamjuree"', 'sans-serif'],
+        'sans': ['"Bai Jamjuree"', 'sans-serif'],
       }
     },
     container: {
