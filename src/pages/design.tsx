@@ -10,7 +10,7 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 
 function DesignPage() {
   const { data: key_colors, status } = useKeyboardByTheme(
-    "ca5d93da-28ab-4892-803d-13dad50b9a22"
+    "ca5d93da-28ab-4892-803d-13dad50b9a22",
   );
   return (
     <>
