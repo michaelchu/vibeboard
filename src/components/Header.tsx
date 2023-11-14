@@ -30,40 +30,38 @@ enum ROUTES {
 
 const headerNavigation = (currentRoute: string) => {
   return [
-        {
-          name: "Explore",
-          to: "/",
-          current: true,
-          icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
-        },
+    {
+      name: "Explore",
+      to: "/",
+      icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
+      current: currentRoute.startsWith(ROUTES.EXPLORE),
+    },
     {
       name: "Trending",
       to: "/trending",
-      current: false,
       icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
+      current: currentRoute.startsWith(ROUTES.TRENDING),
     },
     {
       name: "Recently Updated",
       to: "/recently-updated",
-      current: false,
       icon: <ClockIcon className={"w-5 h-5"} />,
+      current: currentRoute.startsWith(ROUTES.RECENTLY_UPDATED),
     },
     {
       name: "Top",
       to: "/top",
-      current: false,
       icon: <FireIcon className={"w-5 h-5"} />,
+      current: currentRoute.startsWith(ROUTES.TOP),
     },
-  ]
+  ];
 };
-
 
 export default function Header() {
   const auth = useAuth();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();
   const currentRoute = location.pathname;
-
 
   return (
     <header
