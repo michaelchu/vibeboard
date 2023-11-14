@@ -26,7 +26,7 @@ function IndexPage() {
               ))
             )}
           </div>
-          <div className={"p-20"}>
+          <div className={"py-10 px-5 sm:p-20"}>
             <Pagination />
           </div>
         </div>
