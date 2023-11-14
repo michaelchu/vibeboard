@@ -109,6 +109,7 @@ export async function deleteItem(id) {
 }
 
 /**** KEYBOARDS ****/
+// Get a keyboard by theme id
 export function useKeyboardByTheme(theme) {
   return useQuery(
     ["keyboard", { theme }],
@@ -119,6 +120,29 @@ export function useKeyboardByTheme(theme) {
         .eq("theme_id", theme)
         .then(handle),
     { enabled: !!theme },
+  );
+}
+
+// Fetch a paginated list of keyboard themes
+export function useKeyboardPaginated(page, size = 10) {
+  const sample = [
+    "red-500",
+    "green-500",
+    "blue-500",
+    "purple-500",
+    "pink-500",
+    "yellow-500",
+  ];
+
+  const { from, to } = getPagination(page, size);
+  return useQuery(["keyboards", page, size], () =>
+    supabase
+      .from("keyboard_themes")
+      .select(
+        "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+      )
+      .in("theme_name", sample)
+      .then(handle),
   );
 }
 
@@ -138,3 +162,11 @@ export function QueryClientProvider(props) {
     </QueryClientProviderBase>
   );
 }
+
+const getPagination = (page, size) => {
+  const limit = size ? +size : 3;
+  const from = page ? page * limit : 0;
+  const to = page ? from + size : size;
+
+  return { from, to };
+};

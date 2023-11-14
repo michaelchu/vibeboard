@@ -10,3 +10,12 @@ export type KeyProps = {
   font_size?: string;
   key_label_color: string;
 };
+
+export type KeyboardProps = {
+  theme_name: string;
+  description: string;
+  keyboard_size: string;
+  keyboard_layout: string;
+  platform: string;
+  image_path: string;
+};

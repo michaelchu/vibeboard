@@ -1,11 +1,15 @@
-import React from "react";
 import Meta from "../components/Meta";
 import Heading from "../components/Heading.tsx";
-import CardWithHeading from "../components/CardWithHeading.tsx";
+import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
+import Pagination from "../components/Pagination.tsx";
+import { useKeyboardPaginated } from "../util/db.jsx";
+import { KeyboardProps } from "../components/Keyboard/types.ts";
 
 function IndexPage() {
   const title =
     " The internet’s source for RGB keyboard designs. Powered by creators everywhere.";
+
+  const { data, status } = useKeyboardPaginated(1, 10);
 
   return (
     <>
@@ -14,12 +18,16 @@ function IndexPage() {
         <div>
           <Meta />
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-10">
-            <CardWithHeading />
-            <CardWithHeading />
-            <CardWithHeading />
-            <CardWithHeading />
-            <CardWithHeading />
-            <CardWithHeading />
+            {status === "idle" || status === "loading" ? (
+              <span>One moment please</span>
+            ) : (
+              data.map((keyboard: KeyboardProps, idx: number) => (
+                <KeyboardCard key={idx} keyboard={keyboard} />
+              ))
+            )}
+          </div>
+          <div className={"py-10 px-5 sm:p-20"}>
+            <Pagination />
           </div>
         </div>
       </div>

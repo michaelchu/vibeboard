@@ -1,5 +1,7 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { ChevronUpDownIcon } from "@heroicons/react/24/solid";
 
 const options = [
   { id: 1, label: "Default", value: "default" },
@@ -19,19 +21,7 @@ export default function Dropdown() {
           <div className="space-y-1">
             <Listbox.Button className="group w-full text-left flex justify-between items-center gap-2 border bg-white px-3 py-1.5 leading-6 rounded-lg border-gray-200 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:focus:border-blue-500">
               <span className="grow truncate">{selected.label}</span>
-              <svg
-                className="flex-none hi-mini hi-chevron-up-down inline-block w-5 h-5 opacity-40 transition group-hover:opacity-60 group-active:scale-90"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              <ChevronUpDownIcon className="flex-none hi-mini hi-chevron-up-down inline-block w-5 h-5 opacity-40 transition group-hover:opacity-60 group-active:scale-90" />
             </Listbox.Button>
           </div>
           {/* END Select Menu Toggle */}
@@ -70,19 +60,7 @@ export default function Dropdown() {
                         }`}
                       >
                         {selected ? (
-                          <svg
-                            className="hi-mini hi-check-circle inline-block w-5 h-5"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                          <CheckCircleIcon className="flex-none hi-mini hi-chevron-up-down inline-block w-5 h-5 opacity-40 transition group-hover:opacity-60 group-active:scale-90" />
                         ) : null}
                       </div>
                     </>
