@@ -5,6 +5,9 @@ import DashboardPage from "./dashboard";
 import DesignPage from "./design";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
+import RecentlyUpdatedPage from "./recently-updated.tsx";
+import TrendingPage from "./trending.tsx";
+import TopPage from "./top.tsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotFoundPage from "./404";
 import Footer from "../components/Footer";
@@ -38,6 +41,13 @@ function App() {
                 <Route exact path="/dashboard" component={DashboardPage} />
                 <Route exact path="/design" component={DesignPage} />
                 <Route exact path="/auth/:type" component={AuthPage} />
+                <Route exact path="/trending" component={TrendingPage} />
+                <Route
+                  exact
+                  path="/recently-updated"
+                  component={RecentlyUpdatedPage}
+                />
+                <Route exact path="/top" component={TopPage} />
                 <Route
                   exact
                   path="/settings/:section"

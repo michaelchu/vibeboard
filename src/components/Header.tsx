@@ -24,25 +24,25 @@ const inactive =
 const headerNavigation = [
   {
     name: "Explore",
-    to: "#",
+    to: "/",
     current: true,
     icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
   },
   {
     name: "Trending",
-    to: "#",
+    to: "/trending",
     current: false,
     icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
   },
   {
     name: "Recently Updated",
-    to: "#",
+    to: "/recently-updated",
     current: false,
     icon: <ClockIcon className={"w-5 h-5"} />,
   },
   {
     name: "Top",
-    to: "#",
+    to: "/top",
     current: false,
     icon: <FireIcon className={"w-5 h-5"} />,
   },
@@ -76,14 +76,14 @@ export default function Header() {
               {headerNavigation.map((item, index) => (
                 <div key={`desktop-${index}`} className="mx-0.5">
                   {
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.to}
+                      to={item.to}
                       className={classNames(item.current ? active : inactive)}
                     >
                       {item.icon}
                       <span>{item.name}</span>
-                    </a>
+                    </Link>
                   }
                 </div>
               ))}
