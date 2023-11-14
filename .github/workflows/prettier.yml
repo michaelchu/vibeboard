@@ -2,7 +2,7 @@ name: CI
 on: [push]
 jobs:
   build:
-    name: Typescript Check Types
+    name: Prettier Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
