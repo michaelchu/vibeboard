@@ -6,12 +6,60 @@ import Keyboard from "../components/Keyboard/Keyboard.tsx";
 import { mergeArraysByKey } from "../util/helpers.ts";
 import { mac_os_65 } from "../components/Keyboard/layouts/mac_os_65.ts";
 import { useKeyboardByTheme } from "../util/db.jsx";
-import { PlusIcon } from "@heroicons/react/24/solid";
+import { Fragment, useState } from "react";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon, PlusIcon } from "@heroicons/react/20/solid";
+import { ArrowUturnRightIcon } from "@heroicons/react/24/solid";
+
+const filters = [
+  {
+    id: "color",
+    name: "Color",
+    options: [
+      { value: "white", label: "White" },
+      { value: "beige", label: "Beige" },
+      { value: "blue", label: "Blue" },
+      { value: "brown", label: "Brown" },
+      { value: "green", label: "Green" },
+      { value: "purple", label: "Purple" },
+    ],
+  },
+  {
+    id: "category",
+    name: "Category",
+    options: [
+      { value: "new-arrivals", label: "All New Arrivals" },
+      { value: "tees", label: "Tees" },
+      { value: "crewnecks", label: "Crewnecks" },
+      { value: "sweatshirts", label: "Sweatshirts" },
+      { value: "pants-shorts", label: "Pants & Shorts" },
+    ],
+  },
+  {
+    id: "sizes",
+    name: "Sizes",
+    options: [
+      { value: "xs", label: "XS" },
+      { value: "s", label: "S" },
+      { value: "m", label: "M" },
+      { value: "l", label: "L" },
+      { value: "xl", label: "XL" },
+      { value: "2xl", label: "2XL" },
+    ],
+  },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function DesignPage() {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { data: key_colors, status } = useKeyboardByTheme(
     "ca5d93da-28ab-4892-803d-13dad50b9a22",
   );
+  // @ts-ignore
   return (
     <>
       <div className="bg-gray-50 dark:bg-gray-800/50">
@@ -26,14 +74,20 @@ function DesignPage() {
                 work of art with our customizable RGB lighting options.
               </h2>
             </div>
-            <div className="flex-none flex items-center justify-center sm:justify-end space-x-2 py-3 rounded sm:bg-transparent px-2 sm:px-0">
-              <Dropdown />
+            <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <a
                 href="javascript:void(0)"
-                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
+                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-yellow-700 bg-yellow-700 text-white hover:text-white hover:bg-yellow-600 hover:border-yellow-600 focus:ring focus:ring-yellow-400 focus:ring-opacity-50 active:bg-yellow-700 active:border-blue-700 dark:focus:ring-yellow-400 dark:focus:ring-opacity-90"
               >
-                <PlusIcon className="hi-mini hi-plus inline-block w-5 h-5 opacity-50" />
-                <span>New Keyboard</span>
+                <ArrowUturnRightIcon className="inline-block w-5 h-5 opacity-50" />
+                <span>Reset</span>
+              </a>
+              <a
+                href="javascript:void(0)"
+                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-green-700 bg-green-700 text-white hover:text-white hover:bg-green-600 hover:border-green-600 focus:ring focus:ring-green-400 focus:ring-opacity-50 active:bg-green-700 active:border-blue-700 dark:focus:ring-green-400 dark:focus:ring-opacity-90"
+              >
+                <PlusIcon className="inline-block w-5 h-5 opacity-50" />
+                <span>Save Keyboard</span>
               </a>
             </div>
           </div>
@@ -42,18 +96,191 @@ function DesignPage() {
 
       <Meta title="Design your Keyboard" />
       <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-        <div className="flex items-center justify-center rounded-xl bg-gray-50 border-2 border-gray-200 text-gray-400 py-32 dark:bg-gray-800 dark:border-gray-700">
+        <div className="bg-gray-900">
           <div>
-            {status === "idle" || status === "loading" ? (
-              <span>One moment please</span>
-            ) : (
-              <main className="min-w-full bg-gray-200 dark:bg-gray-700 min-h-fit flex items-center justify-center">
-                <Keyboard
-                  keys={mergeArraysByKey(mac_os_65, key_colors)}
-                  variant={"dark"}
-                />
-              </main>
-            )}
+            {/* Mobile filter dialog */}
+            <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+              <Dialog
+                as="div"
+                className="relative z-40 lg:hidden"
+                onClose={setMobileFiltersOpen}
+              >
+                <Transition.Child
+                  as={Fragment}
+                  enter="transition-opacity ease-linear duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="transition-opacity ease-linear duration-300"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div className="fixed inset-0 bg-black bg-opacity-25" />
+                </Transition.Child>
+
+                <div className="fixed inset-0 z-40 flex">
+                  <Transition.Child
+                    as={Fragment}
+                    enter="transition ease-in-out duration-300 transform"
+                    enterFrom="translate-x-full"
+                    enterTo="translate-x-0"
+                    leave="transition ease-in-out duration-300 transform"
+                    leaveFrom="translate-x-0"
+                    leaveTo="translate-x-full"
+                  >
+                    <Dialog.Panel className="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-white py-4 pb-6 shadow-xl">
+                      <div className="flex items-center justify-between px-4">
+                        <h2 className="text-lg font-medium text-gray-900">
+                          Filters
+                        </h2>
+                        <button
+                          type="button"
+                          className="-mr-2 flex h-10 w-10 items-center justify-center p-2 text-gray-400 hover:text-gray-500"
+                          onClick={() => setMobileFiltersOpen(false)}
+                        >
+                          <span className="sr-only">Close menu</span>
+                          <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                        </button>
+                      </div>
+
+                      {/* Filters */}
+                      <form className="mt-4">
+                        {filters.map((section) => (
+                          <Disclosure
+                            as="div"
+                            key={section.name}
+                            className="border-t border-gray-200 pb-4 pt-4"
+                          >
+                            {({ open }) => (
+                              <fieldset>
+                                <legend className="w-full px-2">
+                                  <Disclosure.Button className="flex w-full items-center justify-between p-2 text-gray-400 hover:text-gray-500">
+                                    <span className="text-sm font-medium text-gray-900">
+                                      {section.name}
+                                    </span>
+                                    <span className="ml-6 flex h-7 items-center">
+                                      <ChevronDownIcon
+                                        className={classNames(
+                                          open ? "-rotate-180" : "rotate-0",
+                                          "h-5 w-5 transform",
+                                        )}
+                                        aria-hidden="true"
+                                      />
+                                    </span>
+                                  </Disclosure.Button>
+                                </legend>
+                                <Disclosure.Panel className="px-4 pb-2 pt-4">
+                                  <div className="space-y-6">
+                                    {section.options.map(
+                                      (option, optionIdx) => (
+                                        <div
+                                          key={option.value}
+                                          className="flex items-center"
+                                        >
+                                          <input
+                                            id={`${section.id}-${optionIdx}-mobile`}
+                                            name={`${section.id}[]`}
+                                            defaultValue={option.value}
+                                            type="checkbox"
+                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                          />
+                                          <label
+                                            htmlFor={`${section.id}-${optionIdx}-mobile`}
+                                            className="ml-3 text-sm text-gray-500"
+                                          >
+                                            {option.label}
+                                          </label>
+                                        </div>
+                                      ),
+                                    )}
+                                  </div>
+                                </Disclosure.Panel>
+                              </fieldset>
+                            )}
+                          </Disclosure>
+                        ))}
+                      </form>
+                    </Dialog.Panel>
+                  </Transition.Child>
+                </div>
+              </Dialog>
+            </Transition.Root>
+
+            <div className="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+              <aside>
+                <h2 className="sr-only">Filters</h2>
+
+                <button
+                  type="button"
+                  className="inline-flex items-center lg:hidden"
+                  onClick={() => setMobileFiltersOpen(true)}
+                >
+                  <span className="text-sm font-medium text-gray-700">
+                    Filters
+                  </span>
+                  <PlusIcon
+                    className="ml-1 h-5 w-5 flex-shrink-0 text-gray-400"
+                    aria-hidden="true"
+                  />
+                </button>
+
+                <div className="hidden lg:block">
+                  <form className="space-y-10 divide-y divide-gray-700">
+                    {filters.map((section, sectionIdx) => (
+                      <div
+                        key={section.name}
+                        className={sectionIdx === 0 ? undefined : "pt-10"}
+                      >
+                        <fieldset>
+                          <legend className="block text-sm font-medium text-gray-300">
+                            {section.name}
+                          </legend>
+                          <div className="space-y-3 pt-6">
+                            {section.options.map((option, optionIdx) => (
+                              <div
+                                key={option.value}
+                                className="flex items-center"
+                              >
+                                <input
+                                  id={`${section.id}-${optionIdx}`}
+                                  name={`${section.id}[]`}
+                                  defaultValue={option.value}
+                                  type="checkbox"
+                                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                />
+                                <label
+                                  htmlFor={`${section.id}-${optionIdx}`}
+                                  className="ml-3 text-sm text-gray-400"
+                                >
+                                  {option.label}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </fieldset>
+                      </div>
+                    ))}
+                  </form>
+                </div>
+              </aside>
+
+              {/* Product grid */}
+              <div className="mt-6 lg:col-span-2 lg:mt-0 xl:col-span-3">
+                <div className="flex items-center justify-center text-gray-400 w-full h-full">
+                  <div>
+                    {status === "idle" || status === "loading" ? (
+                      <span>One moment please</span>
+                    ) : (
+                      <main className="min-w-full min-h-fit flex items-center justify-center">
+                        <Keyboard
+                          keys={mergeArraysByKey(mac_os_65, key_colors)}
+                          variant={"dark"}
+                        />
+                      </main>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

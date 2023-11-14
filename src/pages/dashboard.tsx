@@ -20,7 +20,7 @@ function DashboardPage() {
                 Your Keyboard Collection
               </h1>
             </div>
-            <div className="flex-none flex items-center justify-center sm:justify-end space-x-2 py-3 rounded sm:bg-transparent px-2 sm:px-0">
+            <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <Dropdown />
               <Link
                 to="/design"
