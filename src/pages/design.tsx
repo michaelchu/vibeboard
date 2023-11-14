@@ -63,9 +63,7 @@ function DesignPage() {
         <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
           <div className="text-center sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">
             <div className="grow">
-              <h1 className="text-xl font-bold mb-1">
-                Customize Your Keyboard
-              </h1>
+              <h1 className="text-xl font-bold mb-1">Design Your Keyboard</h1>
               <h2 className="text-sm text-gray-500 font-medium dark:text-gray-400">
                 Unleash your creativity and turn your keyboard into a stunning
                 work of art with our customizable RGB lighting options.
@@ -74,7 +72,7 @@ function DesignPage() {
             <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <a
                 href="javascript:void(0)"
-                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-yellow-700 bg-yellow-700 text-white hover:text-white hover:bg-yellow-600 hover:border-yellow-600 focus:ring focus:ring-yellow-400 focus:ring-opacity-50 active:bg-yellow-700 active:border-blue-700 dark:focus:ring-yellow-400 dark:focus:ring-opacity-90"
+                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-yellow-600 bg-yellow-600 text-white hover:text-white hover:bg-yellow-500 hover:border-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50 active:bg-yellow-700 active:border-yellow-700 dark:focus:ring-yellow-400 dark:focus:ring-opacity-90"
               >
                 <ArrowUturnRightIcon className="inline-block w-5 h-5 opacity-50" />
                 <span>Reset</span>
@@ -202,7 +200,7 @@ function DesignPage() {
               </Dialog>
             </Transition.Root>
 
-            <div className="pt-12 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
+            <div className="pt-4 lg:grid lg:grid-cols-3 lg:gap-x-8 xl:grid-cols-4">
               <aside>
                 <h2 className="sr-only">Filters</h2>
 
