@@ -11,9 +11,17 @@ export default function Keyboard({ keys, variant = "dark" }: KeyBoardProps) {
       border: "bg-gray-950",
       innerFrame: "bg-black",
     },
-    light: {
+    white: {
       border: "bg-gray-300",
-      innerFrame: "bg-gray-700",
+      innerFrame: "bg-gray-800",
+    },
+    red: {
+      border: "bg-red-700",
+      innerFrame: "bg-gray-800",
+    },
+    orange: {
+      border: "bg-orange-700",
+      innerFrame: "bg-gray-800",
     },
   };
 
@@ -30,7 +38,7 @@ export default function Keyboard({ keys, variant = "dark" }: KeyBoardProps) {
     <div
       className={`${colorVariants[variant].border} 
       p-3 border-2 border-t-gray-400 dark:border-t-gray-800 border-x-gray-400 
-      dark:border-x-gray-950 border-b-gray-500 dark:border-b-gray-950 shadow-lg`}
+      dark:border-x-gray-900 border-b-gray-500 dark:border-b-gray-950 shadow-lg`}
     >
       {/*Keyboard Inner Frame*/}
       <div

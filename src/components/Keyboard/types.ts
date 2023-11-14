@@ -8,7 +8,7 @@ export type KeyProps = {
   row: string;
   flexGrow?: boolean;
   font_size?: string;
-  key_label_color: string;
+  key_label_color?: string;
 };
 
 export type KeyboardProps = {
