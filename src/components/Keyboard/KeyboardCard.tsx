@@ -66,10 +66,10 @@ export default function KeyboardCard({ keyboard }) {
           </dl>
           <dl className="py-3 space-y-1">
             <dt className="text-md text-gray-300 font-semibold">
-              {keyboard.keyboard_layout}
+              {Math.floor(Math.random() * (100 - 1 + 1)) + 1}
             </dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
-              Layout
+              Comments
             </dd>
           </dl>
           <dl className="py-3 space-y-1">
