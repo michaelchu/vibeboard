@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../util/auth.jsx";
 import { classNames } from "../util/helpers.js";
 import {
@@ -21,36 +21,39 @@ const active =
 const inactive =
   "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600";
 
-const headerNavigation = [
-  {
-    name: "Explore",
-    to: "/",
-    current: true,
-    icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
-  },
-  {
-    name: "Trending",
-    to: "/trending",
-    current: false,
-    icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
-  },
-  {
-    name: "Recently Updated",
-    to: "/recently-updated",
-    current: false,
-    icon: <ClockIcon className={"w-5 h-5"} />,
-  },
-  {
-    name: "Top",
-    to: "/top",
-    current: false,
-    icon: <FireIcon className={"w-5 h-5"} />,
-  },
-];
-
 export default function Header() {
   const auth = useAuth();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const location = useLocation();
+  const currentRoute = location.pathname;
+  console.log(currentRoute);
+
+  const headerNavigation = [
+    {
+      name: "Explore",
+      to: "/",
+      icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/",
+    },
+    {
+      name: "Trending",
+      to: "/trending",
+      icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/trending",
+    },
+    {
+      name: "Recently Updated",
+      to: "/recently-updated",
+      icon: <ClockIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/recently-updated",
+    },
+    {
+      name: "Top",
+      to: "/top",
+      icon: <FireIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/top",
+    },
+  ];
 
   return (
     <header

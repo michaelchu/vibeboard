@@ -31,4 +31,4 @@ function TrendingPage() {
   );
 }
 
-export default requireAuth(TrendingPage);
+export default TrendingPage;
