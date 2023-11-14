@@ -27,7 +27,7 @@ module.exports = {
     // Default project breakpoints
     // https://tailwindcss.com/docs/screens
     screens: {
-      sm: "640px",
+      sm: "320px",
       md: "768px",
       lg: "1024px",
       xl: "1280px",
