@@ -42,9 +42,11 @@ export default function KeyboardCard({ keyboard }) {
         {/* END Card Header */}
 
         {/* Card Body */}
-        <div className="">
+        <div className="flex-shrink-0">
           {/* Placeholder */}
-          {data && <img alt={"#"} src={data.publicUrl} />}
+          {data && (
+            <img alt={"#"} src={data.publicUrl} className={"w-full h-full"} />
+          )}
         </div>
         {/* Card Body */}
 
