@@ -21,47 +21,39 @@ const active =
 const inactive =
   "group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600";
 
-enum ROUTES {
-  EXPLORE = "/explore/",
-  TRENDING = "/trending/",
-  RECENTLY_UPDATED = "/recently-updated/",
-  TOP = "/top/",
-}
-
-const headerNavigation = (currentRoute: string) => {
-  return [
-    {
-      name: "Explore",
-      to: "/",
-      icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
-      current: currentRoute.startsWith(ROUTES.EXPLORE),
-    },
-    {
-      name: "Trending",
-      to: "/trending",
-      icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
-      current: currentRoute.startsWith(ROUTES.TRENDING),
-    },
-    {
-      name: "Recently Updated",
-      to: "/recently-updated",
-      icon: <ClockIcon className={"w-5 h-5"} />,
-      current: currentRoute.startsWith(ROUTES.RECENTLY_UPDATED),
-    },
-    {
-      name: "Top",
-      to: "/top",
-      icon: <FireIcon className={"w-5 h-5"} />,
-      current: currentRoute.startsWith(ROUTES.TOP),
-    },
-  ];
-};
-
 export default function Header() {
   const auth = useAuth();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();
   const currentRoute = location.pathname;
+  console.log(currentRoute);
+
+  const headerNavigation = [
+    {
+      name: "Explore",
+      to: "/",
+      icon: <MagnifyingGlassIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/",
+    },
+    {
+      name: "Trending",
+      to: "/trending",
+      icon: <ArrowTrendingUpIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/trending",
+    },
+    {
+      name: "Recently Updated",
+      to: "/recently-updated",
+      icon: <ClockIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/recently-updated",
+    },
+    {
+      name: "Top",
+      to: "/top",
+      icon: <FireIcon className={"w-5 h-5"} />,
+      current: currentRoute === "/top",
+    },
+  ];
 
   return (
     <header
@@ -84,7 +76,7 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-2">
-              {headerNavigation(currentRoute).map((item, index) => (
+              {headerNavigation.map((item, index) => (
                 <div key={`desktop-${index}`} className="mx-0.5">
                   {
                     <Link
@@ -230,7 +222,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         <div className={`lg:hidden dark ${mobileNavOpen ? "" : "hidden"}`}>
           <nav className="flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
-            {headerNavigation(currentRoute).map((item, index) => (
+            {headerNavigation.map((item, index) => (
               <a
                 key={`mobile-${index}`}
                 href={item.to}

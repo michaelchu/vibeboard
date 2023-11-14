@@ -31,4 +31,4 @@ function TopPage() {
   );
 }
 
-export default requireAuth(TopPage);
+export default TopPage;

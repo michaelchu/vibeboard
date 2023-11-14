@@ -31,4 +31,4 @@ function RecentlyUpdatedPage() {
   );
 }
 
-export default requireAuth(RecentlyUpdatedPage);
+export default RecentlyUpdatedPage;
