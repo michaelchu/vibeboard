@@ -6,6 +6,7 @@ import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
 import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
 import { useKeyboardPaginated } from "../util/db.jsx";
+import { PlusIcon } from "@heroicons/react/24/solid";
 
 function DashboardPage() {
   const { data, status } = useKeyboardPaginated(1, 10);
@@ -25,16 +26,8 @@ function DashboardPage() {
                 to="/design"
                 className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
               >
-                <svg
-                  className="hi-mini hi-plus inline-block w-5 h-5 opacity-50"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                </svg>
-                <span>New Keyboard</span>
+                <PlusIcon className="hi-mini hi-plus inline-block w-5 h-5 opacity-50" />
+                <span>New Collection</span>
               </Link>
             </div>
           </div>
