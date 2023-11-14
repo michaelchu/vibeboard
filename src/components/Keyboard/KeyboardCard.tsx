@@ -50,19 +50,21 @@ export default function KeyboardCard({ keyboard }) {
 
         {/* Card Footer */}
         <div className="flex-1 flex py-4 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between sm:items-center dark:bg-gray-900/30">
-          <h3 className="mb-1 text-gray-400 overflow-ellipsis">
+          <h3 className="mb-1 text-gray-500 overflow-ellipsis">
             {lorem.generateParagraphs(1)}
           </h3>
         </div>
         <div className="py-3 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
           <dl className="py-3 space-y-1">
-            <dt className="text-md font-semibold">{keyboard.keyboard_size}</dt>
+            <dt className="text-md text-gray-300 font-semibold">
+              {keyboard.keyboard_size}
+            </dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
               Size
             </dd>
           </dl>
           <dl className="py-3 space-y-1">
-            <dt className="text-md font-semibold">
+            <dt className="text-md text-gray-300 font-semibold">
               {keyboard.keyboard_layout}
             </dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
@@ -70,7 +72,7 @@ export default function KeyboardCard({ keyboard }) {
             </dd>
           </dl>
           <dl className="py-3 space-y-1">
-            <dt className="text-md font-semibold">24/week</dt>
+            <dt className="text-md text-gray-300 font-semibold">24/week</dt>
             <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
               Trend
             </dd>
