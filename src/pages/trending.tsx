@@ -1,15 +1,16 @@
 import React from "react";
 import Meta from "../components/Meta";
-import { requireAuth } from "../util/auth.jsx";
 import Pagination from "../components/Pagination.tsx";
 import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
 import { KeyboardProps } from "../components/Keyboard/types.ts";
 import { useKeyboardPaginated } from "../util/db.jsx";
+import Header from "../components/Header.tsx";
 
 function TrendingPage() {
   const { data, status } = useKeyboardPaginated(1, 10);
   return (
     <>
+      <Header />
       <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
         <div>
           <Meta />

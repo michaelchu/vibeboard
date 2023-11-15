@@ -30,7 +30,7 @@ function App() {
             id="page-container"
             className="flex flex-col mx-auto w-full min-h-screen min-w-[320px] bg-gray-100 dark:text-gray-100 dark:bg-gray-900"
           >
-            <Header />
+            {/*<Header />*/}
 
             <main
               id="page-content"

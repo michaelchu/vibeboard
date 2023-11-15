@@ -11,12 +11,12 @@ function AuthPage() {
       <Meta title="Auth" />
       <AuthSection
         size="md"
-        bgColor="bg-gray-700"
+        bgColor="bg-gray-900"
         bgImage=""
         bgImageOpacity={1}
         textColor=""
         type={router.query.type}
-        providers={["google", "facebook", "twitter"]}
+        providers={["google", "facebook"]}
         afterAuthPath={router.query.next || "/dashboard"}
       />
     </>

@@ -3,6 +3,7 @@ import Meta from "../components/Meta";
 import SettingsSection from "../components/SettingsSection";
 import { useLocation } from "react-router-dom";
 import { requireAuth } from "../util/auth.jsx";
+import Header from "../components/Header.tsx";
 
 function SettingsPage() {
   const location = useLocation();
@@ -13,6 +14,7 @@ function SettingsPage() {
 
   return (
     <>
+      <Header />
       <Meta title="Settings" />
       <SettingsSection
         size="md"

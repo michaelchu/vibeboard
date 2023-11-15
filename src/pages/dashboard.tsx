@@ -7,11 +7,13 @@ import { Link } from "react-router-dom";
 import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
 import { useKeyboardPaginated } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
+import Header from "../components/Header.tsx";
 
 function DashboardPage() {
   const { data, status } = useKeyboardPaginated(1, 10);
   return (
     <>
+      <Header />
       <div className="bg-gray-50 dark:bg-gray-800/50">
         <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
           <div className="text-center sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">

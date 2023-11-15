@@ -4,6 +4,8 @@ import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
 import Pagination from "../components/Pagination.tsx";
 import { useKeyboardPaginated } from "../util/db.jsx";
 import { KeyboardProps } from "../components/Keyboard/types.ts";
+import Header from "../components/Header.tsx";
+import React from "react";
 
 function IndexPage() {
   const title =
@@ -13,6 +15,7 @@ function IndexPage() {
 
   return (
     <>
+      <Header />
       <Heading title={title} />
       <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
         <div>

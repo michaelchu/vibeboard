@@ -14,11 +14,11 @@ function AuthFooter(props) {
           {props.showAgreement && (
             <div className="mb-3">
               By signing up, you are agreeing to our{" "}
-              <Link to={props.termsPath} className="text-blue-600">
+              <Link to={props.termsPath} className="text-gray-400">
                 Terms of Service
               </Link>{" "}
               and{" "}
-              <Link to={props.privacyPolicyPath} className="text-blue-600">
+              <Link to={props.privacyPolicyPath} className="text-gray-400">
                 Privacy Policy
               </Link>
               .
@@ -26,7 +26,7 @@ function AuthFooter(props) {
           )}
 
           {props.signinText}
-          <Link to={props.signinPath} className="ml-3 text-blue-600">
+          <Link to={props.signinPath} className="ml-3 text-gray-400">
             {props.signinAction}
           </Link>
         </>
@@ -34,12 +34,12 @@ function AuthFooter(props) {
 
       {props.type === "signin" && (
         <>
-          <Link to={props.signupPath} className="text-blue-600">
+          <Link to={props.signupPath} className="text-gray-400">
             {props.signupAction}
           </Link>
 
           {props.forgotPassAction && (
-            <Link to={props.forgotPassPath} className="ml-4 text-blue-600">
+            <Link to={props.forgotPassPath} className="ml-4 text-gray-400">
               {props.forgotPassAction}
             </Link>
           )}
@@ -49,7 +49,7 @@ function AuthFooter(props) {
       {props.type === "forgotpass" && (
         <>
           {props.signinText}
-          <Link to={props.signinPath} className="ml-3 text-blue-600">
+          <Link to={props.signinPath} className="ml-3 text-gray-400">
             {props.signinAction}
           </Link>
         </>
