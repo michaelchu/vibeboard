@@ -99,6 +99,23 @@ export default function Header() {
             {!auth.user && (
               <Link
                 to="/auth/signin"
+                className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
+              >
+                <span>Design Keyboard</span>
+              </Link>
+            )}
+            {auth.user && (
+              <Link
+                to="/design"
+                className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
+              >
+                <span>Design Keyboard</span>
+              </Link>
+            )}
+
+            {!auth.user && (
+              <Link
+                to="/auth/signin"
                 className="group text-sm font-medium flex items-center space-x-2 px-3 py-2 rounded-lg text-gray-800 border border-transparent hover:text-blue-600 hover:bg-blue-50 active:border-blue-100 dark:text-gray-200 dark:hover:text-white dark:hover:bg-gray-700 dark:active:border-gray-600"
               >
                 <UserCircleIcon className={"w-5 h-5"} />
