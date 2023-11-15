@@ -1,4 +1,30 @@
-export default function Key({ keyInfo }) {
+import { KeyProps } from "./types.ts";
+
+/*
+Key component renders a single key on a keyboard.
+
+Props:
+
+- keyInfo: KeyProps object containing data for the key
+
+Functionality:
+
+- Renders a button styled as a key
+- Applies styling based on keyInfo properties:
+  - font_size for text size
+  - key_label_color for text color
+- Uses colorVariant object to set colors based on 'variant'
+- Adds hover animation to button
+
+Usage:
+
+<Key
+  keyInfo={keyInfo}
+/>
+
+*/
+
+export default function Key({ keyInfo }: { keyInfo: KeyProps }) {
   const variant = "darker";
   const fontSize = keyInfo.font_size ? keyInfo.font_size : "text-[14px]";
   const colorVariant = {

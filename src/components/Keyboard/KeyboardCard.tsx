@@ -1,6 +1,7 @@
 import supabase from "../../util/supabase.ts";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { LoremIpsum } from "lorem-ipsum";
+import { KeyboardProps } from "./types.ts";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -13,7 +14,35 @@ const lorem = new LoremIpsum({
   },
 });
 
-export default function KeyboardCard({ keyboard }) {
+/*
+KeyboardCard component renders a card displaying information about a keyboard.
+
+Props:
+
+- keyboard: KeyboardProps object containing data to display
+
+Functionality:
+
+- Fetches keyboard image from Supabase storage
+- Renders card with header, body, and footer sections
+- Header shows keyboard name and a star button
+- Body displays keyboard image
+- Footer shows description, size, comments, trend info
+- Uses dummy placeholder data for text content
+
+Usage:
+
+<KeyboardCard
+  keyboard={keyboard}
+/>
+
+*/
+
+export default function KeyboardCard({
+  keyboard,
+}: {
+  keyboard: KeyboardProps;
+}) {
   const { data } = supabase.storage
     .from("keyboards")
     .getPublicUrl(keyboard.image_path);
