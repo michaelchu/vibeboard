@@ -69,7 +69,7 @@ export default function Header() {
               className="group inline-flex items-center space-x-2 font-bold text-lg tracking-wide text-gray-900 hover:text-gray-600 dark:text-gray-100 dark:hover:text-gray-300"
             >
               <SwatchIcon className={"w-10 h-10"} />
-              <span>VibeBoard</span>
+              {/*<span>VibeBoard</span>*/}
             </Link>
             {/* END Logo */}
 
