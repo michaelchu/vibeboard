@@ -26,7 +26,6 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();
   const currentRoute = location.pathname;
-  console.log(currentRoute);
 
   const headerNavigation = [
     {

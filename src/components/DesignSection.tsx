@@ -7,42 +7,34 @@ import {
   PlusIcon,
 } from "@heroicons/react/20/solid";
 import Keyboard from "./Keyboard/Keyboard.tsx";
-import { mergeArraysByKey } from "../util/helpers.ts";
 import { mac_os_65 } from "./Keyboard/layouts/mac_os_65.ts";
-import { useKeyboardByTheme } from "../util/db.jsx";
 
 export default function DesignSection() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const { data: key_colors, status } = useKeyboardByTheme(
-    "ca5d93da-28ab-4892-803d-13dad50b9a22",
-  );
+  const [color, setColor] = useState("white");
+  const [layout, setLayout] = useState("65_keys");
+  const [shape, setShape] = useState("angular");
   const filters = [
     {
       id: "layout",
       name: "Layout",
       defaultOpen: true,
+      onChange: setLayout,
       options: [
-        { value: "40", label: "40%", checked: true },
+        { value: "40_keys", label: "40%" },
         { value: "40_ortho", label: "40% Ortho" },
         { value: "50_ortho", label: "50% Ortho" },
-        { value: "60", label: "60%" },
-        { value: "65", label: "65%" },
-        { value: "75", label: "75%" },
-        { value: "80", label: "80%" },
-        { value: "100", label: "90%" },
-      ],
-    },
-    {
-      id: "case_style",
-      name: "Case Style",
-      options: [
-        { value: "angular", label: "Angular", checked: true },
-        { value: "rounded", label: "Rounded" },
+        { value: "60_keys", label: "60%" },
+        { value: "65_keys", label: "65%", checked: true },
+        { value: "75_keys", label: "75%" },
+        { value: "80_keys", label: "80%" },
+        { value: "100_keys", label: "90%" },
       ],
     },
     {
       id: "case_color",
       name: "Case Color",
+      onChange: setColor,
       options: [
         { value: "white", label: "White", checked: true },
         { value: "red", label: "Red" },
@@ -52,6 +44,15 @@ export default function DesignSection() {
         { value: "blue", label: "Blue" },
         { value: "purple", label: "Purple" },
         { value: "black", label: "Black" },
+      ],
+    },
+    {
+      id: "case_style",
+      name: "Case Style",
+      onChange: setShape,
+      options: [
+        { value: "angular", label: "Angular", checked: true },
+        { value: "rounded", label: "Rounded" },
       ],
     },
   ];
@@ -123,7 +124,7 @@ export default function DesignSection() {
                                 <ChevronDownIcon
                                   className={classNames(
                                     open ? "-rotate-180" : "rotate-0",
-                                    "h-5 w-5 transform",
+                                    "h-5 w-5 transform"
                                   )}
                                   aria-hidden="true"
                                 />
@@ -144,6 +145,9 @@ export default function DesignSection() {
                                     type="radio"
                                     defaultChecked={option.checked}
                                     className="h-4 w-4 rounded border-gray-200 bg-gray-300 text-blue-600 focus:ring-blue-500"
+                                    onChange={(e) => {
+                                      section.onChange(e.target.value);
+                                    }}
                                   />
                                   <label
                                     htmlFor={`${section.id}-${optionIdx}-mobile`}
@@ -215,7 +219,7 @@ export default function DesignSection() {
                         </Disclosure.Button>
                       </h3>
                       <Disclosure.Panel className="pt-6">
-                        <div className="space-y-4">
+                        <div className="space-y-4 px-3">
                           {section.options.map((option, optionIdx) => (
                             <div
                               key={option.value}
@@ -228,6 +232,9 @@ export default function DesignSection() {
                                 type="radio"
                                 defaultChecked={option.checked}
                                 className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                onChange={(e) => {
+                                  section.onChange(e.target.value);
+                                }}
                               />
                               <label
                                 htmlFor={`filter-${section.id}-${optionIdx}`}
@@ -250,13 +257,9 @@ export default function DesignSection() {
         {/* Product grid */}
         <div className="mt-10 lg:col-span-2 lg:mt-0 xl:col-span-3 bg-gray-800/50">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
-            {status === "idle" || status === "loading" ? (
-              <span>One moment please</span>
-            ) : (
-              <main className="w-full h-full flex items-center justify-center">
-                <Keyboard keys={mac_os_65} variant={"orange"} />
-              </main>
-            )}
+            <main className="w-full h-full flex items-center justify-center">
+              <Keyboard keys={mac_os_65} variant={color} shape={shape} />
+            </main>
           </div>
         </div>
       </div>
