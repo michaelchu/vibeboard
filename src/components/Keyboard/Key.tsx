@@ -7,14 +7,18 @@ export default function Key({ keyInfo }) {
       leftShadow: "bg-gray-800",
       rightShadow: "bg-gray-800",
       border: "border-gray-800 bg-gray-800",
-      textColor: `text-${keyInfo.key_label_color}`,
+      textColor: keyInfo.key_label_color
+        ? `text-${keyInfo.key_label_color}`
+        : "text-gray-300",
     },
     darker: {
       button: "bg-black bg-gradient-to-b from-gray-900 to-gray-950",
       leftShadow: "bg-black",
       rightShadow: "bg-black",
       border: "border-gray-950 bg-gray-950",
-      textColor: `text-${keyInfo.key_label_color}`,
+      textColor: keyInfo.key_label_color
+        ? `text-${keyInfo.key_label_color}`
+        : "text-gray-300",
     },
     light: {
       button: "bg-gradient-to-b from-gray-50 to-gray-400",

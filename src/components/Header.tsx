@@ -1,6 +1,6 @@
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../util/auth.jsx";
 import { classNames } from "../util/helpers.js";
 import {
@@ -26,7 +26,6 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const location = useLocation();
   const currentRoute = location.pathname;
-  console.log(currentRoute);
 
   const headerNavigation = [
     {
