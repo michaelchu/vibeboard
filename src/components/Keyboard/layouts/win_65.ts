@@ -2,7 +2,7 @@
 // while the frontend is responsible for visual properties
 // this is joined by they key_id
 
-export const mac_os_65 = [
+export const win_65 = [
   // 14 keys
   {
     key_id: "esc",
@@ -24,8 +24,8 @@ export const mac_os_65 = [
   { key_id: "dash", label: "-", width: "min-w-10", row: "1" },
   { key_id: "equal", label: "=", width: "min-w-10", row: "1" },
   {
-    key_id: "delete",
-    label: "DELETE",
+    key_id: "backspace",
+    label: "BACKSPACE",
     width: "min-w-10",
     row: "1",
     flexGrow: true,
@@ -138,30 +138,30 @@ export const mac_os_65 = [
     font_size: "text-[9px]",
   },
   {
-    key_id: "option_left",
-    label: "OPT",
+    key_id: "win",
+    label: "WIN",
     width: "min-w-10",
     row: "5",
     font_size: "text-[9px]",
   },
   {
-    key_id: "command_left",
-    label: "CMD",
+    key_id: "alt_left",
+    label: "ALT",
     width: "min-w-10",
     row: "5",
     font_size: "text-[9px]",
   },
   { key_id: "space", label: "", width: "min-w-10", row: "5", flexGrow: true },
   {
-    key_id: "command_right",
-    label: "CMD",
+    key_id: "alt_right",
+    label: "ALT",
     width: "min-w-10",
     row: "5",
     font_size: "text-[9px]",
   },
   {
-    key_id: "option_right",
-    label: "OPT",
+    key_id: "menu",
+    label: "MENU",
     width: "min-w-10",
     row: "5",
     font_size: "text-[9px]",

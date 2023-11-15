@@ -7,19 +7,35 @@ import {
   PlusIcon,
 } from "@heroicons/react/20/solid";
 import Keyboard from "./Keyboard/Keyboard.tsx";
-import { mac_os_65 } from "./Keyboard/layouts/mac_os_65.ts";
+import { mac_65 } from "./Keyboard/layouts/mac_65.ts";
+import { win_65 } from "./Keyboard/layouts/win_65.ts";
 
-export default function DesignSection() {
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
   const [color, setColor] = useState("white");
-  const [layout, setLayout] = useState("65_keys");
   const [shape, setShape] = useState("angular");
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  const keyboards = {
+    "40_keys": mac_65,
+    "40_ortho": mac_65,
+    "50_ortho": mac_65,
+    "60_keys": win_65,
+    "65_keys": mac_65,
+    "75_keys": mac_65,
+    "80_keys": mac_65,
+    "100_keys": mac_65,
+  };
+
+  const handleSetKeyboard = (keyboard) => {
+    setTempKeyboard(keyboards[keyboard]);
+  };
+
   const filters = [
     {
       id: "layout",
       name: "Layout",
       defaultOpen: true,
-      onChange: setLayout,
+      onChange: handleSetKeyboard,
       options: [
         { value: "40_keys", label: "40%" },
         { value: "40_ortho", label: "40% Ortho" },
@@ -258,7 +274,7 @@ export default function DesignSection() {
         <div className="mt-10 lg:col-span-2 lg:mt-0 xl:col-span-3 bg-gray-800/50">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
-              <Keyboard keys={mac_os_65} variant={color} shape={shape} />
+              <Keyboard keys={tempKeyboard} variant={color} shape={shape} />
             </main>
           </div>
         </div>
