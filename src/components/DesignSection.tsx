@@ -26,7 +26,7 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
     "100_keys": mac_65,
   };
 
-  const handleSetKeyboard = (keyboard) => {
+  const handleSetKeyboard = (keyboard: string) => {
     setTempKeyboard(keyboards[keyboard]);
   };
 
