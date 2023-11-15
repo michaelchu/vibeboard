@@ -4,11 +4,11 @@ import { requireAuth } from "../util/auth.jsx";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { ArrowUturnRightIcon } from "@heroicons/react/24/solid";
 import DesignSection from "../components/DesignSection.tsx";
-import { mac_65 } from "../components/Keyboard/layouts/mac_65.ts";
 import Header from "../components/Header.tsx";
+import { win_65 } from "../components/Keyboard/layouts/win_65.ts";
 
 function DesignPage() {
-  const [tempKeyboard, setTempKeyboard] = useState(mac_65);
+  const [tempKeyboard, setTempKeyboard] = useState(win_65);
   const handleSave = () => {};
   const handleReset = () => {};
 

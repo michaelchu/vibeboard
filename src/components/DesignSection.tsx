@@ -13,21 +13,41 @@ import { win_65 } from "./Keyboard/layouts/win_65.ts";
 export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
   const [color, setColor] = useState("white");
   const [shape, setShape] = useState("angular");
+  const [platform, setPlatform] = useState("win");
+  const [layout, setLayout] = useState("65_keys");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
-  const keyboards = {
-    "40_keys": mac_65,
-    "40_ortho": mac_65,
-    "50_ortho": mac_65,
-    "60_keys": win_65,
-    "65_keys": mac_65,
-    "75_keys": mac_65,
-    "80_keys": mac_65,
-    "100_keys": mac_65,
+  const directory = {
+    win: {
+      "40_keys": win_65,
+      "40_ortho": win_65,
+      "50_ortho": win_65,
+      "60_keys": win_65,
+      "65_keys": win_65,
+      "75_keys": win_65,
+      "80_keys": win_65,
+      "100_keys": win_65,
+    },
+    mac: {
+      "40_keys": mac_65,
+      "40_ortho": mac_65,
+      "50_ortho": mac_65,
+      "60_keys": mac_65,
+      "65_keys": mac_65,
+      "75_keys": mac_65,
+      "80_keys": mac_65,
+      "100_keys": mac_65,
+    },
   };
 
-  const handleSetKeyboard = (keyboard: string) => {
-    setTempKeyboard(keyboards[keyboard]);
+  const handleSetLayout = (layout: string) => {
+    setLayout(layout);
+    setTempKeyboard(directory[platform][layout]);
+  };
+
+  const handleSetPlatform = (platform: string) => {
+    setPlatform(platform);
+    setTempKeyboard(directory[platform][layout]);
   };
 
   const filters = [
@@ -35,7 +55,7 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
       id: "layout",
       name: "Layout",
       defaultOpen: true,
-      onChange: handleSetKeyboard,
+      onChange: handleSetLayout,
       options: [
         { value: "40_keys", label: "40%" },
         { value: "40_ortho", label: "40% Ortho" },
@@ -45,6 +65,15 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
         { value: "75_keys", label: "75%" },
         { value: "80_keys", label: "80%" },
         { value: "100_keys", label: "90%" },
+      ],
+    },
+    {
+      id: "platform",
+      name: "Platform",
+      onChange: handleSetPlatform,
+      options: [
+        { value: "win", label: "Windows", checked: true },
+        { value: "mac", label: "Mac OS" },
       ],
     },
     {
