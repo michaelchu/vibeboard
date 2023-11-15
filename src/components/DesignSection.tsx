@@ -204,7 +204,7 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
           </button>
 
           {/* Main filter section */}
-          <div className="hidden lg:block p-4 bg-gray-800/80">
+          <div className="hidden lg:block p-5 bg-gray-800/80">
             <form className="space-y-10">
               {filters.map((section) => (
                 <Disclosure
