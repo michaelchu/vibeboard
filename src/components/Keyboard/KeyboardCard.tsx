@@ -23,7 +23,7 @@ export default function KeyboardCard({ keyboard }) {
       {/* Card Headings: Title with Subtitle and Action */}
       <div className="flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-101 dark:bg-gray-800">
         {/* Card Header */}
-        <div className="py-4 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between sm:items-center dark:bg-gray-800/70">
+        <div className="py-4 px-5 bg-gray-50 text-left flex justify-between items-center dark:bg-gray-800/70">
           <div>
             <h2 className="font-semibold text-lg mb-1">
               {lorem.generateWords(2)}
