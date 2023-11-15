@@ -9,7 +9,7 @@ import React from "react";
 
 function IndexPage() {
   const title =
-    " The internet’s source for RGB keyboard designs. Powered by creators everywhere.";
+    " The internet’s source for RGB keyboard lighting designs. Powered by creators everywhere.";
 
   const { data, status } = useKeyboardPaginated(1, 10);
 
