@@ -57,7 +57,8 @@ function NotFoundPage() {
                   Well, This is Awkward...
                 </h1>
                 <h2 className="mx-auto mb-5 font-medium text-gray-500 dark:text-gray-400 md:leading-relaxed lg:w-3/5">
-                  Looks like we can't find the page you're looking for.
+                  Looks like we can&apos;t find the page you&apos;re looking
+                  for.
                 </h2>
               </div>
               <Link
