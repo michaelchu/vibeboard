@@ -134,7 +134,7 @@ export function useKeyboardPaginated(page, size = 10) {
     "yellow-500",
   ];
 
-  const { from, to } = getPagination(page, size);
+  // const { from, to } = getPagination(page, size);
   return useQuery(["keyboards", page, size], () =>
     supabase
       .from("keyboard_themes")
@@ -163,10 +163,10 @@ export function QueryClientProvider(props) {
   );
 }
 
-const getPagination = (page, size) => {
-  const limit = size ? +size : 3;
-  const from = page ? page * limit : 0;
-  const to = page ? from + size : size;
-
-  return { from, to };
-};
+// const getPagination = (page, size) => {
+//   const limit = size ? +size : 3;
+//   const from = page ? page * limit : 0;
+//   const to = page ? from + size : size;
+//
+//   return { from, to };
+// };

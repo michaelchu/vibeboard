@@ -13,7 +13,7 @@ import NotFoundPage from "./404";
 import Footer from "../components/Footer";
 import { inject } from "@vercel/analytics";
 
-// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { AuthProvider } from "../util/auth.jsx";
 import { QueryClientProvider } from "../util/db";
 

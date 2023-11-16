@@ -2,8 +2,8 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
-// @ts-ignore
 function Meta(props) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, ...customPageMeta } = props;
   const location = useLocation();
 

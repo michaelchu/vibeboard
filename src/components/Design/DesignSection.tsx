@@ -1,6 +1,5 @@
-import { Disclosure } from "@headlessui/react";
 import React, { useState } from "react";
-import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
+import { PlusIcon } from "@heroicons/react/20/solid";
 import Keyboard from "../Keyboard/Keyboard.tsx";
 import { mac_65 } from "../Keyboard/layouts/mac_65.ts";
 import { win_65 } from "../Keyboard/layouts/win_65.ts";
