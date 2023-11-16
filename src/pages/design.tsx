@@ -3,7 +3,7 @@ import Meta from "../components/Meta";
 import { requireAuth } from "../util/auth.jsx";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { ArrowUturnRightIcon } from "@heroicons/react/24/solid";
-import DesignSection from "../components/DesignSection.tsx";
+import DesignSection from "../components/Design/DesignSection.tsx";
 import Header from "../components/Header.tsx";
 import { win_65 } from "../components/Keyboard/layouts/win_65.ts";
 
