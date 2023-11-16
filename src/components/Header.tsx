@@ -96,22 +96,12 @@ export default function Header() {
 
           {/* Right Section */}
           <div className="flex items-center space-x-2">
-            {!auth.user && (
               <Link
-                to="/auth/signin"
+                to={!auth.user ? "/auth/signin" : "/design"}
                 className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
               >
-                <span>Design Keyboard</span>
+                <span>Submit a Design</span>
               </Link>
-            )}
-            {auth.user && (
-              <Link
-                to="/design"
-                className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
-              >
-                <span>Design Keyboard</span>
-              </Link>
-            )}
 
             {!auth.user && (
               <Link
