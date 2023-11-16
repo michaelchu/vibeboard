@@ -98,9 +98,9 @@ export default function Header() {
           <div className="flex items-center space-x-2">
               <Link
                 to={!auth.user ? "/auth/signin" : "/design"}
-                className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
+                className=" sm:text-white sm:bg-gradient-to-r sm:from-purple-500 sm:to-pink-500 sm:hover:bg-gradient-to-l sm:font-medium sm:rounded-lg sm:text-sm sm:px-5 sm:py-2 sm:text-center "
               >
-                <span>Submit a Design</span>
+                <span className="hidden sm:block">Submit a Design</span>
               </Link>
 
             {!auth.user && (
@@ -229,15 +229,23 @@ export default function Header() {
         <div className={`lg:hidden dark ${mobileNavOpen ? "" : "hidden"}`}>
           <nav className="flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
             {headerNavigation.map((item, index) => (
-              <a
+              <Link
                 key={`mobile-${index}`}
-                href={item.to}
+                to={item.to}
                 className={classNames(item.current ? active : inactive)}
               >
                 {item.icon}
                 <span>{item.name}</span>
-              </a>
+              </Link>
             ))}
+          </nav>
+          <nav className="sm:hidden flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
+            <Link
+                  to={!auth.user ? "/auth/signin" : "/design"}
+                  className=" text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
+                >
+                  <span>Submit a Design</span>
+                </Link>
           </nav>
         </div>
         {/* END Mobile Navigation */}
