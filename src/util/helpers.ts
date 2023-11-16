@@ -6,19 +6,22 @@ export function classNames(...classes) {
 
 export const mergeArraysByKey = (
   left: KeyProps[],
-  right: RightKeyProps[]
+  right: RightKeyProps[],
 ): KeyProps[] => {
   if (left.length !== right.length) {
     throw new Error(
-      `The input arrays have different lengths. Left: ${left.length}, Right: ${right.length}`
+      `The input arrays have different lengths. Left: ${left.length}, Right: ${right.length}`,
     );
   }
 
   // Convert the 'right' array into a map for quick lookup.
-  const rightMap = right.reduce((acc, item) => {
-    acc[item.key_id] = item;
-    return acc;
-  }, {} as Record<string, RightKeyProps>);
+  const rightMap = right.reduce(
+    (acc, item) => {
+      acc[item.key_id] = item;
+      return acc;
+    },
+    {} as Record<string, RightKeyProps>,
+  );
 
   // Map over the 'left' array and merge the properties from the 'right' array.
   return left.map((item) => {

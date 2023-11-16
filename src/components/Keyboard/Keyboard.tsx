@@ -92,8 +92,8 @@ export default function Keyboard({
       className={`${colorVariants[variant].border} ${
         shape == "rounded" ? "rounded-xl" : ""
       }
-      p-3 border-2 border-t-gray-400 dark:border-t-gray-800 border-x-gray-400 
-      dark:border-x-gray-900 border-b-gray-500 dark:border-b-gray-950 shadow-lg`}
+      p-3 border-2 border-t-gray-400 dark:border-t-gray-700/50 border-x-gray-400 
+      dark:border-x-gray-900/70 border-b-gray-500 dark:border-b-gray-950/70 shadow-lg`}
     >
       {/*Keyboard Inner Frame*/}
       <div
