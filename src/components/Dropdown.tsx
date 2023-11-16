@@ -16,7 +16,7 @@ export default function Dropdown() {
     <>
       {/* Select Menus: Simple */}
       <Listbox value={selected} onChange={setSelected}>
-        <div className="relative w-48">
+        <div className="relative sm:w-48">
           {/* Select Menu Toggle */}
           <div className="space-y-1">
             <Listbox.Button className="group w-full text-left flex justify-between items-center gap-2 border bg-white px-3 py-1.5 leading-6 rounded-lg border-gray-200 focus:outline-none focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:bg-gray-800 dark:border-gray-600 dark:focus:border-blue-500">
