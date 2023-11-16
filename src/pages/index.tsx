@@ -8,15 +8,12 @@ import Header from "../components/Header.tsx";
 import React from "react";
 
 function IndexPage() {
-  const title =
-    " The internet’s source for RGB keyboard lighting designs. Powered by creators everywhere.";
-
   const { data, status } = useKeyboardPaginated(1, 10);
 
   return (
     <>
       <Header />
-      <Heading title={title} />
+      <Heading />
       <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
         <div>
           <Meta />
