@@ -1,8 +1,8 @@
-name: Format Check
+name: ESLint Check
 on: [push]
 jobs:
   build:
-    name: Prettier Check
+    name: ESLint Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,5 +11,5 @@ jobs:
           node-version: 18.x
       - name: Install modules
         run: yarn install
-      - name: Run Prettier
-        run: yarn format
+      - name: Run ESLint
+        run: yarn lint

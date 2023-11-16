@@ -1,15 +1,11 @@
-import {
-  KeyProps,
-  LeftKeyProps,
-  RightKeyProps,
-} from "../components/Keyboard/types.ts";
+import { KeyProps, RightKeyProps } from "../components/Keyboard/types.ts";
 
 export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export const mergeArraysByKey = (
-  left: LeftKeyProps[],
+  left: KeyProps[],
   right: RightKeyProps[],
 ): KeyProps[] => {
   if (left.length !== right.length) {

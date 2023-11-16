@@ -5,6 +5,31 @@ import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
 import { useAuth } from "../util/auth.jsx";
 
+/*
+SettingsGeneral component handles updating user profile.
+
+Renders:
+- Form with name and email inputs
+- Submit button
+- Loading indicator
+
+Uses React Hook Form for form validation and submission.
+
+Calls auth.updateProfile on submit to update user profile.
+
+Passes status back to parent via onStatus callback prop.
+
+Props:
+
+- onStatus: (status) => void
+  Callback to pass back status when form is submitted.
+
+Usage:
+
+<SettingsGeneral onStatus={handleStatus} />
+
+*/
+
 function SettingsGeneral(props) {
   const auth = useAuth();
   const [pending, setPending] = useState(false);

@@ -5,6 +5,39 @@ import Button from "./Button";
 import LoadingIcon from "./LoadingIcon";
 import { useAuth } from "../util/auth.jsx";
 
+/*
+SettingsPassword component handles updating user password.
+
+Renders:
+
+- Password and confirm password TextField components
+- Submit button
+- Loading indicator
+
+Uses React Hook Form for validation:
+
+- Requires password and confirmation fields
+- Validates password match
+
+Calls auth.updatePassword on submit to update password.
+
+Passes status back to parent via onStatus callback prop:
+
+- Success message on completion
+- Error message on failure
+- Requires recent login if session expired
+
+Props:
+
+- onStatus: (status) => void
+  Callback to return status to parent.
+
+Usage:
+
+<SettingsPassword onStatus={handleStatus} />
+
+*/
+
 function SettingsPassword(props) {
   const auth = useAuth();
   const [pending, setPending] = useState(false);

@@ -11,15 +11,46 @@ import TopPage from "./top.tsx";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotFoundPage from "./404";
 import Footer from "../components/Footer";
-import Header from "../components/Header.tsx";
-import Heading from "../components/Heading.tsx";
 import { inject } from "@vercel/analytics";
 
-// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { AuthProvider } from "../util/auth.jsx";
 import { QueryClientProvider } from "../util/db";
 
 inject();
+
+/*
+App component defines the main router and page structure.
+
+Renders:
+
+- QueryClientProvider for React Query
+- AuthProvider for authentication
+- Router with Routes for each page component
+- Header and Footer components
+
+Routes:
+
+- / -> IndexPage
+- /dashboard -> DashboardPage
+- /design -> DesignPage
+- /auth/:type -> AuthPage
+- /trending -> TrendingPage
+- /recently-updated -> RecentlyUpdatedPage
+- /top -> TopPage
+- /settings/:section -> SettingsPage
+- 404 -> NotFoundPage
+
+Props:
+
+- None
+
+Usage:
+
+<App />
+
+Wraps app in providers and contains all routes.
+*/
 
 function App() {
   return (

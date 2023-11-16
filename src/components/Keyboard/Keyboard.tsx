@@ -5,13 +5,43 @@ interface KeyBoardProps {
   keys: KeyProps[];
   variant?: string;
   shape?: string;
-  layout?: string;
 }
+
+/*
+Keyboard component renders a keyboard layout based on the provided keys array.
+
+Props:
+
+- keys: Array of KeyProps objects, each defining a key on the keyboard
+- variant: Color variant - one of 'black', 'white', 'red', etc. Sets border and inner frame colors
+- shape: 'angular' (default) or 'rounded' - sets border radius
+
+Functionality:
+
+- Keys array is grouped by row using the 'row' property on each key
+- Keys in each row are rendered using the Key component
+- Color variants set the colors for the keyboard border and inner frame
+- Shape prop sets border radius for rounded corners
+
+- colorVariants object maps variant prop to tailwind classes for styling
+- keysByRow groups keys by row for rendering
+- Keys are rendered in rows using the Key component
+- Tailwind utilities used for styling based on variant and shape
+
+Usage:
+
+<Keyboard
+  keys={keys}
+  variant="black"
+  shape="rounded"
+/>
+
+*/
+
 export default function Keyboard({
   keys,
   variant = "black",
   shape = "angular",
-  layout = "65_keys",
 }: KeyBoardProps) {
   const colorVariants = {
     black: {
@@ -62,8 +92,8 @@ export default function Keyboard({
       className={`${colorVariants[variant].border} ${
         shape == "rounded" ? "rounded-xl" : ""
       }
-      p-3 border-2 border-t-gray-400 dark:border-t-gray-800 border-x-gray-400 
-      dark:border-x-gray-900 border-b-gray-500 dark:border-b-gray-950 shadow-lg`}
+      p-3 border-2 border-t-gray-400 dark:border-t-gray-700/50 border-x-gray-400 
+      dark:border-x-gray-900/70 border-b-gray-500 dark:border-b-gray-950/70 shadow-lg`}
     >
       {/*Keyboard Inner Frame*/}
       <div
