@@ -52,7 +52,7 @@ export default function KeyboardCard({
       {/* Card Headings: Title with Subtitle and Action */}
       <div className="flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-101 dark:bg-gray-800">
         {/* Card Header */}
-        <div className="py-4 px-5 bg-gray-50 text-left flex justify-between items-center dark:bg-gray-800/70">
+        <div className="py-3 px-5 bg-gray-50 text-left flex justify-between items-center dark:bg-gray-800/70">
           <div>
             <h2 className="font-semibold text-lg mb-1">
               {lorem.generateWords(2)}
@@ -79,12 +79,12 @@ export default function KeyboardCard({
         {/* Card Body */}
 
         {/* Card Footer */}
-        <div className="flex-1 flex py-4 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between sm:items-center dark:bg-gray-900/30">
+        <div className="flex-1 flex py-3 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between sm:items-center dark:bg-gray-900/30">
           <h3 className="mb-1 text-gray-500 overflow-ellipsis">
             {lorem.generateParagraphs(1)}
           </h3>
         </div>
-        <div className="py-3 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
+        <div className="py-2 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
           <dl className="py-3 space-y-1">
             <dt className="text-md text-gray-300 font-semibold">
               {keyboard.keyboard_size}
