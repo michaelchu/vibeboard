@@ -16,7 +16,7 @@ export default function IndexPage() {
       <Meta />
       <Header />
       <Heading />
-      <div className="border-t border-gray-700/70"></div>
+      <div className="sm:border-t sm:border-gray-700/70"></div>
       {status === "idle" || status === "loading" ? (
         <span>One moment please</span>
       ) : (

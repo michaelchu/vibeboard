@@ -28,14 +28,14 @@ function DesignPage() {
             <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <button
                 onClick={handleReset}
-                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-yellow-600 bg-yellow-600 text-white hover:text-white hover:bg-yellow-500 hover:border-yellow-500 focus:ring focus:ring-yellow-400 focus:ring-opacity-50 active:bg-yellow-700 active:border-yellow-700 dark:focus:ring-yellow-400 dark:focus:ring-opacity-90"
+                className="inline-flex items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold leading-5 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300 focus:ring-opacity-25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600 dark:focus:ring-opacity-40 dark:active:border-gray-700"
               >
                 <ArrowUturnRightIcon className="inline-block w-5 h-5 opacity-50" />
                 <span>Reset</span>
               </button>
               <button
                 onClick={handleSave}
-                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-green-700 bg-green-700 text-white hover:text-white hover:bg-green-600 hover:border-green-600 focus:ring focus:ring-green-400 focus:ring-opacity-50 active:bg-green-700 active:border-blue-700 dark:focus:ring-green-400 dark:focus:ring-opacity-90"
+                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-gray-600 bg-gray-600 text-white hover:text-white hover:bg-gray-500 hover:border-gray-500 focus:ring focus:ring-gray-400 focus:ring-opacity-50 active:bg-gray-700 active:border-gray-700 dark:focus:ring-gray-400 dark:focus:ring-opacity-90"
               >
                 <PlusIcon className="inline-block w-5 h-5 opacity-50" />
                 <span>Save Keyboard</span>
