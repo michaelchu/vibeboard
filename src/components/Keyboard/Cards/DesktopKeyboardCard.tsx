@@ -1,7 +1,7 @@
-import supabase from "../../util/supabase.ts";
+import supabase from "../../../util/supabase.ts";
 import { StarIcon } from "@heroicons/react/24/solid";
 import { LoremIpsum } from "lorem-ipsum";
-import { KeyboardProps } from "./types.ts";
+import { KeyboardProps } from "../types.ts";
 
 const lorem = new LoremIpsum({
   sentencesPerParagraph: {
@@ -15,7 +15,7 @@ const lorem = new LoremIpsum({
 });
 
 /*
-KeyboardCard component renders a card displaying information about a keyboard.
+DesktopKeyboardCard component renders a card displaying information about a keyboard.
 
 Props:
 
@@ -38,7 +38,7 @@ Usage:
 
 */
 
-export default function KeyboardCard({
+export default function DesktopKeyboardCard({
   keyboard,
 }: {
   keyboard: KeyboardProps;

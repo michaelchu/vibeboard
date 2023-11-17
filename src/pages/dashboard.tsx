@@ -1,13 +1,14 @@
 import React from "react";
-import { KeyboardProps } from "../components/Keyboard/types.ts";
 import Meta from "../components/Meta";
 import { requireAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
-import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
+import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
 import { useKeyboardPaginated } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";
+import Spinner from "../components/Spinner.tsx";
+import Pagination from "../components/Pagination.tsx";
 
 function DashboardPage() {
   const { data, status } = useKeyboardPaginated(1, 10);
@@ -37,17 +38,20 @@ function DashboardPage() {
       </div>
       <Meta title="Design your Keyboard" />
       {/* Page Section */}
-      <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          {status === "idle" || status === "loading" ? (
-            <span>One moment please</span>
-          ) : (
-            data.map((keyboard: KeyboardProps, idx: number) => (
-              <KeyboardCard key={idx} keyboard={keyboard} />
-            ))
-          )}
+      {status === "idle" || status === "loading" ? (
+        <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
+          <div className={"w-full h-full"}>
+            <Spinner variant={"dark"} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <KeyboardCardList data={data} />
+          <div className={"py-10 px-5 sm:p-20"}>
+            <Pagination />
+          </div>
+        </>
+      )}
       {/* END Page Section */}
     </>
   );
