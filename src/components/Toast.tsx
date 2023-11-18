@@ -13,19 +13,31 @@ interface ToastProps {
 }
 
 export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
-  const icons = {
-    success: (
-      <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
-    ),
-    failure: (
-      <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
-    ),
-    info: (
-      <InformationCircleIcon
-        className="h-6 w-6 text-blue-400"
-        aria-hidden="true"
-      />
-    ),
+  const style = {
+    success: {
+      icon: (
+        <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+      ),
+      title: "text-green-400",
+      msg: "text-gray-200"
+    },
+    failure: {
+      icon: (
+        <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
+      ),
+      title: "text-red-400",
+      msg: "text-gray-200"
+    },
+    info: {
+      icon: (
+        <InformationCircleIcon
+          className="h-6 w-6 text-blue-400"
+          aria-hidden="true"
+        />
+      ),
+      title: "text-blue-400",
+      msg: "text-gray-200"
+    },
   };
 
   return (
@@ -50,16 +62,14 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
             <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="p-4 bg-gray-800">
                 <div className="flex items-start">
-                  <div className="flex-shrink-0">{icons[type]}</div>
+                  <div className="flex-shrink-0">{style[type].icon}</div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
                     <p
-                      className={`text-sm font-medium ${
-                        type === "failure" ? "text-red-400" : "text-green-400"
-                      }`}
+                      className={`text-sm font-medium ${style[type].title}`}
                     >
                       {title}
                     </p>
-                    <p className="mt-1 text-sm text-gray-200">{msg}</p>
+                    <p className={`mt-1 text-sm ${style[type].msg}`}>{msg}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
