@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   darkMode: "class",
   content: [
@@ -7,7 +8,7 @@ module.exports = {
   ],
   // Safelist all possible tailwind defined colors, unfortunately does not
   // cover all arbitrary colors
-  safelist: [{ pattern: /text-+/ }],
+  safelist: [{ pattern: /text-+/ }, { pattern: /bg-+/ }],
   theme: {
     extend: {
       minWidth: {

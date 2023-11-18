@@ -1,16 +1,18 @@
 import React from "react";
-import { KeyboardProps } from "../components/Keyboard/types.ts";
 import Meta from "../components/Meta";
-import { requireAuth } from "../util/auth.jsx";
+import { requireAuth, useAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
-import KeyboardCard from "../components/Keyboard/KeyboardCard.tsx";
-import { useKeyboardPaginated } from "../util/db.jsx";
+import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
+import { useKeyboardByUser } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";
+import Spinner from "../components/Spinner.tsx";
+import Pagination from "../components/Pagination.tsx";
 
 function DashboardPage() {
-  const { data, status } = useKeyboardPaginated(1, 10);
+  const auth = useAuth();
+  const { data, status } = useKeyboardByUser(auth.user.id);
   return (
     <>
       <Header />
@@ -22,11 +24,11 @@ function DashboardPage() {
                 Your Keyboard Collection
               </h1>
             </div>
-            <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
+            <div className=" flex-col sm:flex-row sm:flex-none sm:flex items-center justify-center sm:justify-end sm:space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <Dropdown />
               <Link
                 to="/design"
-                className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
+                className=" mt-3 sm:mt-0 block sm:inline-flex space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
               >
                 <PlusIcon className="hi-mini hi-plus inline-block w-5 h-5 opacity-50" />
                 <span>New Collection</span>
@@ -37,17 +39,20 @@ function DashboardPage() {
       </div>
       <Meta title="Design your Keyboard" />
       {/* Page Section */}
-      <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
-          {status === "idle" || status === "loading" ? (
-            <span>One moment please</span>
-          ) : (
-            data.map((keyboard: KeyboardProps, idx: number) => (
-              <KeyboardCard key={idx} keyboard={keyboard} />
-            ))
-          )}
+      {status === "idle" || status === "loading" ? (
+        <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
+          <div className={"w-full h-full"}>
+            <Spinner variant={"dark"} />
+          </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <KeyboardCardList data={data} />
+          <div className={"py-10 px-5 sm:p-20"}>
+            <Pagination />
+          </div>
+        </>
+      )}
       {/* END Page Section */}
     </>
   );

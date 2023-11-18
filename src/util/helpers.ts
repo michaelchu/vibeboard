@@ -1,15 +1,11 @@
-import {
-  KeyProps,
-  LeftKeyProps,
-  RightKeyProps,
-} from "../components/Keyboard/types.ts";
+import { KeyProps, RightKeyProps } from "../components/Keyboard/types.ts";
 
 export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export const mergeArraysByKey = (
-  left: LeftKeyProps[],
+  left: KeyProps[],
   right: RightKeyProps[],
 ): KeyProps[] => {
   if (left.length !== right.length) {
@@ -34,4 +30,14 @@ export const mergeArraysByKey = (
     }
     return { ...item, ...rightMap[item.key_id] };
   });
+};
+
+export const keysByRow = (keys: KeyProps[]) => {
+  return keys.reduce<Record<string, KeyProps[]>>((acc, key) => {
+    if (!acc[key.row]) {
+      acc[key.row] = [];
+    }
+    acc[key.row].push(key);
+    return acc;
+  }, {});
 };

@@ -1,7 +1,7 @@
 import {
-  useQuery,
   QueryClient,
   QueryClientProvider as QueryClientProviderBase,
+  useQuery,
 } from "react-query";
 import supabase from "./supabase";
 
@@ -110,16 +110,18 @@ export async function deleteItem(id) {
 
 /**** KEYBOARDS ****/
 // Get a keyboard by theme id
-export function useKeyboardByTheme(theme) {
+export function useKeyboardByUser(owner_id) {
   return useQuery(
-    ["keyboard", { theme }],
+    ["keyboard", { owner_id }],
     () =>
       supabase
-        .from("keyboard_theme_keys")
-        .select("key_id, key_label_color")
-        .eq("theme_id", theme)
+        .from("keyboard_themes")
+        .select(
+          "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+        )
+        .eq("owner", owner_id)
         .then(handle),
-    { enabled: !!theme },
+    { enabled: !!owner_id },
   );
 }
 
@@ -134,7 +136,7 @@ export function useKeyboardPaginated(page, size = 10) {
     "yellow-500",
   ];
 
-  const { from, to } = getPagination(page, size);
+  // const { from, to } = getPagination(page, size);
   return useQuery(["keyboards", page, size], () =>
     supabase
       .from("keyboard_themes")
@@ -144,6 +146,34 @@ export function useKeyboardPaginated(page, size = 10) {
       .in("theme_name", sample)
       .then(handle),
   );
+}
+
+export async function createKeyboardTheme(themeData, keyboardData) {
+  const response = await supabase
+    .from("keyboard_themes")
+    .insert([themeData])
+    .select();
+
+  if (response.error) {
+    throw response.error;
+  }
+
+  const { id: themeId } = response.data[0];
+  const keyboardDataWithThemeId = keyboardData.map((kd) => ({
+    ...kd,
+    theme_id: themeId,
+  }));
+
+  const keyboardResponse = await supabase
+    .from("keyboard_theme_keys")
+    .insert(keyboardDataWithThemeId);
+
+  if (keyboardResponse.error) {
+    throw keyboardResponse.error;
+  }
+
+  // Invalidate and refetch queries that could have old data
+  // await client.invalidateQueries(["items"]);
 }
 
 /**** HELPERS ****/
@@ -163,10 +193,10 @@ export function QueryClientProvider(props) {
   );
 }
 
-const getPagination = (page, size) => {
-  const limit = size ? +size : 3;
-  const from = page ? page * limit : 0;
-  const to = page ? from + size : size;
-
-  return { from, to };
-};
+// const getPagination = (page, size) => {
+//   const limit = size ? +size : 3;
+//   const from = page ? page * limit : 0;
+//   const to = page ? from + size : size;
+//
+//   return { from, to };
+// };

@@ -11,5 +11,9 @@ export default defineConfig({
     open: true,
     // this sets a default port to 3000
     port: 3000,
+    hmr: true,
+    watch: {
+      usePolling: true,
+    },
   },
 });

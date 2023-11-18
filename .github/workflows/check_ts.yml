@@ -1,4 +1,4 @@
-name: CI
+name: Typescript Check
 on: [push]
 jobs:
   build:
