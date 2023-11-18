@@ -36,6 +36,7 @@
     "preview": "vite preview",
     "tsc": "tsc",
     "format": "prettier --write .",
+    "check_format": "prettier --check .",
     "lint": "node_modules/.bin/eslint --ext=.jsx,.js,.tsx,.ts  ."
   },
   "eslintConfig": {
