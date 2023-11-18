@@ -1,18 +1,7 @@
 import supabase from "../../../util/supabase.ts";
 import { StarIcon } from "@heroicons/react/24/solid";
-import { LoremIpsum } from "lorem-ipsum";
 import { KeyboardProps } from "../types.ts";
-
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 4,
-    min: 1,
-  },
-  wordsPerSentence: {
-    max: 16,
-    min: 4,
-  },
-});
+import { lorem } from "../../../util/helpers.ts";
 
 /*
 DesktopKeyboardCard component renders a card displaying information about a keyboard.

@@ -1,20 +1,9 @@
 import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
-import { LoremIpsum } from "lorem-ipsum";
 import BackgroundImage from "../../BackgroundImage.tsx";
 import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
-
-const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 4,
-    min: 1,
-  },
-  wordsPerSentence: {
-    max: 16,
-    min: 4,
-  },
-});
+import { lorem } from "../../../util/helpers.ts";
 
 export default function MobileKeyboardCard({
   keyboard,

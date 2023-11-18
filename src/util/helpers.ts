@@ -1,4 +1,5 @@
 import { KeyProps, RightKeyProps } from "../components/Keyboard/types.ts";
+import { LoremIpsum } from "lorem-ipsum";
 
 export function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -41,3 +42,14 @@ export const keysByRow = (keys: KeyProps[]) => {
     return acc;
   }, {});
 };
+
+export const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 4,
+    min: 1,
+  },
+  wordsPerSentence: {
+    max: 16,
+    min: 4,
+  },
+});
