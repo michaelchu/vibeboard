@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { classNames } from "../../util/helpers.ts";
-import { FilterOption, FilterSection } from "./types.ts";
+import { FilterSection } from "./types.ts";
 
 export default function DesignMobileFilter({
   filters,
@@ -80,34 +80,36 @@ export default function DesignMobileFilter({
                           </Disclosure.Button>
                         </legend>
                         <Disclosure.Panel className="px-4 pb-2 pt-4">
-                          <div className="space-y-6">
-                            {section.options.map(
-                              (option: FilterOption, optionIdx: number) => (
+                          {section.options ? (
+                            <div className="space-y-6">
+                              {section.options.map((option, optionIdx) => (
                                 <div
                                   key={option.value}
                                   className="flex items-center"
                                 >
                                   <input
-                                    id={`${section.id}-${optionIdx}-mobile`}
+                                    id={`filter-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="radio"
                                     defaultChecked={option.checked}
-                                    className="h-4 w-4 rounded border-gray-200 bg-gray-300 text-blue-600 focus:ring-blue-500"
+                                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     onChange={(e) => {
                                       section.onChange(e.target.value);
                                     }}
                                   />
                                   <label
-                                    htmlFor={`${section.id}-${optionIdx}-mobile`}
-                                    className="ml-3 text-sm text-gray-400"
+                                    htmlFor={`filter-${section.id}-${optionIdx}`}
+                                    className="ml-3 text-sm text-gray-300"
                                   >
                                     {option.label}
                                   </label>
                                 </div>
-                              ),
-                            )}
-                          </div>
+                              ))}
+                            </div>
+                          ) : (
+                            section.element
+                          )}
                         </Disclosure.Panel>
                       </fieldset>
                     )}
