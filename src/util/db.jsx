@@ -1,7 +1,7 @@
 import {
-  useQuery,
   QueryClient,
   QueryClientProvider as QueryClientProviderBase,
+  useQuery,
 } from "react-query";
 import supabase from "./supabase";
 
@@ -144,6 +144,38 @@ export function useKeyboardPaginated(page, size = 10) {
       .in("theme_name", sample)
       .then(handle),
   );
+}
+
+export async function createKeyboardTheme(themeData, keyboardData) {
+  const { data: themeDataResponse, error: themeError } = await supabase
+    .from("keyboard_themes")
+    .insert([themeData])
+    .then(handle);
+
+  if (themeError) {
+    throw themeError;
+  }
+
+  // Use the theme_id from the inserted theme to insert related data
+  const themeId = themeDataResponse[0].theme_id;
+  const keyboardDataWithThemeId = keyboardData.map((kd) => ({
+    ...kd,
+    theme_id: themeId,
+  }));
+
+  const { data: keyboardDataResponse, error: keyboardError } = await supabase
+    .from("keyboard_theme_keys") // replace 'related_table' with your actual table name
+    .insert(keyboardDataWithThemeId)
+    .then(handle);
+
+  if (keyboardError) {
+    throw keyboardError;
+  }
+
+  // Invalidate and refetch queries that could have old data
+  // await client.invalidateQueries(["items"]);
+
+  return { themeData: themeDataResponse, keyboardData: keyboardDataResponse };
 }
 
 /**** HELPERS ****/

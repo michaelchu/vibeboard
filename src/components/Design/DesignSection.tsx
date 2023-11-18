@@ -64,7 +64,6 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
     {
       id: "color",
       name: "Color Picker",
-      defaultOpen: true,
       onChange: handleSetLayout,
       element: (
         <ColorPicker

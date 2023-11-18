@@ -1,16 +1,35 @@
 import React, { useState } from "react";
 import Meta from "../components/Meta";
-import { requireAuth } from "../util/auth.jsx";
+import { requireAuth, useAuth } from "../util/auth.jsx";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { ArrowUturnRightIcon } from "@heroicons/react/24/solid";
 import DesignSection from "../components/Design/DesignSection.tsx";
 import Header from "../components/Header.tsx";
 import { win_65 } from "../components/Keyboard/layouts/win_65.ts";
+import DesignModal from "../components/Design/DesignModal.tsx";
+import { createKeyboardTheme } from "../util/db.jsx";
 
 function DesignPage() {
+  const auth = useAuth();
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
-  const handleSave = () => {};
-  const handleReset = () => {};
+  const [isOpen, setIsOpen] = useState(false);
+  const handleSave = (title: string, description: string) => {
+    createKeyboardTheme(
+      { theme_name: title, description, owner: auth.user.id },
+      tempKeyboard,
+    ).then(() => closeModal());
+  };
+  const handleReset = () => {
+    setTempKeyboard(win_65);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
 
   return (
     <>
@@ -34,7 +53,7 @@ function DesignPage() {
                 <span>Reset</span>
               </button>
               <button
-                onClick={handleSave}
+                onClick={openModal}
                 className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-gray-600 bg-gray-600 text-white hover:text-white hover:bg-gray-500 hover:border-gray-500 focus:ring focus:ring-gray-400 focus:ring-opacity-50 active:bg-gray-700 active:border-gray-700 dark:focus:ring-gray-400 dark:focus:ring-opacity-90"
               >
                 <PlusIcon className="inline-block w-5 h-5 opacity-50" />
@@ -52,6 +71,11 @@ function DesignPage() {
           setTempKeyboard={setTempKeyboard}
         />
       </div>
+      <DesignModal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        handleSave={handleSave}
+      />
     </>
   );
 }
