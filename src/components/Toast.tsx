@@ -16,17 +16,18 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
   const style = {
     success: {
       icon: (
-        <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+        <CheckCircleIcon
+          className="h-6 w-6 text-green-400"
+          aria-hidden="true"
+        />
       ),
       title: "text-green-400",
-      msg: "text-gray-200"
+      msg: "text-gray-200",
     },
     failure: {
-      icon: (
-        <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
-      ),
+      icon: <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />,
       title: "text-red-400",
-      msg: "text-gray-200"
+      msg: "text-gray-200",
     },
     info: {
       icon: (
@@ -36,7 +37,7 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
         />
       ),
       title: "text-blue-400",
-      msg: "text-gray-200"
+      msg: "text-gray-200",
     },
   };
 
@@ -64,9 +65,7 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
                 <div className="flex items-start">
                   <div className="flex-shrink-0">{style[type].icon}</div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p
-                      className={`text-sm font-medium ${style[type].title}`}
-                    >
+                    <p className={`text-sm font-medium ${style[type].title}`}>
                       {title}
                     </p>
                     <p className={`mt-1 text-sm ${style[type].msg}`}>{msg}</p>
