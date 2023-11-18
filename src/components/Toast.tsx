@@ -47,18 +47,24 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="p-4">
+            <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="p-4 bg-gray-800">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">{icons[type]}</div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">{title}</p>
-                    <p className="mt-1 text-sm text-gray-500">{msg}</p>
+                    <p
+                      className={`text-sm font-medium ${
+                        type === "failure" ? "text-red-400" : "text-green-400"
+                      }`}
+                    >
+                      {title}
+                    </p>
+                    <p className="mt-1 text-sm text-gray-200">{msg}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
                       type="button"
-                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="inline-flex rounded-md text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                       onClick={() => {
                         setShow(false);
                       }}
