@@ -43,71 +43,6 @@ export async function updateUser(uid, data) {
   return response;
 }
 
-/**** ITEMS ****/
-/* Example query functions (modify to your needs) */
-
-// Fetch item data
-export function useItem(id) {
-  return useQuery(
-    ["item", { id }],
-    () => supabase.from("items").select().eq("id", id).single().then(handle),
-    { enabled: !!id },
-  );
-}
-
-// Fetch all items by owner
-export function useItemsByOwner(owner) {
-  return useQuery(
-    ["items", { owner }],
-    () =>
-      supabase
-        .from("items")
-        .select()
-        .eq("owner", owner)
-        .order("createdAt", { ascending: false })
-        .then(handle),
-    { enabled: !!owner },
-  );
-}
-
-// Create a new item
-export async function createItem(data) {
-  const response = await supabase.from("items").insert([data]).then(handle);
-  // Invalidate and refetch queries that could have old data
-  await client.invalidateQueries(["items"]);
-  return response;
-}
-
-// Update an item
-export async function updateItem(id, data) {
-  const response = await supabase
-    .from("items")
-    .update(data)
-    .eq("id", id)
-    .then(handle);
-  // Invalidate and refetch queries that could have old data
-  await Promise.all([
-    client.invalidateQueries(["item", { id }]),
-    client.invalidateQueries(["items"]),
-  ]);
-  return response;
-}
-
-// Delete an item
-export async function deleteItem(id) {
-  const response = await supabase
-    .from("items")
-    .delete()
-    .eq("id", id)
-    .then(handle);
-  // Invalidate and refetch queries that could have old data
-  await Promise.all([
-    client.invalidateQueries(["item", { id }]),
-    client.invalidateQueries(["items"]),
-  ]);
-  return response;
-}
-
 /**** KEYBOARDS ****/
 // Get a keyboard by theme id
 export function useKeyboardByUser(owner_id) {
@@ -152,25 +87,19 @@ export async function createKeyboardTheme(themeData, keyboardData) {
   const response = await supabase
     .from("keyboard_themes")
     .insert([themeData])
-    .select();
+    .select()
+    .then(handle);
 
-  if (response.error) {
-    throw response.error;
-  }
-
-  const { id: themeId } = response.data[0];
+  const { id: themeId } = response[0];
   const keyboardDataWithThemeId = keyboardData.map((kd) => ({
     ...kd,
     theme_id: themeId,
   }));
 
-  const keyboardResponse = await supabase
+  return await supabase
     .from("keyboard_theme_keys")
-    .insert(keyboardDataWithThemeId);
-
-  if (keyboardResponse.error) {
-    throw keyboardResponse.error;
-  }
+    .insert(keyboardDataWithThemeId)
+    .then(handle);
 
   // Invalidate and refetch queries that could have old data
   // await client.invalidateQueries(["items"]);
