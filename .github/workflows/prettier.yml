@@ -12,4 +12,4 @@ jobs:
       - name: Install modules
         run: yarn install
       - name: Run Prettier
-        run: yarn format
+        run: yarn check_format
