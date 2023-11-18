@@ -1,12 +1,17 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-export default function DesignModal({ isOpen, closeModal, handleSave }) {
-  const [title, setTitle] = useState("");
-  const [desc, setDesc] = useState("");
-
+export default function DesignModal({
+  isOpen,
+  closeModal,
+  modalTitle,
+  setModalTitle,
+  modalDesc,
+  setModalDesc,
+  handleSave,
+}) {
   return (
     <>
       <div>
@@ -68,8 +73,8 @@ export default function DesignModal({ isOpen, closeModal, handleSave }) {
                         id="title"
                         name="title"
                         placeholder=""
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={modalTitle}
+                        onChange={(e) => setModalTitle(e.target.value)}
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 text-sm leading-5 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"
                       />
                     </div>
@@ -82,8 +87,8 @@ export default function DesignModal({ isOpen, closeModal, handleSave }) {
                         name="description"
                         rows={4}
                         placeholder=""
-                        value={desc}
-                        onChange={(e) => setDesc(e.target.value)}
+                        value={modalDesc}
+                        onChange={(e) => setModalDesc(e.target.value)}
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 leading-6 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"
                       ></textarea>
                     </div>
@@ -97,7 +102,7 @@ export default function DesignModal({ isOpen, closeModal, handleSave }) {
                       Cancel
                     </button>
                     <button
-                      onClick={() => handleSave(title, desc)}
+                      onClick={() => handleSave()}
                       type="button"
                       className="inline-flex items-center justify-center space-x-2 rounded-lg border border-blue-700 bg-blue-700 px-3 py-2 text-sm font-semibold leading-5 text-white hover:border-blue-600 hover:bg-blue-600 hover:text-white focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:border-blue-700 active:bg-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
                     >

@@ -147,35 +147,31 @@ export function useKeyboardPaginated(page, size = 10) {
 }
 
 export async function createKeyboardTheme(themeData, keyboardData) {
-  const { data: themeDataResponse, error: themeError } = await supabase
+  const response = await supabase
     .from("keyboard_themes")
     .insert([themeData])
-    .then(handle);
+    .select();
 
-  if (themeError) {
-    throw themeError;
+  if (response.error) {
+    throw response.error;
   }
 
-  // Use the theme_id from the inserted theme to insert related data
-  const themeId = themeDataResponse[0].theme_id;
+  const { id: themeId } = response.data[0];
   const keyboardDataWithThemeId = keyboardData.map((kd) => ({
     ...kd,
     theme_id: themeId,
   }));
 
-  const { data: keyboardDataResponse, error: keyboardError } = await supabase
-    .from("keyboard_theme_keys") // replace 'related_table' with your actual table name
-    .insert(keyboardDataWithThemeId)
-    .then(handle);
+  const keyboardResponse = await supabase
+    .from("keyboard_theme_keys")
+    .insert(keyboardDataWithThemeId);
 
-  if (keyboardError) {
-    throw keyboardError;
+  if (keyboardResponse.error) {
+    throw keyboardResponse.error;
   }
 
   // Invalidate and refetch queries that could have old data
   // await client.invalidateQueries(["items"]);
-
-  return { themeData: themeDataResponse, keyboardData: keyboardDataResponse };
 }
 
 /**** HELPERS ****/
