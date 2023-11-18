@@ -64,7 +64,7 @@ function DesignPage() {
 
     createKeyboardTheme(
       {
-        theme_name: modalTitle,
+        theme_name: modalTitle || null,
         description: modalDesc,
         owner: auth.user.id,
         platform: "mac",
