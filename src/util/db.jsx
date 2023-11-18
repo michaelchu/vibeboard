@@ -110,16 +110,18 @@ export async function deleteItem(id) {
 
 /**** KEYBOARDS ****/
 // Get a keyboard by theme id
-export function useKeyboardByTheme(theme) {
+export function useKeyboardByUser(owner_id) {
   return useQuery(
-    ["keyboard", { theme }],
+    ["keyboard", { owner_id }],
     () =>
       supabase
-        .from("keyboard_theme_keys")
-        .select("key_id, key_label_color")
-        .eq("theme_id", theme)
+        .from("keyboard_themes")
+        .select(
+          "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+        )
+        .eq("owner", owner_id)
         .then(handle),
-    { enabled: !!theme },
+    { enabled: !!owner_id },
   );
 }
 

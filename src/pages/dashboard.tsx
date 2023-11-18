@@ -1,17 +1,18 @@
 import React from "react";
 import Meta from "../components/Meta";
-import { requireAuth } from "../util/auth.jsx";
+import { requireAuth, useAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
 import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
-import { useKeyboardPaginated } from "../util/db.jsx";
+import { useKeyboardByUser } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";
 import Spinner from "../components/Spinner.tsx";
 import Pagination from "../components/Pagination.tsx";
 
 function DashboardPage() {
-  const { data, status } = useKeyboardPaginated(1, 10);
+  const auth = useAuth();
+  const { data, status } = useKeyboardByUser(auth.user.id);
   return (
     <>
       <Header />
