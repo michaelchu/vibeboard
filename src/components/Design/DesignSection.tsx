@@ -6,13 +6,17 @@ import { win_65 } from "../Keyboard/layouts/win_65.ts";
 import DesignMobileFilter from "./DesignMobileFilter.tsx";
 import { FilterSection } from "./types.ts";
 import DesignFilter from "./DesignFilter.tsx";
+import ColorPicker from "../ColorPicker.tsx";
 
 export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
-  const [color, setColor] = useState("white");
+  const [color, setColor] = useState("black");
+  const [keyCapColor, setKeyCapColor] = useState("");
   const [shape, setShape] = useState("angular");
   const [platform, setPlatform] = useState("win");
   const [layout, setLayout] = useState("65_keys");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  const [selectedColor, setSelectedColor] = useState("red-500");
 
   const directory = {
     win: {
@@ -47,11 +51,31 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
     setTempKeyboard(directory[platform][layout]);
   };
 
+  const handleOnClick = (key_id: string) => {
+    const updatedKeys = tempKeyboard.map((k) =>
+      k.key_id === key_id
+        ? { ...k, ...{ key_id, key_label_color: selectedColor } }
+        : k,
+    );
+    setTempKeyboard(updatedKeys);
+  };
+
   const filters: FilterSection[] = [
+    {
+      id: "color",
+      name: "Color Picker",
+      defaultOpen: true,
+      onChange: handleSetLayout,
+      element: (
+        <ColorPicker
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
+      ),
+    },
     {
       id: "layout",
       name: "Layout",
-      defaultOpen: true,
       onChange: handleSetLayout,
       options: [
         { value: "40_keys", label: "40%" },
@@ -78,14 +102,14 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
       name: "Case Color",
       onChange: setColor,
       options: [
-        { value: "white", label: "White", checked: true },
+        { value: "white", label: "White" },
         { value: "red", label: "Red" },
         { value: "orange", label: "Orange" },
         { value: "yellow", label: "Yellow" },
         { value: "green", label: "Green" },
         { value: "blue", label: "Blue" },
         { value: "purple", label: "Purple" },
-        { value: "black", label: "Black" },
+        { value: "black", label: "Black", checked: true },
       ],
     },
     {
@@ -95,6 +119,16 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
       options: [
         { value: "angular", label: "Angular", checked: true },
         { value: "rounded", label: "Rounded" },
+      ],
+    },
+    {
+      id: "key_cap_style",
+      name: "Key Cap Color",
+      onChange: setKeyCapColor,
+      options: [
+        { value: "dark", label: "Dark", checked: true },
+        { value: "darker", label: "Darker" },
+        { value: "light", label: "Light" },
       ],
     },
   ];
@@ -135,7 +169,14 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
         <div className="mt-10 sm:col-span-3 lg:mt-0 bg-gray-700/80">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
-              <Keyboard keys={tempKeyboard} variant={color} shape={shape} />
+              <Keyboard
+                keys={tempKeyboard}
+                variant={color}
+                shape={shape}
+                keyCapVariant={keyCapColor}
+                selectedColor={selectedColor}
+                handleOnClick={handleOnClick}
+              />
             </main>
           </div>
         </div>

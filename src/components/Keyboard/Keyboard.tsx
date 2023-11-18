@@ -1,10 +1,14 @@
 import Key from "./Key.tsx";
 import { KeyProps } from "./types";
+import { keysByRow } from "../../util/helpers.ts";
 
-interface KeyBoardProps {
+interface KeyBoardComponentProps {
   keys: KeyProps[];
   variant?: string;
+  keyCapVariant?: string;
   shape?: string;
+  selectedColor: string;
+  handleOnClick: (key_id: string) => void;
 }
 
 /*
@@ -41,50 +45,55 @@ Usage:
 export default function Keyboard({
   keys,
   variant = "black",
+  keyCapVariant = "",
   shape = "angular",
-}: KeyBoardProps) {
+  selectedColor,
+  handleOnClick,
+}: KeyBoardComponentProps) {
   const colorVariants = {
     black: {
       border: "bg-gray-800/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     white: {
       border: "bg-gray-300/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "light",
     },
     red: {
       border: "bg-red-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     orange: {
       border: "bg-orange-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     yellow: {
       border: "bg-yellow-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     green: {
       border: "bg-green-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     blue: {
       border: "bg-blue-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
     purple: {
       border: "bg-purple-600/70",
       innerFrame: "bg-gray-900",
+      keyCapVariant: "dark",
     },
   };
 
-  const keysByRow = keys.reduce<Record<string, KeyProps[]>>((acc, key) => {
-    if (!acc[key.row]) {
-      acc[key.row] = [];
-    }
-    acc[key.row].push(key);
-    return acc;
-  }, {});
+  const kbr = keysByRow(keys);
 
   return (
     // Keyboard Border
@@ -100,15 +109,23 @@ export default function Keyboard({
         className={`p-0.5 ${colorVariants[variant].innerFrame} rounded overflow-hidden`}
       >
         {/*This splits the array into rows to process based on the row prop in keys*/}
-        {Object.keys(keysByRow).map((rowNumber: string) => (
+        {Object.keys(kbr).map((rowNumber: string) => (
           <div
             key={rowNumber}
             className={`flex space-x-[2px] ${
               rowNumber !== "1" ? "mt-[2px]" : ""
             }`}
           >
-            {keysByRow[rowNumber].map((key: KeyProps) => (
-              <Key key={key.key_id} keyInfo={key} />
+            {kbr[rowNumber].map((key: KeyProps) => (
+              <Key
+                key={key.key_id}
+                keyInfo={key}
+                keyCapVariant={
+                  keyCapVariant || colorVariants[variant].keyCapVariant
+                }
+                selectedColor={selectedColor}
+                handleOnClick={handleOnClick}
+              />
             ))}
           </div>
         ))}

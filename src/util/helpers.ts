@@ -31,3 +31,13 @@ export const mergeArraysByKey = (
     return { ...item, ...rightMap[item.key_id] };
   });
 };
+
+export const keysByRow = (keys: KeyProps[]) => {
+  return keys.reduce<Record<string, KeyProps[]>>((acc, key) => {
+    if (!acc[key.row]) {
+      acc[key.row] = [];
+    }
+    acc[key.row].push(key);
+    return acc;
+  }, {});
+};

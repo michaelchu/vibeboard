@@ -29,29 +29,33 @@ export default function DesignFilter({
                 </Disclosure.Button>
               </h3>
               <Disclosure.Panel className="pt-6">
-                <div className="space-y-4 px-3">
-                  {section.options.map((option, optionIdx) => (
-                    <div key={option.value} className="flex items-center">
-                      <input
-                        id={`filter-${section.id}-${optionIdx}`}
-                        name={`${section.id}[]`}
-                        defaultValue={option.value}
-                        type="radio"
-                        defaultChecked={option.checked}
-                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                        onChange={(e) => {
-                          section.onChange(e.target.value);
-                        }}
-                      />
-                      <label
-                        htmlFor={`filter-${section.id}-${optionIdx}`}
-                        className="ml-3 text-sm text-gray-300"
-                      >
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
-                </div>
+                {section.options ? (
+                  <div className="space-y-4 px-3">
+                    {section.options.map((option, optionIdx) => (
+                      <div key={option.value} className="flex items-center">
+                        <input
+                          id={`filter-${section.id}-${optionIdx}`}
+                          name={`${section.id}[]`}
+                          defaultValue={option.value}
+                          type="radio"
+                          defaultChecked={option.checked}
+                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          onChange={(e) => {
+                            section.onChange(e.target.value);
+                          }}
+                        />
+                        <label
+                          htmlFor={`filter-${section.id}-${optionIdx}`}
+                          className="ml-3 text-sm text-gray-300"
+                        >
+                          {option.label}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  section.element
+                )}
               </Disclosure.Panel>
             </>
           )}

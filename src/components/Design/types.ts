@@ -1,3 +1,5 @@
+import React from "react";
+
 export type FilterOption = {
   label: string;
   value: string;
@@ -9,5 +11,6 @@ export type FilterSection = {
   name: string;
   defaultOpen?: boolean;
   onChange: (value: string) => void;
-  options: FilterOption[];
+  options?: FilterOption[];
+  element?: React.ReactNode;
 };
