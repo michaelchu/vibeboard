@@ -4,6 +4,8 @@ import BackgroundImage from "../../BackgroundImage.tsx";
 import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { lorem } from "../../../util/helpers.ts";
+import KeyboardCarousel from "./KeyboardCarousel.tsx";
+import { useEffect, useState } from "react";
 
 export default function MobileKeyboardCard({
   keyboard,
@@ -13,6 +15,31 @@ export default function MobileKeyboardCard({
   const { data } = supabase.storage
     .from("keyboards")
     .getPublicUrl(keyboard.image_path);
+
+  const [carouselHeight, setCarouselHeight] = useState("0px");
+
+  useEffect(() => {
+    // Calculate the initial height based on the window width
+    const initialHeight = calculateHeight(window.innerWidth);
+    setCarouselHeight(initialHeight);
+
+    // Recalculate the height whenever the window is resized
+    const handleResize = () => {
+      const newHeight = calculateHeight(window.innerWidth);
+      setCarouselHeight(newHeight);
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up function
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const calculateHeight = (width) => {
+    const aspectRatio = (480 / 1356) * 2;
+    return `${width * aspectRatio}px`;
+  };
 
   return (
     <>
@@ -31,14 +58,8 @@ export default function MobileKeyboardCard({
           </p>
         </div>
       </div>
-      <div className="h-60 w-full overflow-x-scroll">
-        {data && (
-          <BackgroundImage
-            image={data.publicUrl}
-            opacity={100}
-            repeat={false}
-          />
-        )}
+      <div style={{ width: "100%", height: carouselHeight }}>
+        {data && <KeyboardCarousel image={data.publicUrl} />}
       </div>
       <div className="px-4 py-2 mb-10 flex text-left items-center justify-between">
         <div className={"flex justify-between space-x-2"}>
