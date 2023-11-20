@@ -70,7 +70,13 @@ function App() {
               <Switch>
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/dashboard" component={DashboardPage} />
-                <Route exact path="/design" component={DesignPage} />
+                <Route exact path="/keyboard/create" component={DesignPage} />
+                <Route exact path="/keyboard/edit" component={DesignPage} />
+                <Route
+                  exact
+                  path="/keyboard/:theme_id"
+                  component={DesignPage}
+                />
                 <Route exact path="/auth/:type" component={AuthPage} />
                 <Route exact path="/trending" component={TrendingPage} />
                 <Route

@@ -27,7 +27,7 @@ function DashboardPage() {
             <div className=" flex-col sm:flex-row sm:flex-none sm:flex items-center justify-center sm:justify-end sm:space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <Dropdown />
               <Link
-                to="/design"
+                to="/keyboard/create"
                 className=" mt-3 sm:mt-0 block sm:inline-flex space-x-2 border font-semibold rounded-lg px-3 py-2 leading-5 text-sm border-blue-700 bg-blue-700 text-white hover:text-white hover:bg-blue-600 hover:border-blue-600 focus:ring focus:ring-blue-400 focus:ring-opacity-50 active:bg-blue-700 active:border-blue-700 dark:focus:ring-blue-400 dark:focus:ring-opacity-90"
               >
                 <PlusIcon className="hi-mini hi-plus inline-block w-5 h-5 opacity-50" />
