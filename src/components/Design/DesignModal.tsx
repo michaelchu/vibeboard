@@ -68,6 +68,7 @@ export default function DesignModal({
                       <label htmlFor="title" className="mb-3 font-medium">
                         Title
                       </label>
+                      {/* TODO: We need to limit characters to only alphanumeric to generate snake case for file names */}
                       <input
                         type="text"
                         id="title"
