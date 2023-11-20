@@ -1,5 +1,4 @@
 import supabase from "../../../util/supabase.ts";
-import { StarIcon } from "@heroicons/react/24/solid";
 import { KeyboardProps } from "../types.ts";
 import { lorem } from "../../../util/helpers.ts";
 import { useLocation } from "react-router-dom";
