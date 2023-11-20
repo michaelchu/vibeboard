@@ -62,15 +62,6 @@ export function useKeyboardByUser(owner_id) {
 
 // Fetch a paginated list of keyboard themes
 export function useKeyboardPaginated(page, size = 10) {
-  const sample = [
-    "red-500",
-    "green-500",
-    "blue-500",
-    "purple-500",
-    "pink-500",
-    "yellow-500",
-  ];
-
   // const { from, to } = getPagination(page, size);
   return useQuery(["keyboards", page, size], () =>
     supabase
@@ -78,7 +69,6 @@ export function useKeyboardPaginated(page, size = 10) {
       .select(
         "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
       )
-      .in("theme_name", sample)
       .then(handle),
   );
 }
