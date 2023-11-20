@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import { PlusIcon } from "@heroicons/react/20/solid";
@@ -10,6 +10,8 @@ import DesignModal from "../components/Design/DesignModal.tsx";
 import { createKeyboardTheme } from "../util/db.jsx";
 import { KeyProps } from "../components/Keyboard/types.ts";
 import Toast from "../components/Toast.tsx";
+import html2canvas from "html2canvas";
+import supabase from "../util/supabase.ts";
 
 interface ErrorResponse {
   code: string;
@@ -20,6 +22,7 @@ interface ErrorResponse {
 
 function DesignPage() {
   const auth = useAuth();
+  const keyboardRef = useRef(null);
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isToastOpen, setIsToastOpen] = useState(false);
@@ -30,6 +33,62 @@ function DesignPage() {
   );
   const [modalTitle, setModalTitle] = useState("");
   const [modalDesc, setModalDesc] = useState("");
+
+  // Function to generate the screenshot and return it as a Blob
+  async function generateScreenshot(): Promise<Blob> {
+    if (!keyboardRef.current) {
+      throw new Error("Keyboard component not found");
+    }
+
+    const canvas = await html2canvas(keyboardRef.current, { scale: 2 });
+    return new Promise((resolve, reject) => {
+      canvas.toBlob((blob: Blob | null) => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject("Failed to generate screenshot");
+        }
+      }, "image/jpeg");
+    });
+  }
+
+  // Function to upload the screenshot to Supabase and return the file name
+  async function uploadScreenshot(blob: Blob): Promise<string> {
+    const fileName = `${modalTitle || "untitled"}.jpeg`;
+    const { error: uploadError } = await supabase.storage
+      .from("keyboards")
+      .upload(fileName, blob, { contentType: "image/jpeg" });
+
+    if (uploadError) {
+      console.error("Upload error message:", uploadError.message);
+      throw new Error("Failed to upload image");
+    }
+
+    return fileName;
+  }
+
+  // Function to create the keyboard theme
+  async function createTheme(imagePath: string) {
+    const keyboardColors = tempKeyboard
+      .filter((obj: KeyProps) => obj.key_label_color !== undefined)
+      .map((obj: KeyProps) => {
+        const { key_id, key_label_color } = obj;
+        return { key_id, key_label_color };
+      });
+
+    await createKeyboardTheme(
+      {
+        theme_name: modalTitle || null,
+        description: modalDesc,
+        owner: auth.user.id,
+        platform: "mac",
+        keyboard_size: "65 keys",
+        keyboard_layout: "QWERTY",
+        image_path: imagePath,
+      },
+      keyboardColors,
+    );
+  }
 
   const resetModalInputs = () => {
     setModalTitle("");
@@ -45,7 +104,7 @@ function DesignPage() {
     resetModalInputs();
   };
 
-  const handleFailedSubmission = (err) => {
+  const handleFailedSubmission = (err: ErrorResponse) => {
     setToastTitle("Error while saving!");
     setToastMsg(err.message);
     setToastType("failure");
@@ -54,32 +113,21 @@ function DesignPage() {
     resetModalInputs();
   };
 
-  const handleSave = () => {
-    const keyboardColors = tempKeyboard
-      .filter((obj: KeyProps) => obj.key_label_color !== undefined)
-      .map((obj: KeyProps) => {
-        const { key_id, key_label_color } = obj;
-        return { key_id, key_label_color };
-      });
+  // const previewImage = (blob: Blob) => {
+  //   const url = URL.createObjectURL(blob);
+  //   window.open(url, "_blank");
+  // };
 
-    createKeyboardTheme(
-      {
-        theme_name: modalTitle || null,
-        description: modalDesc,
-        owner: auth.user.id,
-        platform: "mac",
-        keyboard_size: "65 keys",
-        keyboard_layout: "QWERTY",
-        image_path: "test.jpg",
-      },
-      keyboardColors,
-    )
-      .then(() => {
-        handleSuccessfulSubmission();
-      })
-      .catch((err: ErrorResponse) => {
-        handleFailedSubmission(err);
-      });
+  const handleSave = async () => {
+    try {
+      const screenshotBlob: Blob = await generateScreenshot();
+      const imagePath: string = await uploadScreenshot(screenshotBlob);
+      await createTheme(imagePath);
+      handleSuccessfulSubmission();
+    } catch (err) {
+      console.error(err);
+      handleFailedSubmission(err as ErrorResponse);
+    }
   };
 
   return (
@@ -120,6 +168,7 @@ function DesignPage() {
         <DesignSection
           tempKeyboard={tempKeyboard}
           setTempKeyboard={setTempKeyboard}
+          keyboardRef={keyboardRef}
         />
       </div>
       <DesignModal

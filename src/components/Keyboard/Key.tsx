@@ -43,7 +43,7 @@ export default function Key({
       border: "border-gray-800 bg-gray-800",
       textColor: keyInfo.key_label_color
         ? `text-${keyInfo.key_label_color}`
-        : "text-gray-300",
+        : "text-white",
     },
     darker: {
       button: "bg-black bg-gradient-to-b from-gray-900 to-gray-950",
@@ -52,7 +52,7 @@ export default function Key({
       border: "border-gray-950 bg-gray-950",
       textColor: keyInfo.key_label_color
         ? `text-${keyInfo.key_label_color}`
-        : "text-gray-300",
+        : "text-white",
     },
     light: {
       button: "bg-gradient-to-b from-gray-50 to-gray-400",
@@ -61,7 +61,7 @@ export default function Key({
       border: "border-gray-100 bg-gradient-to-b from-gray-200 to-gray-50",
       textColor: keyInfo.key_label_color
         ? `text-${keyInfo.key_label_color}`
-        : "text-gray-500",
+        : "text-white",
     },
   };
 

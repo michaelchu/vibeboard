@@ -61,7 +61,7 @@ export default function Toast({ show, setShow, title, msg, type }: ToastProps) {
             leaveTo="opacity-0"
           >
             <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="p-4 bg-gray-800">
+              <div className="p-4 bg-gray-900">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">{style[type].icon}</div>
                   <div className="ml-3 w-0 flex-1 pt-0.5">

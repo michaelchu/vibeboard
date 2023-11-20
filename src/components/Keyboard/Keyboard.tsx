@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import Key from "./Key.tsx";
 import { KeyProps } from "./types";
 import { keysByRow } from "../../util/helpers.ts";
@@ -42,14 +43,17 @@ Usage:
 
 */
 
-export default function Keyboard({
-  keys,
-  variant = "black",
-  keyCapVariant = "",
-  shape = "angular",
-  selectedColor,
-  handleOnClick,
-}: KeyBoardComponentProps) {
+function Keyboard(
+  {
+    keys,
+    variant = "black",
+    keyCapVariant = "",
+    shape = "angular",
+    selectedColor,
+    handleOnClick,
+  }: KeyBoardComponentProps,
+  ref: React.Ref<HTMLDivElement>,
+) {
   const colorVariants = {
     black: {
       border: "bg-gray-800/70",
@@ -98,6 +102,7 @@ export default function Keyboard({
   return (
     // Keyboard Border
     <div
+      ref={ref}
       className={`${colorVariants[variant].border} ${
         shape == "rounded" ? "rounded-xl" : ""
       }
@@ -133,3 +138,5 @@ export default function Keyboard({
     </div>
   );
 }
+
+export default forwardRef(Keyboard);

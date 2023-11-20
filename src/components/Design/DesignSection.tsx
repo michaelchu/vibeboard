@@ -8,7 +8,11 @@ import { FilterSection } from "./types.ts";
 import DesignFilter from "./DesignFilter.tsx";
 import ColorPicker from "../ColorPicker.tsx";
 
-export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
+export default function DesignSection({
+  tempKeyboard,
+  setTempKeyboard,
+  keyboardRef,
+}) {
   const [color, setColor] = useState("black");
   const [keyCapColor, setKeyCapColor] = useState("");
   const [shape, setShape] = useState("angular");
@@ -169,6 +173,7 @@ export default function DesignSection({ tempKeyboard, setTempKeyboard }) {
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
               <Keyboard
+                ref={keyboardRef}
                 keys={tempKeyboard}
                 variant={color}
                 shape={shape}
