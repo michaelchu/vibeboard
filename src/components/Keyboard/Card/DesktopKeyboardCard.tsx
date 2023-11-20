@@ -69,10 +69,7 @@ export default function DesktopKeyboardCard({
 
         {/* Card Footer */}
         <div className="flex-1 flex py-3 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between dark:bg-gray-900/30">
-              <h3 className="mb-1 text-gray-500">
-                {lorem.generateParagraphs(1)}
-              </h3>
-
+          <h3 className="mb-1 text-gray-500">{lorem.generateParagraphs(1)}</h3>
         </div>
         <div className="py-2 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
           <dl className="py-3 space-y-1">
