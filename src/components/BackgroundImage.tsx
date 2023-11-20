@@ -5,7 +5,7 @@ function BackgroundImage(props) {
     ["--image" as any]: `url("${props.image}")`,
     ["--opacity" as any]: props.opacity,
     height: "100%",
-    width: "200vw",
+    width: "150%",
   };
 
   return (
