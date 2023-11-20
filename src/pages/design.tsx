@@ -40,7 +40,10 @@ function DesignPage() {
       throw new Error("Keyboard component not found");
     }
 
-    const canvas = await html2canvas(keyboardRef.current, { scale: 2 });
+    const canvas = await html2canvas(keyboardRef.current, {
+      scale: 2,
+      backgroundColor: null,
+    });
     return new Promise((resolve, reject) => {
       canvas.toBlob((blob: Blob | null) => {
         if (blob) {
