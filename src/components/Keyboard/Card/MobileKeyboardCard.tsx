@@ -1,6 +1,5 @@
 import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
-import BackgroundImage from "../../BackgroundImage.tsx";
 import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { lorem } from "../../../util/helpers.ts";
