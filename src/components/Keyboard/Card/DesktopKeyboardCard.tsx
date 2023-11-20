@@ -53,7 +53,7 @@ export default function DesktopKeyboardCard({
           </div>
           <div>
             {currentRoute === "/dashboard" ? (
-              <KeyboardActionButtonGroup/>
+              <KeyboardActionButtonGroup />
             ) : (
               <button
                 type="button"
