@@ -56,12 +56,12 @@ function Keyboard(
 ) {
   const colorVariants = {
     black: {
-      border: "bg-gray-800/70",
+      border: "bg-gray-800",
       innerFrame: "bg-gray-900",
       keyCapVariant: "dark",
     },
     white: {
-      border: "bg-gray-300/70",
+      border: "bg-gray-300",
       innerFrame: "bg-gray-900",
       keyCapVariant: "light",
     },
@@ -71,12 +71,12 @@ function Keyboard(
       keyCapVariant: "dark",
     },
     orange: {
-      border: "bg-orange-600/70",
+      border: "bg-orange-600",
       innerFrame: "bg-gray-900",
       keyCapVariant: "dark",
     },
     yellow: {
-      border: "bg-yellow-600/70",
+      border: "bg-yellow-500",
       innerFrame: "bg-gray-900",
       keyCapVariant: "dark",
     },
