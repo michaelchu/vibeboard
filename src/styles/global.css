@@ -16,6 +16,11 @@
   #root > * {
     flex-shrink: 0;
   }
+
+  /* Prevent html2canvas from shifting texts lower on render */
+  img {
+    @apply inline-block;
+  }
 }
 
 @layer utilities {
