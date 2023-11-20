@@ -3,7 +3,7 @@ import Header from "../components/Header.tsx";
 import React from "react";
 import { useKeyboardPaginated } from "../util/db.jsx";
 import Meta from "../components/Meta.tsx";
-import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
+import KeyboardCardList from "../components/Keyboard/Card/KeyboardCardList.tsx";
 import Pagination from "../components/Pagination.tsx";
 import Spinner from "../components/Spinner.tsx";
 

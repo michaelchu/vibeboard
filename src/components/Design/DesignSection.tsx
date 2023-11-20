@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import Keyboard from "../Keyboard/Keyboard.tsx";
-import { mac_65 } from "../Keyboard/layouts/mac_65.ts";
-import { win_65 } from "../Keyboard/layouts/win_65.ts";
+import { mac_65 } from "../Keyboard/Layout/mac_65.ts";
+import { win_65 } from "../Keyboard/Layout/win_65.ts";
 import DesignMobileFilter from "./DesignMobileFilter.tsx";
 import { FilterSection } from "./types.ts";
 import DesignFilter from "./DesignFilter.tsx";

@@ -3,7 +3,7 @@ import Meta from "../components/Meta";
 import { useKeyboardPaginated } from "../util/db.jsx";
 import Header from "../components/Header.tsx";
 import Spinner from "../components/Spinner.tsx";
-import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
+import KeyboardCardList from "../components/Keyboard/Card/KeyboardCardList.tsx";
 import Pagination from "../components/Pagination.tsx";
 
 function RecentlyUpdatedPage() {

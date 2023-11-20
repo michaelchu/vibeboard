@@ -3,7 +3,7 @@ import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
-import KeyboardCardList from "../components/Keyboard/Cards/KeyboardCardList.tsx";
+import KeyboardCardList from "../components/Keyboard/Card/KeyboardCardList.tsx";
 import { useKeyboardByUser } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";

@@ -5,7 +5,7 @@ import { PlusIcon } from "@heroicons/react/20/solid";
 import { ArrowUturnRightIcon } from "@heroicons/react/24/solid";
 import DesignSection from "../components/Design/DesignSection.tsx";
 import Header from "../components/Header.tsx";
-import { win_65 } from "../components/Keyboard/layouts/win_65.ts";
+import { win_65 } from "../components/Keyboard/Layout/win_65.ts";
 import DesignModal from "../components/Design/DesignModal.tsx";
 import { createKeyboardTheme } from "../util/db.jsx";
 import { KeyProps } from "../components/Keyboard/types.ts";

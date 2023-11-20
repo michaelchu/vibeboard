@@ -31,7 +31,7 @@ export default function MobileKeyboardCard({
           </p>
         </div>
       </div>
-      <div className="overflow-x-scroll h-48 relative">
+      <div className="h-48 w-full overflow-x-scroll">
         {data && (
           <BackgroundImage
             image={data.publicUrl}
