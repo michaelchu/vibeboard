@@ -61,7 +61,7 @@ export default function Key({
       border: "border-gray-100 bg-gradient-to-b from-gray-200 to-gray-50",
       textColor: keyInfo.key_label_color
         ? `text-${keyInfo.key_label_color}`
-        : "text-white",
+        : "text-black",
     },
   };
 
