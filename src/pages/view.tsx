@@ -10,6 +10,7 @@ import KeyboardCarousel from "../components/Keyboard/Card/KeyboardCarousel.tsx";
 import { lorem } from "../util/helpers.ts";
 import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
+import { Avatar } from "flowbite-react";
 
 function ViewPage() {
   const isMobile = useMobile();
@@ -41,15 +42,13 @@ function ViewPage() {
       {isMobile && image ? (
         <>
           <div className="px-4 py-2 flex items-center space-x-2">
-            <img
-              src={
+            <Avatar
+              img={
                 "https://cdn.tailkit.com/media/placeholders/avatar-iFgRcqHznqg-160x160.jpg"
               }
-              alt="User Avatar"
-              className={`inline-block h-8 w-8 rounded-lg`}
             />
             <div>
-              <p className={"text-xl"}>{keyboard.theme_name}</p>
+              <p className={"text-md"}>{keyboard.theme_name}</p>
               <p className="font-light text-sm text-gray-500">
                 {lorem.generateWords(2)}
               </p>
@@ -81,6 +80,11 @@ function ViewPage() {
             </button>
           </div>
 
+          {/* Description */}
+          <div className="px-4 pt-1 flex items-center">
+            <h2 className={"text-md"}>{keyboard.description}</h2>
+          </div>
+
           {/* Stats Bar */}
           <div className="py-2 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
             <dl className="py-3 space-y-1">
@@ -105,11 +109,6 @@ function ViewPage() {
                 Trend
               </dd>
             </dl>
-          </div>
-
-          {/* Description */}
-          <div className="px-4 pt-1 pb-6 mb-2 flex items-center">
-            <h2 className={"text-md"}>{keyboard.description}</h2>
           </div>
         </>
       ) : (

@@ -5,6 +5,7 @@ import { PlusIcon } from "@heroicons/react/20/solid";
 import { lorem } from "../../../util/helpers.ts";
 import KeyboardCarousel from "./KeyboardCarousel.tsx";
 import { Link } from "react-router-dom";
+import { Avatar } from "flowbite-react";
 
 export default function MobileKeyboardCard({
   keyboard,
@@ -18,15 +19,13 @@ export default function MobileKeyboardCard({
   return (
     <>
       <div className="px-4 py-2 flex items-center space-x-2">
-        <img
-          src={
+        <Avatar
+          img={
             "https://cdn.tailkit.com/media/placeholders/avatar-iFgRcqHznqg-160x160.jpg"
           }
-          alt="User Avatar"
-          className={`inline-block h-8 w-8 rounded-lg`}
         />
         <div>
-          <p className={"text-xl"}>{keyboard.theme_name}</p>
+          <p className={"text-md"}>{keyboard.theme_name}</p>
           <p className="font-light text-sm text-gray-500">
             {lorem.generateWords(2)}
           </p>
