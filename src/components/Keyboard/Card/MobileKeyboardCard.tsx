@@ -58,7 +58,9 @@ export default function MobileKeyboardCard({
         </div>
       </div>
       <div style={{ width: "100%", height: carouselHeight }}>
-        {data && <KeyboardCarousel image={data.publicUrl} />}
+        {data && (
+          <KeyboardCarousel theme_id={keyboard.id} image={data.publicUrl} />
+        )}
       </div>
       <div className="px-4 py-2 mb-10 flex text-left items-center justify-between">
         <div className={"flex justify-between space-x-2"}>

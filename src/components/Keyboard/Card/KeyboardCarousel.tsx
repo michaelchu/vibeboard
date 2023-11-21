@@ -1,8 +1,10 @@
 import { Carousel } from "flowbite-react";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import keyboard from "../Keyboard.tsx";
 
-export default function KeyboardCarousel({ image, pieces = 2 }) {
+export default function KeyboardCarousel({ theme_id, image, pieces = 2 }) {
   const [slices, setSlices] = useState<string[]>([]);
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
@@ -53,19 +55,21 @@ export default function KeyboardCarousel({ image, pieces = 2 }) {
   }, [image, pieces]);
 
   return (
-    <Carousel theme={customTheme} slide={false} indicators={false}>
-      {slices.map((slice, i) => (
-        <div
-          key={i}
-          style={{
-            backgroundImage: `url(${slice})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            height: "100%",
-            width: "100%",
-          }}
-        />
-      ))}
-    </Carousel>
+    <Link to={`/keyboard/${theme_id}`}>
+      <Carousel theme={customTheme} slide={false} indicators={false}>
+        {slices.map((slice, i) => (
+          <div
+            key={i}
+            style={{
+              backgroundImage: `url(${slice})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              height: "100%",
+              width: "100%",
+            }}
+          />
+        ))}
+      </Carousel>
+    </Link>
   );
 }
