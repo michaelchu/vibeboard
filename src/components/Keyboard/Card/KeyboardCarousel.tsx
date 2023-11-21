@@ -1,10 +1,14 @@
 import { Carousel } from "flowbite-react";
 import type { CustomFlowbiteTheme } from "flowbite-react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import keyboard from "../Keyboard.tsx";
 
-export default function KeyboardCarousel({ theme_id, image, pieces = 2 }) {
+export default function KeyboardCarousel({
+  image,
+  pieces = 2,
+}: {
+  image: string;
+  pieces?: number;
+}) {
   const [slices, setSlices] = useState<string[]>([]);
   const customTheme: CustomFlowbiteTheme["carousel"] = {
     root: {
@@ -21,6 +25,31 @@ export default function KeyboardCarousel({ theme_id, image, pieces = 2 }) {
       base: "flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth",
       snap: "snap-x",
     },
+  };
+
+  const [carouselHeight, setCarouselHeight] = useState("0px");
+
+  useEffect(() => {
+    // Calculate the initial height based on the window width
+    const initialHeight = calculateHeight(window.innerWidth);
+    setCarouselHeight(initialHeight);
+
+    // Recalculate the height whenever the window is resized
+    const handleResize = () => {
+      const newHeight = calculateHeight(window.innerWidth);
+      setCarouselHeight(newHeight);
+    };
+
+    // Attach the event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up function
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const calculateHeight = (width) => {
+    const aspectRatio = (480 / 1356) * 2;
+    return `${width * aspectRatio}px`;
   };
 
   useEffect(() => {
@@ -55,7 +84,7 @@ export default function KeyboardCarousel({ theme_id, image, pieces = 2 }) {
   }, [image, pieces]);
 
   return (
-    <Link to={`/keyboard/${theme_id}`}>
+    <div style={{ width: "100%", height: carouselHeight }}>
       <Carousel theme={customTheme} slide={false} indicators={false}>
         {slices.map((slice, i) => (
           <div
@@ -70,6 +99,6 @@ export default function KeyboardCarousel({ theme_id, image, pieces = 2 }) {
           />
         ))}
       </Carousel>
-    </Link>
+    </div>
   );
 }

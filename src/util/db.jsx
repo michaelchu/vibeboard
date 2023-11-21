@@ -115,7 +115,6 @@ export async function createKeyboardTheme(themeData, keyboardData) {
 
 // Get response data or throw error if there is one
 function handle(response) {
-  console.log(response.data);
   if (response.error) throw response.error;
   return response.data;
 }

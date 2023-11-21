@@ -116,11 +116,6 @@ function DesignPage() {
     resetModalInputs();
   };
 
-  // const previewImage = (blob: Blob) => {
-  //   const url = URL.createObjectURL(blob);
-  //   window.open(url, "_blank");
-  // };
-
   const handleSave = async () => {
     try {
       const screenshotBlob: Blob = await generateScreenshot();
