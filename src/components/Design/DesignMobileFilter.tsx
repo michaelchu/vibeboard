@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { classNames } from "../../util/helpers.ts";
-import { FilterSection } from "./types.ts";
+import { FilterSection } from "../../util/types.ts";
 
 export default function DesignMobileFilter({
   filters,

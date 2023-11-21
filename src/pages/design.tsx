@@ -9,9 +9,9 @@ import { win_65 } from "../components/Keyboard/Layout/win_65.ts";
 import DesignModal from "../components/Design/DesignModal.tsx";
 import { createKeyboardTheme } from "../util/db.jsx";
 import { KeyProps } from "../components/Keyboard/types.ts";
+import { generateScreenshot, uploadScreenshot } from "../util/screenshot.ts";
+import toast from "react-hot-toast";
 import Toast from "../components/Toast.tsx";
-import html2canvas from "html2canvas";
-import supabase from "../util/supabase.ts";
 
 interface ErrorResponse {
   code: string;
@@ -24,51 +24,11 @@ function DesignPage() {
   const auth = useAuth();
   const keyboardRef = useRef(null);
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isToastOpen, setIsToastOpen] = useState(false);
-  const [toastTitle, setToastTitle] = useState("");
-  const [toastMsg, setToastMsg] = useState("");
-  const [toastType, setToastType] = useState<"success" | "failure" | "info">(
-    "success",
-  );
-  const [modalTitle, setModalTitle] = useState("");
-  const [modalDesc, setModalDesc] = useState("");
-
-  // Function to generate the screenshot and return it as a Blob
-  async function generateScreenshot(): Promise<Blob> {
-    if (!keyboardRef.current) {
-      throw new Error("Keyboard component not found");
-    }
-
-    const canvas = await html2canvas(keyboardRef.current, {
-      scale: 2,
-      backgroundColor: null,
-    });
-    return new Promise((resolve, reject) => {
-      canvas.toBlob((blob: Blob | null) => {
-        if (blob) {
-          resolve(blob);
-        } else {
-          reject("Failed to generate screenshot");
-        }
-      }, "image/jpeg");
-    });
-  }
-
-  // Function to upload the screenshot to Supabase and return the file name
-  async function uploadScreenshot(blob: Blob): Promise<string> {
-    const fileName = `${modalTitle || "untitled"}.jpeg`;
-    const { error: uploadError } = await supabase.storage
-      .from("keyboards")
-      .upload(fileName, blob, { contentType: "image/jpeg" });
-
-    if (uploadError) {
-      console.error("Upload error message:", uploadError.message);
-      throw new Error("Failed to upload image");
-    }
-
-    return fileName;
-  }
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [themeData, setThemeData] = useState({
+    themeTitle: "",
+    themeDesc: "",
+  });
 
   // Function to create the keyboard theme
   async function createTheme(imagePath: string) {
@@ -81,8 +41,8 @@ function DesignPage() {
 
     await createKeyboardTheme(
       {
-        theme_name: modalTitle || null,
-        description: modalDesc,
+        theme_name: themeData.themeTitle || null,
+        description: themeData.themeDesc,
         owner: auth.user.id,
         platform: "mac",
         keyboard_size: "65 keys",
@@ -94,32 +54,28 @@ function DesignPage() {
   }
 
   const resetModalInputs = () => {
-    setModalTitle("");
-    setModalDesc("");
+    setThemeData({ themeTitle: "", themeDesc: "" });
   };
 
   const handleSuccessfulSubmission = () => {
-    setToastTitle("Successfully saved!");
-    setToastMsg("Your submission is being reviewed");
-    setToastType("success");
-    setIsToastOpen(true);
-    setIsModalOpen(false);
+    toast.success("Successfully saved!");
+    setModalOpen(false);
     resetModalInputs();
   };
 
   const handleFailedSubmission = (err: ErrorResponse) => {
-    setToastTitle("Error while saving!");
-    setToastMsg(err.message);
-    setToastType("failure");
-    setIsToastOpen(true);
-    setIsModalOpen(false);
+    toast.error(`Error while saving: ${err.message}`);
+    setModalOpen(false);
     resetModalInputs();
   };
 
   const handleSave = async () => {
     try {
-      const screenshotBlob: Blob = await generateScreenshot();
-      const imagePath: string = await uploadScreenshot(screenshotBlob);
+      const screenshotBlob: Blob = await generateScreenshot(keyboardRef);
+      const imagePath: string = await uploadScreenshot(
+        themeData.themeTitle,
+        screenshotBlob,
+      );
       await createTheme(imagePath);
       handleSuccessfulSubmission();
     } catch (err) {
@@ -131,6 +87,7 @@ function DesignPage() {
   return (
     <>
       <Header />
+      <Toast />
       <div className="bg-gray-50 dark:bg-gray-800/50">
         <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
           <div className="text-center sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">
@@ -150,7 +107,7 @@ function DesignPage() {
                 <span>Reset</span>
               </button>
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => setModalOpen(true)}
                 className="inline-flex justify-center items-center space-x-2 border font-semibold rounded-lg px-4 py-2 leading-5 text-sm border-gray-600 bg-gray-600 text-white hover:text-white hover:bg-gray-500 hover:border-gray-500 focus:ring focus:ring-gray-400 focus:ring-opacity-50 active:bg-gray-700 active:border-gray-700 dark:focus:ring-gray-400 dark:focus:ring-opacity-90"
               >
                 <PlusIcon className="inline-block w-5 h-5 opacity-50" />
@@ -170,20 +127,11 @@ function DesignPage() {
         />
       </div>
       <DesignModal
-        isOpen={isModalOpen}
-        closeModal={() => setIsModalOpen(false)}
-        modalTitle={modalTitle}
-        setModalTitle={setModalTitle}
-        modalDesc={modalDesc}
-        setModalDesc={setModalDesc}
+        themeData={themeData}
+        setThemeData={setThemeData}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setModalOpen}
         handleSave={handleSave}
-      />
-      <Toast
-        show={isToastOpen}
-        setShow={setIsToastOpen}
-        title={toastTitle}
-        msg={toastMsg}
-        type={toastType}
       />
     </>
   );

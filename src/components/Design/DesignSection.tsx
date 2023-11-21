@@ -4,7 +4,7 @@ import Keyboard from "../Keyboard/Keyboard.tsx";
 import { mac_65 } from "../Keyboard/Layout/mac_65.ts";
 import { win_65 } from "../Keyboard/Layout/win_65.ts";
 import DesignMobileFilter from "./DesignMobileFilter.tsx";
-import { FilterSection } from "./types.ts";
+import { FilterSection } from "../../util/types.ts";
 import DesignFilter from "./DesignFilter.tsx";
 import ColorPicker from "../ColorPicker.tsx";
 

@@ -1,6 +1,5 @@
 import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
-import { lorem } from "../../../util/helpers.ts";
 import { Link, useLocation } from "react-router-dom";
 import KeyboardActionButtonGroup from "./KeyboardActionButtonGroup.tsx";
 
@@ -47,7 +46,7 @@ export default function DesktopKeyboardCard({
         <div className="py-3 px-5 bg-gray-50 text-left flex justify-between items-center dark:bg-gray-800/70">
           <div>
             <h2 className="font-semibold text-lg mb-1">
-              {lorem.generateWords(2)}
+              {keyboard.theme_name}
             </h2>
           </div>
           <div>
@@ -68,7 +67,9 @@ export default function DesktopKeyboardCard({
 
         {/* Card Footer */}
         <div className="flex-1 flex py-3 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between dark:bg-gray-900/30">
-          <h3 className="mb-1 text-gray-500">{lorem.generateParagraphs(1)}</h3>
+          <p className="mb-1 text-gray-500 line-clamp-3">
+            {keyboard.description}
+          </p>
         </div>
         <div className="py-2 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
           <dl className="py-3 space-y-1">

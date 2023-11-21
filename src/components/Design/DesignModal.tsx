@@ -2,22 +2,25 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { DesignModalProps } from "../../util/types.ts";
 
 export default function DesignModal({
-  isOpen,
-  closeModal,
-  modalTitle,
-  setModalTitle,
-  modalDesc,
-  setModalDesc,
+  themeData,
+  setThemeData,
+  isModalOpen,
+  setIsModalOpen,
   handleSave,
-}) {
+}: DesignModalProps) {
   return (
     <>
       <div>
         {/* Modal Container */}
-        <Transition appear show={isOpen} as={Fragment}>
-          <Dialog as="div" className="relative z-90" onClose={closeModal}>
+        <Transition appear show={isModalOpen} as={Fragment}>
+          <Dialog
+            as="div"
+            className="relative z-90"
+            onClose={() => setIsModalOpen(false)}
+          >
             {/* Modal Backdrop */}
             <Transition.Child
               as={Fragment}
@@ -55,7 +58,7 @@ export default function DesignModal({
 
                     <div className="-my-4">
                       <button
-                        onClick={closeModal}
+                        onClick={() => setIsModalOpen(false)}
                         type="button"
                         className="inline-flex items-center justify-center space-x-2 rounded-lg border border-transparent px-2 py-1 text-sm font-semibold leading-5 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300 focus:ring-opacity-25 active:border-gray-200 active:shadow-none dark:border-transparent dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600 dark:focus:ring-opacity-40 dark:active:border-gray-700"
                       >
@@ -74,8 +77,13 @@ export default function DesignModal({
                         id="title"
                         name="title"
                         placeholder=""
-                        value={modalTitle}
-                        onChange={(e) => setModalTitle(e.target.value)}
+                        value={themeData.themeTitle}
+                        onChange={(e) =>
+                          setThemeData({
+                            ...themeData,
+                            themeTitle: e.target.value,
+                          })
+                        }
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 text-sm leading-5 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"
                       />
                     </div>
@@ -88,15 +96,20 @@ export default function DesignModal({
                         name="description"
                         rows={4}
                         placeholder=""
-                        value={modalDesc}
-                        onChange={(e) => setModalDesc(e.target.value)}
+                        value={themeData.themeDesc}
+                        onChange={(e) =>
+                          setThemeData({
+                            ...themeData,
+                            ...{ themeDesc: e.target.value },
+                          })
+                        }
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 leading-6 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"
                       ></textarea>
                     </div>
                   </div>
                   <div className="space-x-2 bg-gray-50 px-5 py-4 text-right dark:bg-gray-700/50">
                     <button
-                      onClick={closeModal}
+                      onClick={() => setIsModalOpen(false)}
                       type="button"
                       className="inline-flex items-center justify-center space-x-2 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-semibold leading-5 text-gray-800 hover:border-gray-300 hover:text-gray-900 hover:shadow-sm focus:ring focus:ring-gray-300 focus:ring-opacity-25 active:border-gray-200 active:shadow-none dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200 dark:focus:ring-gray-600 dark:focus:ring-opacity-40 dark:active:border-gray-700"
                     >

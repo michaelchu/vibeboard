@@ -1,7 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/20/solid";
 import React from "react";
-import { FilterSection } from "./types.ts";
+import { FilterSection } from "../../util/types.ts";
 
 export default function DesignFilter({
   filters,

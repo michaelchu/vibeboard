@@ -14,3 +14,16 @@ export type FilterSection = {
   options?: FilterOption[];
   element?: React.ReactNode;
 };
+
+export type ThemeData = {
+  themeTitle: string;
+  themeDesc: string;
+};
+
+export interface DesignModalProps {
+  themeData: ThemeData;
+  setThemeData: (themeData: ThemeData) => void;
+  isModalOpen: boolean;
+  setIsModalOpen: (state: boolean) => void;
+  handleSave: () => void;
+}
