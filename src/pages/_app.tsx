@@ -2,7 +2,7 @@ import React from "react";
 import "./../styles/global.css";
 import IndexPage from "./index";
 import DashboardPage from "./dashboard";
-import DesignPage from "./design";
+import DesignPage from "./design.tsx";
 import AuthPage from "./auth";
 import SettingsPage from "./settings";
 import RecentlyUpdatedPage from "./recently-updated.tsx";
@@ -16,6 +16,7 @@ import { inject } from "@vercel/analytics";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { AuthProvider } from "../util/auth.jsx";
 import { QueryClientProvider } from "../util/db";
+import ViewPage from "./view.tsx";
 
 inject();
 
@@ -70,11 +71,11 @@ function App() {
               <Switch>
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/dashboard" component={DashboardPage} />
-                <Route exact path="/keyboard/create" component={DesignPage} />
-                <Route exact path="/keyboard/edit" component={DesignPage} />
+                <Route exact path="/keyboard/add" component={DesignPage} />
+                <Route exact path="/keyboard/:theme_id" component={ViewPage} />
                 <Route
                   exact
-                  path="/keyboard/:theme_id"
+                  path="/keyboard/edit/:theme_id"
                   component={DesignPage}
                 />
                 <Route exact path="/auth/:type" component={AuthPage} />

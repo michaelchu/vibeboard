@@ -1,7 +1,7 @@
 import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
 import { lorem } from "../../../util/helpers.ts";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import KeyboardActionButtonGroup from "./KeyboardActionButtonGroup.tsx";
 
 /*
@@ -59,7 +59,9 @@ export default function DesktopKeyboardCard({
         {/* Card Body */}
         <div>
           {data && (
-            <img alt={"#"} src={data.publicUrl} className={"w-full h-full"} />
+            <Link to={`/keyboard/${keyboard.id}`}>
+              <img alt={"#"} src={data.publicUrl} className={"w-full h-full"} />
+            </Link>
           )}
         </div>
         {/* Card Body */}

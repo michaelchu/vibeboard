@@ -44,7 +44,7 @@ export async function updateUser(uid, data) {
 }
 
 /**** KEYBOARDS ****/
-// Get a keyboard by theme id
+// Get a keyboard by user id
 export function useKeyboardByUser(owner_id) {
   return useQuery(
     ["keyboard", { owner_id }],
@@ -52,11 +52,27 @@ export function useKeyboardByUser(owner_id) {
       supabase
         .from("keyboard_themes")
         .select(
-          "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+          "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
         )
         .eq("owner", owner_id)
         .then(handle),
     { enabled: !!owner_id },
+  );
+}
+
+// Get a keyboard by theme id
+export function useKeyboardByTheme(theme_id) {
+  return useQuery(
+    ["keyboard", { theme_id }],
+    () =>
+      supabase
+        .from("keyboard_themes")
+        .select(
+          "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+        )
+        .eq("id", theme_id)
+        .then(handle),
+    { enabled: !!theme_id },
   );
 }
 
@@ -67,7 +83,7 @@ export function useKeyboardPaginated(page, size = 10) {
     supabase
       .from("keyboard_themes")
       .select(
-        "theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+        "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
       )
       .then(handle),
   );
@@ -99,6 +115,7 @@ export async function createKeyboardTheme(themeData, keyboardData) {
 
 // Get response data or throw error if there is one
 function handle(response) {
+  console.log(response.data);
   if (response.error) throw response.error;
   return response.data;
 }

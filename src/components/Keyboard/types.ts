@@ -18,6 +18,7 @@ export interface RightKeyProps extends KeyPropsBase {
 }
 
 export interface KeyboardProps {
+  id: string;
   theme_name: string;
   description: string;
   keyboard_size: string;

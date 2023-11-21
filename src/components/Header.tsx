@@ -97,7 +97,7 @@ export default function Header() {
           {/* Right Section */}
           <div className="flex items-center space-x-3">
             <Link
-              to={!auth.user ? "/auth/signin" : "/keyboard/create"}
+              to={!auth.user ? "/auth/signin" : "/keyboard/add"}
               className=" sm:text-white sm:bg-gradient-to-r sm:from-purple-500 sm:to-pink-500 sm:hover:bg-gradient-to-l sm:font-medium sm:rounded-lg sm:text-sm sm:px-5 sm:py-2 sm:text-center "
             >
               <span className="hidden sm:block">Submit a Design</span>
@@ -241,7 +241,7 @@ export default function Header() {
           </nav>
           <nav className="sm:hidden flex flex-col space-y-2 py-4 border-t dark:border-gray-700">
             <Link
-              to={!auth.user ? "/auth/signin" : "/keyboard/create"}
+              to={!auth.user ? "/auth/signin" : "/keyboard/add"}
               className=" text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-medium rounded-lg text-sm px-5 py-2 text-center "
             >
               <span>Submit a Design</span>
