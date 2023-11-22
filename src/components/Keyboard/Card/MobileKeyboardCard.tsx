@@ -4,7 +4,7 @@ import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { lorem } from "../../../util/helpers.ts";
 import KeyboardCarousel from "./KeyboardCarousel.tsx";
-import { Link } from "../../../util/router.jsx";
+import { Link } from "react-router-dom";
 import { Avatar } from "flowbite-react";
 
 export default function MobileKeyboardCard({

@@ -7,11 +7,13 @@ import DesignMobileFilter from "./DesignMobileFilter.tsx";
 import { FilterSection } from "../../util/types.ts";
 import DesignFilter from "./DesignFilter.tsx";
 import ColorPicker from "../ColorPicker.tsx";
+import Spinner from "../Spinner.tsx";
 
 export default function DesignSection({
   tempKeyboard,
   setTempKeyboard,
   keyboardRef,
+  isLoading = false,
 }) {
   const [color, setColor] = useState("black");
   const [keyCapColor, setKeyCapColor] = useState("");
@@ -172,15 +174,19 @@ export default function DesignSection({
         <div className="mt-10 sm:col-span-3 lg:mt-0 lg:bg-gray-700/80">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
-              <Keyboard
-                ref={keyboardRef}
-                keys={tempKeyboard}
-                variant={color}
-                shape={shape}
-                keyCapVariant={keyCapColor}
-                selectedColor={selectedColor}
-                handleOnClick={handleOnClick}
-              />
+              {isLoading ? (
+                <Spinner variant={"dark"} />
+              ) : (
+                <Keyboard
+                  ref={keyboardRef}
+                  keys={tempKeyboard}
+                  variant={color}
+                  shape={shape}
+                  keyCapVariant={keyCapColor}
+                  selectedColor={selectedColor}
+                  handleOnClick={handleOnClick}
+                />
+              )}
             </main>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
-import { Link, useLocation } from "../../../util/router.jsx";
+import { Link, useLocation } from "react-router-dom";
 import KeyboardActionButtonGroup from "./KeyboardActionButtonGroup.tsx";
 
 /*
@@ -50,7 +50,7 @@ export default function DesktopKeyboardCard({
             </h2>
           </div>
           <div>
-            <KeyboardActionButtonGroup route={currentRoute} />
+            <KeyboardActionButtonGroup route={currentRoute} id={keyboard.id} />
           </div>
         </div>
         {/* END Card Header */}

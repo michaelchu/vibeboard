@@ -35,7 +35,7 @@ export default function DesktopDetailSection({
           </Rating>
         </div>
       </div>
-      <img alt={"#"} src={publicUrl} className={""} />
+      <img alt={"#"} src={publicUrl} className={"p-10"} />
       <h2 className={"text-xl font-bold py-4 mt-4"}>Description</h2>
       <p className={"text-sm"}>{keyboard.description}</p>
       <h2 className={"text-xl font-bold py-4 mt-4"}>Ratings & Reviews</h2>

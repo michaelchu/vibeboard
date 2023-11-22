@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import { PlusIcon } from "@heroicons/react/20/solid";
@@ -7,11 +7,13 @@ import DesignSection from "../components/Design/DesignSection.tsx";
 import Header from "../components/Header.tsx";
 import { win_65 } from "../components/Keyboard/Layout/win_65.ts";
 import DesignModal from "../components/Design/DesignModal.tsx";
-import { createKeyboardTheme } from "../util/db.jsx";
+import { createKeyboardTheme, useKeyboardByTheme } from "../util/db.jsx";
 import { KeyProps } from "../components/Keyboard/types.ts";
 import { generateScreenshot, uploadScreenshot } from "../util/screenshot.ts";
 import toast from "react-hot-toast";
 import Toast from "../components/Toast.tsx";
+import { useRouter } from "../util/router.jsx";
+import { mergeArraysByKey } from "../util/helpers.ts";
 
 interface ErrorResponse {
   code: string;
@@ -22,13 +24,34 @@ interface ErrorResponse {
 
 function DesignPage() {
   const auth = useAuth();
+  const router = useRouter();
   const keyboardRef = useRef(null);
-  const [tempKeyboard, setTempKeyboard] = useState(win_65);
   const [isModalOpen, setModalOpen] = useState(false);
   const [themeData, setThemeData] = useState({
     themeTitle: "",
     themeDesc: "",
   });
+  const [isLoading, setIsLoading] = useState(true);
+  const [tempKeyboard, setTempKeyboard] = useState(win_65);
+
+  const {
+    data,
+    isError,
+    isLoading: isKeyboardLoading,
+  } = useKeyboardByTheme(router.query.theme_id || "", true);
+
+  useEffect(() => {
+    setIsLoading(isKeyboardLoading);
+
+    if (isError) {
+      toast.error("Error loading keyboard!");
+    }
+
+    if (router.query.theme_id && data) {
+      const newKeyboard = mergeArraysByKey(win_65, data[0].keyboard_theme_keys);
+      setTempKeyboard(newKeyboard);
+    }
+  }, [router.query.theme_id, data, isError, isKeyboardLoading]);
 
   // Function to create the keyboard theme
   async function createTheme(imagePath: string) {
@@ -120,6 +143,7 @@ function DesignPage() {
           tempKeyboard={tempKeyboard}
           setTempKeyboard={setTempKeyboard}
           keyboardRef={keyboardRef}
+          isLoading={isLoading}
         />
       </div>
       <DesignModal

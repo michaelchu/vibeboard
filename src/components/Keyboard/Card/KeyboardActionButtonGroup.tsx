@@ -3,28 +3,32 @@ import {
   StarIcon,
   TrashIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 export default function KeyboardActionButtonGroup({
   route,
+  id,
 }: {
   route: string;
+  id: string;
 }) {
   return (
     <>
       {route === "/dashboard" ? (
-        <div className="space-x-2">
-          <button
-            type="button"
+        <div className="flex space-x-2">
+          <Link
+            to={`/keyboard/edit/${id}`}
             className="hover:border-gray-300 hover:text-gray-900 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200"
           >
             <PencilSquareIcon className={"w-5 h-5"} />
-          </button>
-          <button
+          </Link>
+          <Link
+            to={"#"}
             type="button"
             className="hover:border-gray-300 hover:text-gray-900 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200"
           >
             <TrashIcon className={"w-5 h-5"} />
-          </button>
+          </Link>
         </div>
       ) : (
         <button

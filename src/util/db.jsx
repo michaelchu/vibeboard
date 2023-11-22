@@ -61,14 +61,18 @@ export function useKeyboardByUser(owner_id) {
 }
 
 // Get a keyboard by theme id
-export function useKeyboardByTheme(theme_id) {
+export function useKeyboardByTheme(theme_id, withColors = false) {
   return useQuery(
     ["keyboard", { theme_id }],
     () =>
       supabase
         .from("keyboard_themes")
         .select(
-          "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+          `id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path${
+            withColors
+              ? ", keyboard_theme_keys ( key_id, key_label_color )"
+              : ""
+          }`,
         )
         .eq("id", theme_id)
         .then(handle),
