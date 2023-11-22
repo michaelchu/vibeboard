@@ -169,7 +169,7 @@ export default function DesignSection({
         </aside>
 
         {/* Product grid */}
-        <div className="mt-10 sm:col-span-3 lg:mt-0 bg-gray-700/80">
+        <div className="mt-10 sm:col-span-3 lg:mt-0 lg:bg-gray-700/80">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
               <Keyboard
