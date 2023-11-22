@@ -93,10 +93,6 @@ function DesignPage() {
           <div className="text-center sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">
             <div className="grow">
               <h1 className="text-xl font-bold mb-1">Design Your Keyboard</h1>
-              <h2 className="text-sm text-gray-500 font-medium dark:text-gray-400">
-                Unleash your creativity and turn your keyboard into a stunning
-                work of art with our customizable RGB lighting options.
-              </h2>
             </div>
             <div className="flex-none flex items-center justify-center sm:justify-end space-x-3 py-3 rounded sm:bg-transparent px-2 sm:px-0">
               <button
