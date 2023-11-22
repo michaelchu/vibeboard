@@ -48,7 +48,15 @@ function DesignPage() {
     }
 
     if (router.query.theme_id && data) {
-      const newKeyboard = mergeArraysByKey(win_65, data[0].keyboard_theme_keys);
+      const currentKeyboard = data[0];
+      const newKeyboard = mergeArraysByKey(
+        win_65,
+        currentKeyboard.keyboard_theme_keys
+      );
+      setThemeData({
+        themeTitle: currentKeyboard.theme_name,
+        themeDesc: currentKeyboard.description,
+      });
       setTempKeyboard(newKeyboard);
     }
   }, [router.query.theme_id, data, isError, isKeyboardLoading]);
@@ -72,7 +80,7 @@ function DesignPage() {
         keyboard_layout: "QWERTY",
         image_path: imagePath,
       },
-      keyboardColors,
+      keyboardColors
     );
   }
 
@@ -97,7 +105,7 @@ function DesignPage() {
       const screenshotBlob: Blob = await generateScreenshot(keyboardRef);
       const imagePath: string = await uploadScreenshot(
         themeData.themeTitle,
-        screenshotBlob,
+        screenshotBlob
       );
       await createTheme(imagePath);
       handleSuccessfulSubmission();
