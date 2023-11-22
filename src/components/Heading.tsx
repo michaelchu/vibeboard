@@ -110,25 +110,7 @@ export default function Heading() {
               </div>
             </div>
           </div>
-          {isMobile ? (
-            <div
-              className={
-                "flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
-              }
-            >
-              <div className="flex-none w-3/4 md:w-1/3 mr-4 md:pb-4">
-                <TrendList title={"Trending Authors"} list={userList} />
-              </div>
-              <div className="flex-none w-3/4 md:w-1/3 mr-4 md:pb-4">
-                <TrendList
-                  title={"Collections"}
-                  list={collectionList}
-                  iconStyle={"rounded-lg"}
-                  placeholder={true}
-                />
-              </div>
-            </div>
-          ) : (
+          {!isMobile && (
             <div className={"grid grid-cols-2 gap-5"}>
               <div className="rounded-xl">
                 <TrendList title={"Trending Authors"} list={userList} />
