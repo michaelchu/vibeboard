@@ -8,6 +8,8 @@ import supabase from "../util/supabase.ts";
 import useMobile from "../hooks/useMobile.ts";
 import { KeyboardProps } from "../components/Keyboard/types.ts";
 import MobileViewSection from "../components/MobileViewSection.tsx";
+import { Avatar, Rating } from "flowbite-react";
+import { lorem } from "../util/helpers.ts";
 
 function DetailsPage() {
   const isMobile = useMobile();
@@ -40,7 +42,28 @@ function DetailsPage() {
         <MobileViewSection keyboard={keyboard} image={publicUrl} />
       ) : (
         <div className="container mx-auto">
-          <main className="w-full h-full flex items-center justify-center sm:p-20">
+          <main className="w-full h-full items-center justify-center sm:p-20">
+            <div className="pb-8 flex items-center space-x-2">
+              <Avatar
+                img={
+                  "https://cdn.tailkit.com/media/placeholders/avatar-iFgRcqHznqg-160x160.jpg"
+                }
+                size={"lg"}
+              />
+              <div>
+                <p className={"text-xl"}>{keyboard.theme_name}</p>
+                <p className="font-light text-lg text-gray-500">
+                  {lorem.generateWords(2)}
+                </p>
+                <Rating>
+                  <Rating.Star />
+                  <Rating.Star />
+                  <Rating.Star />
+                  <Rating.Star />
+                  <Rating.Star filled={false} />
+                </Rating>
+              </div>
+            </div>
             <img alt={"#"} src={publicUrl} className={"w-full h-full"} />
           </main>
         </div>
