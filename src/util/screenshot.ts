@@ -20,7 +20,7 @@ export async function generateScreenshot(
       } else {
         reject("Failed to generate screenshot");
       }
-    }, "image/jpeg");
+    }, "image/png");
   });
 }
 
