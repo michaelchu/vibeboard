@@ -59,7 +59,7 @@ export default function MobileDetailSection({
       {/* Description */}
       <h2 className={"text-lg font-bold p-4"}>Description</h2>
       <div className="px-4 pt-1 flex">
-        <h2 className={"text-xs"}>{keyboard.description}</h2>
+        <h2 className={"text-sm"}>{keyboard.description}</h2>
       </div>
 
       <h2 className={"text-lg font-bold p-4"}>Ratings & Reviews</h2>

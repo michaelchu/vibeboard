@@ -74,7 +74,7 @@ export default function CommentsCard() {
                   <span className="opacity-25">•</span>
                   <span className="text-gray-500 dark:text-gray-400">4h</span>
                 </h5>
-                <p className="mb-1 text-xs leading-relaxed">
+                <p className="mb-1 text-sm leading-relaxed">
                   I just started a new Tailwind CSS based project and I find it
                   very refreshing. Could you suggest any tools to help me out?
                 </p>
@@ -114,7 +114,7 @@ export default function CommentsCard() {
                           2h
                         </span>
                       </h5>
-                      <p className="mb-1 text-xs leading-relaxed">
+                      <p className="mb-1 text-sm leading-relaxed">
                         Check out Tailkit, a UI component library, that can help
                         you build your user interface.
                       </p>
@@ -155,7 +155,7 @@ export default function CommentsCard() {
                           3h
                         </span>
                       </h5>
-                      <p className="mb-1 text-xs leading-relaxed">
+                      <p className="mb-1 text-sm leading-relaxed">
                         I second that, it is a great toolkit for any Tailwind
                         CSS based project!
                       </p>
@@ -202,7 +202,7 @@ export default function CommentsCard() {
                   <span className="opacity-25">•</span>
                   <span className="text-gray-500 dark:text-gray-400">10h</span>
                 </h5>
-                <p className="mb-1 text-xs leading-relaxed">
+                <p className="mb-1 text-sm leading-relaxed">
                   Tailwind CSS is a nice utility based framework! I will make
                   sure to use it in my upcoming project.
                 </p>
@@ -242,7 +242,7 @@ export default function CommentsCard() {
                           9h
                         </span>
                       </h5>
-                      <p className="mb-1 text-xs leading-relaxed">
+                      <p className="mb-1 text-sm leading-relaxed">
                         It seems interesting, I will definitely check it out!
                       </p>
                       <div className="-ml-2 flex items-center">
