@@ -8,7 +8,7 @@ import Pagination from "../components/Pagination.tsx";
 import Spinner from "../components/Spinner.tsx";
 
 export default function IndexPage() {
-  const { data, status } = useKeyboardPaginated(1, 10);
+  const { data, isLoading } = useKeyboardPaginated(1, 10);
 
   return (
     <>
@@ -16,7 +16,7 @@ export default function IndexPage() {
       <Header />
       <Heading />
       <div className="sm:border-t sm:border-gray-700/70"></div>
-      {status === "idle" || status === "loading" ? (
+      {isLoading ? (
         <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
           <div className={"w-full h-full"}>
             <Spinner variant={"dark"} />

@@ -2,6 +2,7 @@ import supabase from "../../../util/supabase.ts";
 import { KeyboardProps } from "../types.ts";
 import { Link, useLocation } from "react-router-dom";
 import KeyboardActionButtonGroup from "./KeyboardActionButtonGroup.tsx";
+import Info from "../../Info.tsx";
 
 /*
 DesktopKeyboardCard component renders a card displaying information about a keyboard.
@@ -40,9 +41,7 @@ export default function DesktopKeyboardCard({
 
   return (
     <>
-      {/* Card Headings: Title with Subtitle and Action */}
       <div className="flex flex-col rounded-lg shadow-sm bg-white overflow-hidden dark:text-gray-101 dark:bg-gray-800">
-        {/* Card Header */}
         <div className="py-3 px-5 bg-gray-50 text-left flex justify-between items-center dark:bg-gray-800/70">
           <div>
             <h2 className="font-semibold text-lg mb-1">
@@ -53,9 +52,7 @@ export default function DesktopKeyboardCard({
             <KeyboardActionButtonGroup route={currentRoute} id={keyboard.id} />
           </div>
         </div>
-        {/* END Card Header */}
 
-        {/* Card Body */}
         <div>
           {data && (
             <Link to={`/keyboard/${keyboard.id}`}>
@@ -63,41 +60,9 @@ export default function DesktopKeyboardCard({
             </Link>
           )}
         </div>
-        {/* Card Body */}
 
-        {/* Card Footer */}
-        <div className="flex-1 flex py-3 px-5 bg-gray-50 space-y-3 sm:space-y-0 sm:text-left sm:flex sm:justify-between dark:bg-gray-900/30">
-          <p className="mb-1 text-gray-500 line-clamp-3">
-            {keyboard.description}
-          </p>
-        </div>
-        <div className="py-2 px-5 bg-gray-50 grid grid-cols-3 text-center dark:bg-gray-900/60">
-          <dl className="py-3 space-y-1">
-            <dt className="text-md text-gray-300 font-semibold">
-              {keyboard.keyboard_size}
-            </dt>
-            <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
-              Size
-            </dd>
-          </dl>
-          <dl className="py-3 space-y-1">
-            <dt className="text-md text-gray-300 font-semibold">
-              {Math.floor(Math.random() * (100 - 1 + 1)) + 1}
-            </dt>
-            <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
-              Comments
-            </dd>
-          </dl>
-          <dl className="py-3 space-y-1">
-            <dt className="text-md text-gray-300 font-semibold">24/week</dt>
-            <dd className="text-xs font-semibold uppercase tracking-wider text-gray-501 dark:text-gray-400">
-              Trend
-            </dd>
-          </dl>
-        </div>
-        {/* END Card Footer */}
+        <Info keyboard={keyboard} />
       </div>
-      {/* END Card Headings: Title with Subtitle and Action */}
     </>
   );
 }

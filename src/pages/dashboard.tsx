@@ -12,7 +12,7 @@ import Pagination from "../components/Pagination.tsx";
 
 function DashboardPage() {
   const auth = useAuth();
-  const { data, status } = useKeyboardByUser(auth.user.id);
+  const { data, isLoading } = useKeyboardByUser(auth.user.id);
   return (
     <>
       <Header />
@@ -39,7 +39,7 @@ function DashboardPage() {
       </div>
       <Meta title="Design your Keyboard" />
       {/* Page Section */}
-      {status === "idle" || status === "loading" ? (
+      {isLoading ? (
         <div className="container xl:max-w-7xl mx-auto py-10 px-4 lg:p-8">
           <div className={"w-full h-full"}>
             <Spinner variant={"dark"} />
