@@ -75,7 +75,7 @@ export default function Heading() {
       <div className="container xl:max-w-7xl mx-auto px-4 py-2 lg:px-8 lg:py-4 ">
         <div className={"grid grid-cols-1 lg:grid-cols-2 gap-10"}>
           <div className="sm:text-left sm:flex sm:items-center sm:justify-between py-2 lg:py-0 space-y-2 sm:space-y-0">
-            <div className="pb-10 pt-20">
+            <div className="sm:pb-10 sm:pt-20">
               <h1 className="text-4xl font-bold">VibeBoard</h1>
               <p className="mt-4 text-lg text-gray-400">
                 The internet’s source for{" "}
