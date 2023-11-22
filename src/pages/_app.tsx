@@ -16,7 +16,7 @@ import { inject } from "@vercel/analytics";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import { AuthProvider } from "../util/auth.jsx";
 import { QueryClientProvider } from "../util/db";
-import ViewPage from "./view.tsx";
+import DetailsPage from "./details.tsx";
 
 inject();
 
@@ -70,7 +70,11 @@ function App() {
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/dashboard" component={DashboardPage} />
                 <Route exact path="/keyboard/add" component={DesignPage} />
-                <Route exact path="/keyboard/:theme_id" component={ViewPage} />
+                <Route
+                  exact
+                  path="/keyboard/:theme_id"
+                  component={DetailsPage}
+                />
                 <Route
                   exact
                   path="/keyboard/edit/:theme_id"
