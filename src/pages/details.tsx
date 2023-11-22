@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Meta from "../components/Meta";
 import { useRouter } from "../util/router.jsx";
 import { useKeyboardByTheme } from "../util/db.jsx";
@@ -9,17 +9,14 @@ import useMobile from "../hooks/useMobile.ts";
 import { KeyboardProps } from "../components/Keyboard/types.ts";
 import MobileDetailSection from "../components/Detail/MobileDetailSection.tsx";
 import DesktopDetailSection from "../components/Detail/DesktopDetailSection.tsx";
+import { useScrollToTop } from "../hooks/useScrollToTop.ts";
 
 function DetailsPage() {
   const isMobile = useMobile();
   const router = useRouter();
   const { data, isLoading } = useKeyboardByTheme(router.query.theme_id);
 
-  useEffect(() => {
-    if (!isLoading) {
-      window.scrollTo(0, 0);
-    }
-  }, [isLoading]);
+  useScrollToTop(isLoading);
 
   if (isLoading) {
     return (
