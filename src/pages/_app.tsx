@@ -69,16 +69,15 @@ function App() {
               <Switch>
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/dashboard" component={DashboardPage} />
-                <Route exact path="/keyboard/add" component={DesignPage} />
+                <Route
+                  exact
+                  path="/keyboard/:action/:theme_id"
+                  component={DesignPage}
+                />
                 <Route
                   exact
                   path="/keyboard/:theme_id"
                   component={DetailsPage}
-                />
-                <Route
-                  exact
-                  path="/keyboard/edit/:theme_id"
-                  component={DesignPage}
                 />
                 <Route exact path="/auth/:type" component={AuthPage} />
                 <Route exact path="/trending" component={TrendingPage} />

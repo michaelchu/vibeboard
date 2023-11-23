@@ -21,7 +21,7 @@ export function useUser(uid) {
     () =>
       supabase.from("users").select(`*`).eq("id", uid).single().then(handle),
     // Only call query function if we have a `uid`
-    { enabled: !!uid },
+    { enabled: !!uid }
   );
 }
 
@@ -52,11 +52,11 @@ export function useKeyboardByUser(owner_id) {
       supabase
         .from("keyboard_themes")
         .select(
-          "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+          "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path"
         )
         .eq("owner", owner_id)
         .then(handle),
-    { enabled: !!owner_id },
+    { enabled: !!owner_id }
   );
 }
 
@@ -68,15 +68,15 @@ export function useKeyboardByTheme(theme_id, withColors = false) {
       supabase
         .from("keyboard_themes")
         .select(
-          `id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path${
+          `id, owner, theme_name, description, keyboard_size, keyboard_layout, platform, image_path${
             withColors
               ? ", keyboard_theme_keys ( key_id, key_label_color )"
               : ""
-          }`,
+          }`
         )
         .eq("id", theme_id)
         .then(handle),
-    { enabled: !!theme_id },
+    { enabled: !!theme_id }
   );
 }
 
@@ -87,16 +87,16 @@ export function useKeyboardPaginated(page, size = 10) {
     supabase
       .from("keyboard_themes")
       .select(
-        "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path",
+        "id, theme_name, description, keyboard_size, keyboard_layout, platform, image_path"
       )
-      .then(handle),
+      .then(handle)
   );
 }
 
 export async function createKeyboardTheme(themeData, keyboardData) {
   const response = await supabase
     .from("keyboard_themes")
-    .insert([themeData])
+    .upsert([themeData])
     .select()
     .then(handle);
 
@@ -108,7 +108,7 @@ export async function createKeyboardTheme(themeData, keyboardData) {
 
   return await supabase
     .from("keyboard_theme_keys")
-    .insert(keyboardDataWithThemeId)
+    .upsert(keyboardDataWithThemeId)
     .then(handle);
 
   // Invalidate and refetch queries that could have old data
