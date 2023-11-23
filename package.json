@@ -32,7 +32,6 @@
     "react-hot-toast": "^2.4.1",
     "react-query": "3.32.1",
     "react-router-dom": "5.2.0",
-    "uuid": "^9.0.1",
     "vite": "^4.5.0",
     "vite-tsconfig-paths": "^4.2.1"
   },
