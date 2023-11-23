@@ -96,7 +96,7 @@ export function useKeyboardPaginated(page, size = 10) {
 export async function createKeyboardTheme(themeData, keyboardData) {
   const response = await supabase
     .from("keyboard_themes")
-    .upsert([themeData])
+    .upsert(themeData, { onConflict: "theme_name" })
     .select()
     .then(handle);
 
