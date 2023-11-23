@@ -3,7 +3,15 @@ import DesktopKeyboardCard from "./DesktopKeyboardCard.tsx";
 import MobileKeyboardCard from "./MobileKeyboardCard.tsx";
 import useMobile from "../../../hooks/useMobile.ts";
 
-export default function KeyboardCardList({ data, setIsModalOpen, showInfo }) {
+export default function KeyboardCardList({
+  data,
+  setIsModalOpen,
+  showInfo,
+}: {
+  data: KeyboardProps[];
+  setIsModalOpen?: (state: boolean) => void;
+  showInfo?: boolean;
+}) {
   const isMobile = useMobile();
   return (
     <>

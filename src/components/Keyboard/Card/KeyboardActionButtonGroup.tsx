@@ -12,11 +12,11 @@ export default function KeyboardActionButtonGroup({
 }: {
   route: string;
   id: string;
-  setIsModalOpen: (state: boolean) => void;
+  setIsModalOpen?: (state: boolean) => void;
 }) {
   return (
     <>
-      {route === "/dashboard" ? (
+      {route === "/dashboard" && setIsModalOpen ? (
         <div className="isolate inline-flex rounded-md shadow-sm">
           <Link
             to={`/keyboard/edit/${id}`}

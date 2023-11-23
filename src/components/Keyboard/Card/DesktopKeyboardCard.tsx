@@ -34,7 +34,7 @@ export default function DesktopKeyboardCard({
   showInfo = true,
 }: {
   keyboard: KeyboardProps;
-  setIsModalOpen: (state: boolean) => void;
+  setIsModalOpen?: (state: boolean) => void;
   showInfo?: boolean;
 }) {
   const location = useLocation();
