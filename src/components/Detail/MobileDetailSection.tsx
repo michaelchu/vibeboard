@@ -4,7 +4,7 @@ import KeyboardCarousel from "../Keyboard/Card/KeyboardCarousel.tsx";
 import { HeartIcon, ShareIcon } from "@heroicons/react/24/solid";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import React from "react";
-import { KeyboardProps } from "../Keyboard/types.ts";
+import { KeyboardProps } from "../../util/types.ts";
 import Ratings from "./Ratings.tsx";
 import CommentsCard from "./CommentsCard.tsx";
 

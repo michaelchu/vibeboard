@@ -1,4 +1,4 @@
-import { KeyProps, RightKeyProps } from "../components/Keyboard/types.ts";
+import { KeyProps, RightKeyProps } from "./types.ts";
 import { LoremIpsum } from "lorem-ipsum";
 
 export function classNames(...classes) {
@@ -7,8 +7,10 @@ export function classNames(...classes) {
 
 export const mergeArraysByKey = (
   left: KeyProps[],
-  right: RightKeyProps[],
+  right: RightKeyProps[] | undefined,
 ): KeyProps[] | never => {
+  if (!right) return left;
+
   // Convert the 'right' array into a map for quick lookup.
   const rightMap = right.reduce(
     (acc, item) => {

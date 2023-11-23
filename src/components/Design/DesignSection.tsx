@@ -1,50 +1,32 @@
 import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/20/solid";
 import Keyboard from "../Keyboard/Keyboard.tsx";
-import { mac_65 } from "../Keyboard/Layout/mac_65.ts";
-import { win_65 } from "../Keyboard/Layout/win_65.ts";
 import DesignMobileFilter from "./DesignMobileFilter.tsx";
-import { FilterSection } from "../../util/types.ts";
+import { FilterSection, KeyProps, ThemeData } from "../../util/types.ts";
 import DesignFilter from "./DesignFilter.tsx";
 import ColorPicker from "../ColorPicker.tsx";
-import Spinner from "../Spinner.tsx";
+import { directory } from "../Keyboard/directory.ts";
 
 export default function DesignSection({
+  themeData,
   tempKeyboard,
   setTempKeyboard,
   keyboardRef,
-  isLoading = false,
+}: {
+  themeData: ThemeData;
+  tempKeyboard: KeyProps[];
+  setTempKeyboard: (keyboard: KeyProps[]) => void;
+  keyboardRef: React.MutableRefObject<null>;
+  isLoading: boolean;
 }) {
-  const [color, setColor] = useState("black");
-  const [keyCapColor, setKeyCapColor] = useState("");
-  const [shape, setShape] = useState("angular");
-  const [platform, setPlatform] = useState("win");
-  const [layout, setLayout] = useState("65_keys");
+  const [color, setColor] = useState(themeData.keyboardColor || "black");
+  const [keyCapColor, setKeyCapColor] = useState(themeData.keyCapColor || "");
+  const [shape, setShape] = useState(themeData.keyboardShape || "angular");
+  const [platform, setPlatform] = useState(themeData.platform || "win");
+  const [layout, setLayout] = useState(themeData.keyboardLayout || "65_keys");
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState("red-500");
-
-  const directory = {
-    win: {
-      "40_keys": win_65,
-      "40_ortho": win_65,
-      "50_ortho": win_65,
-      "60_keys": win_65,
-      "65_keys": win_65,
-      "75_keys": win_65,
-      "80_keys": win_65,
-      "100_keys": win_65,
-    },
-    mac: {
-      "40_keys": mac_65,
-      "40_ortho": mac_65,
-      "50_ortho": mac_65,
-      "60_keys": mac_65,
-      "65_keys": mac_65,
-      "75_keys": mac_65,
-      "80_keys": mac_65,
-      "100_keys": mac_65,
-    },
-  };
 
   const handleSetLayout = (layout: string) => {
     setLayout(layout);
@@ -60,7 +42,7 @@ export default function DesignSection({
     const updatedKeys = tempKeyboard.map((k) =>
       k.key_id === key_id
         ? { ...k, ...{ key_id, key_label_color: selectedColor } }
-        : k
+        : k,
     );
     setTempKeyboard(updatedKeys);
   };
@@ -173,19 +155,15 @@ export default function DesignSection({
         <div className="mt-10 sm:col-span-3 lg:mt-0 lg:bg-gray-700/80">
           <div className="flex items-center justify-center text-gray-400 w-full h-full">
             <main className="w-full h-full flex items-center justify-center">
-              {isLoading ? (
-                <Spinner variant={"dark"} />
-              ) : (
-                <Keyboard
-                  ref={keyboardRef}
-                  keys={tempKeyboard}
-                  variant={color}
-                  shape={shape}
-                  keyCapVariant={keyCapColor}
-                  selectedColor={selectedColor}
-                  handleOnClick={handleOnClick}
-                />
-              )}
+              <Keyboard
+                ref={keyboardRef}
+                keys={tempKeyboard}
+                color={color}
+                shape={shape}
+                keyCapColor={keyCapColor}
+                selectedColor={selectedColor}
+                handleOnClick={handleOnClick}
+              />
             </main>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { KeyProps } from "./types.ts";
+import { KeyProps } from "../../util/types.ts";
 
 /*
 Key component renders a single key on a keyboard.

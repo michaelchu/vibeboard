@@ -2,7 +2,9 @@
 // while the frontend is responsible for visual properties
 // this is joined by they key_id
 
-export const win_65 = [
+import { KeyProps } from "../../../util/types.ts";
+
+export const win_65: KeyProps[] = [
   // 14 keys
   {
     key_id: "esc",

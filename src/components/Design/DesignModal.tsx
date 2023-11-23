@@ -77,11 +77,11 @@ export default function DesignModal({
                         id="title"
                         name="title"
                         placeholder=""
-                        value={themeData.themeTitle}
+                        value={themeData.themeName}
                         onChange={(e) =>
                           setThemeData({
                             ...themeData,
-                            themeTitle: e.target.value,
+                            ...{ themeName: e.target.value },
                           })
                         }
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 text-sm leading-5 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"
@@ -96,11 +96,11 @@ export default function DesignModal({
                         name="description"
                         rows={4}
                         placeholder=""
-                        value={themeData.themeDesc}
+                        value={themeData.description}
                         onChange={(e) =>
                           setThemeData({
                             ...themeData,
-                            ...{ themeDesc: e.target.value },
+                            ...{ description: e.target.value },
                           })
                         }
                         className="block w-full rounded-lg border border-gray-200 px-3 py-2 text-sm leading-6 placeholder-gray-500 focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-800 dark:placeholder-gray-400 dark:focus:border-blue-500"

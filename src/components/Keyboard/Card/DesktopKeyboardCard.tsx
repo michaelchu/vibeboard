@@ -1,5 +1,5 @@
 import supabase from "../../../util/supabase.ts";
-import { KeyboardProps } from "../types.ts";
+import { KeyboardProps } from "../../../util/types.ts";
 import { Link, useLocation } from "react-router-dom";
 import KeyboardActionButtonGroup from "./KeyboardActionButtonGroup.tsx";
 import Info from "../../Info.tsx";

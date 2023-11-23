@@ -6,7 +6,7 @@ import Header from "../components/Header.tsx";
 import { win_65 } from "../components/Keyboard/Layout/win_65.ts";
 import DesignModal from "../components/Design/DesignModal.tsx";
 import { createKeyboardTheme, useKeyboardByTheme } from "../util/db.jsx";
-import { KeyProps } from "../components/Keyboard/types.ts";
+import { ErrorResponse, KeyboardProps, KeyProps } from "../util/types.ts";
 import { generateScreenshot, uploadScreenshot } from "../util/screenshot.ts";
 import toast from "react-hot-toast";
 import Toast from "../components/Toast.tsx";
@@ -14,13 +14,8 @@ import { useRouter } from "../util/router.jsx";
 import { mergeArraysByKey } from "../util/helpers.ts";
 import NotFoundPage from "./404.tsx";
 import DesignHeader from "../components/Design/DesignHeader.tsx";
-
-interface ErrorResponse {
-  code: string;
-  details: string;
-  hint: string | null;
-  message: string;
-}
+import { directory } from "../components/Keyboard/directory.ts";
+import Spinner from "../components/Spinner.tsx";
 
 function DesignPage() {
   const auth = useAuth();
@@ -32,13 +27,14 @@ function DesignPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [themeData, setThemeData] = useState({
-    themeTitle: "",
-    themeDesc: "",
+    themeName: "",
+    description: "",
     keyboardColor: "black",
     keyCapColor: "dark",
-    shape: "angular",
+    keyboardShape: "angular",
+    keyboardSize: "65_keys",
+    keyboardLayout: "QWERTY",
     platform: "win",
-    layout: "65_keys",
   });
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
 
@@ -48,7 +44,7 @@ function DesignPage() {
     isLoading: isKeyboardLoading,
   } = useKeyboardByTheme(
     router.query.theme_id || "",
-    router.query.action === "edit"
+    router.query.action === "edit",
   );
 
   if (isError) {
@@ -62,16 +58,25 @@ function DesignPage() {
       if (data[0].owner !== auth.user?.uid) {
         setIsOwner(false);
       } else {
-        const currentKeyboard = data[0];
-        const newKeyboard = mergeArraysByKey(
-          win_65,
-          currentKeyboard.keyboard_theme_keys
+        const currentKeyboard: KeyboardProps = data[0];
+        const currentKeyboardWithColors = mergeArraysByKey(
+          directory[currentKeyboard.platform][currentKeyboard.keyboard_size],
+          currentKeyboard.keyboard_theme_keys,
         );
         setThemeData({
-          themeTitle: currentKeyboard.theme_name,
-          themeDesc: currentKeyboard.description,
+          ...themeData,
+          ...{
+            themeName: currentKeyboard.theme_name,
+            description: currentKeyboard.description,
+            keyboardColor: currentKeyboard.keyboard_color,
+            keyCapColor: currentKeyboard.key_cap_color,
+            keyboardShape: currentKeyboard.keyboard_shape,
+            keyboardSize: currentKeyboard.keyboard_size,
+            keyboardLayout: currentKeyboard.keyboard_layout,
+            platform: currentKeyboard.platform,
+          },
         });
-        setTempKeyboard(newKeyboard);
+        setTempKeyboard(currentKeyboardWithColors);
       }
     }
   }, [router.query.theme_id, data, isError, isKeyboardLoading]);
@@ -87,20 +92,23 @@ function DesignPage() {
 
     await createKeyboardTheme(
       {
-        theme_name: themeData.themeTitle || null,
-        description: themeData.themeDesc,
+        theme_name: themeData.themeName || null,
+        description: themeData.description,
+        keyboard_color: themeData.keyboardColor,
+        key_cap_color: themeData.keyCapColor,
+        keyboard_shape: themeData.keyboardShape,
+        keyboard_size: themeData.keyboardSize,
+        keyboard_layout: themeData.keyboardLayout,
+        platform: themeData.platform,
         owner: auth.user.id,
-        platform: "mac",
-        keyboard_size: "65 keys",
-        keyboard_layout: "QWERTY",
         image_path: imagePath,
       },
-      keyboardColors
+      keyboardColors,
     );
   }
 
   const resetModalInputs = () => {
-    setThemeData({ themeTitle: "", themeDesc: "" });
+    setThemeData({ ...themeData, ...{ themeTitle: "", themeDesc: "" } });
   };
 
   const handleSuccessfulSubmission = () => {
@@ -119,8 +127,8 @@ function DesignPage() {
     try {
       const screenshotBlob: Blob = await generateScreenshot(keyboardRef);
       const imagePath: string = await uploadScreenshot(
-        themeData.themeTitle,
-        screenshotBlob
+        themeData.themeName,
+        screenshotBlob,
       );
       await createTheme(imagePath);
       handleSuccessfulSubmission();
@@ -143,13 +151,17 @@ function DesignPage() {
             setTempKeyboard={setTempKeyboard}
             setModalOpen={setModalOpen}
           />
-          <DesignSection
-            themeData={themeData}
-            tempKeyboard={tempKeyboard}
-            setTempKeyboard={setTempKeyboard}
-            keyboardRef={keyboardRef}
-            isLoading={isLoading}
-          />
+          {isLoading ? (
+            <Spinner variant={"dark"} />
+          ) : (
+            <DesignSection
+              themeData={themeData}
+              tempKeyboard={tempKeyboard}
+              setTempKeyboard={setTempKeyboard}
+              keyboardRef={keyboardRef}
+              isLoading={isLoading}
+            />
+          )}
           <DesignModal
             themeData={themeData}
             setThemeData={setThemeData}

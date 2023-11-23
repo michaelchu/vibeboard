@@ -1,4 +1,4 @@
-import { KeyboardProps } from "./Keyboard/types.ts";
+import { KeyboardProps } from "../util/types.ts";
 
 interface InfoProps {
   infoItems: { label: string; value: string | number }[];

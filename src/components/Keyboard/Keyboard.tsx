@@ -1,16 +1,7 @@
 import React, { forwardRef } from "react";
 import Key from "./Key.tsx";
-import { KeyProps } from "./types";
+import { KeyBoardComponentProps, KeyProps } from "../../util/types.ts";
 import { keysByRow } from "../../util/helpers.ts";
-
-interface KeyBoardComponentProps {
-  keys: KeyProps[];
-  variant?: string;
-  keyCapVariant?: string;
-  shape?: string;
-  selectedColor: string;
-  handleOnClick: (key_id: string) => void;
-}
 
 /*
 Keyboard component renders a keyboard layout based on the provided keys array.
@@ -46,9 +37,9 @@ Usage:
 function Keyboard(
   {
     keys,
-    variant = "black",
-    keyCapVariant = "",
-    shape = "angular",
+    color,
+    keyCapColor,
+    shape,
     selectedColor,
     handleOnClick,
   }: KeyBoardComponentProps,
@@ -103,7 +94,7 @@ function Keyboard(
     // Keyboard Border
     <div
       ref={ref}
-      className={`${colorVariants[variant].border} ${
+      className={`${colorVariants[color].border} ${
         shape == "rounded" ? "rounded-xl" : ""
       }
       p-3 border-2 border-t-gray-400 dark:border-t-gray-700/50 border-x-gray-400 
@@ -111,7 +102,7 @@ function Keyboard(
     >
       {/*Keyboard Inner Frame*/}
       <div
-        className={`p-0.5 ${colorVariants[variant].innerFrame} rounded overflow-hidden`}
+        className={`p-0.5 ${colorVariants[color].innerFrame} rounded overflow-hidden`}
       >
         {/*This splits the array into rows to process based on the row prop in keys*/}
         {Object.keys(kbr).map((rowNumber: string) => (
@@ -126,7 +117,7 @@ function Keyboard(
                 key={key.key_id}
                 keyInfo={key}
                 keyCapVariant={
-                  keyCapVariant || colorVariants[variant].keyCapVariant
+                  keyCapColor || colorVariants[color].keyCapVariant
                 }
                 selectedColor={selectedColor}
                 handleOnClick={handleOnClick}

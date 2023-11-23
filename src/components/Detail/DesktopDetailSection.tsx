@@ -1,7 +1,7 @@
 import { Avatar, Rating } from "flowbite-react";
 import { lorem } from "../../util/helpers.ts";
 import React from "react";
-import { KeyboardProps } from "../Keyboard/types.ts";
+import { KeyboardProps } from "../../util/types.ts";
 import CommentsCard from "./CommentsCard.tsx";
 import Ratings from "./Ratings.tsx";
 

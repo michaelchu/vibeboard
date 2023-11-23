@@ -1,4 +1,4 @@
-import { KeyboardProps } from "../types.ts";
+import { KeyboardProps } from "../../../util/types.ts";
 import DesktopKeyboardCard from "./DesktopKeyboardCard.tsx";
 import MobileKeyboardCard from "./MobileKeyboardCard.tsx";
 import useMobile from "../../../hooks/useMobile.ts";
