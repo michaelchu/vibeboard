@@ -20,7 +20,7 @@ export default function KeyboardActionButtonGroup({
         <div className="isolate inline-flex rounded-md shadow-sm">
           <Link
             to={`/keyboard/edit/${id}`}
-            className="relative inline-flex items-center rounded-l-md bg-gray-700 px-3 py-2 text-gray-300 ring-1 ring-inset ring-gray-900 hover:bg-gray-500 focus:z-10"
+            className="relative inline-flex items-center rounded-l-md bg-gray-700 px-3 py-2 text-gray-300 ring-1 ring-inset ring-gray-900 hover:bg-gray-600 focus:z-10"
           >
             <PencilSquareIcon className={"w-5 h-5"} />
           </Link>
@@ -28,7 +28,7 @@ export default function KeyboardActionButtonGroup({
             to={"#"}
             type="button"
             onClick={() => setIsModalOpen(true)}
-            className="relative -ml-px inline-flex items-center rounded-r-md bg-gray-700 px-3 py-2 text-red-500 ring-1 ring-inset ring-gray-900 hover:bg-gray-500 focus:z-10"
+            className="relative -ml-px inline-flex items-center rounded-r-md bg-gray-700 px-3 py-2 text-red-500 ring-1 ring-inset ring-gray-900 hover:bg-gray-600 focus:z-10"
           >
             <TrashIcon className={"w-5 h-5"} />
           </Link>

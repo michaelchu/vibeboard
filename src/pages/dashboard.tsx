@@ -49,7 +49,11 @@ function DashboardPage() {
         </div>
       ) : (
         <>
-          <KeyboardCardList data={data} setIsModalOpen={setIsModalOpen} />
+          <KeyboardCardList
+            data={data}
+            setIsModalOpen={setIsModalOpen}
+            showInfo={false}
+          />
           <div className={"py-10 px-5 sm:p-20"}>
             <Pagination />
           </div>
@@ -59,7 +63,9 @@ function DashboardPage() {
       <DeleteModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-        handleDelete={() => {}}
+        handleDelete={() => {
+          console.log("Deleting keyboard...");
+        }}
       />
     </>
   );

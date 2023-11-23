@@ -31,9 +31,11 @@ Usage:
 export default function DesktopKeyboardCard({
   keyboard,
   setIsModalOpen,
+  showInfo = true,
 }: {
   keyboard: KeyboardProps;
   setIsModalOpen: (state: boolean) => void;
+  showInfo?: boolean;
 }) {
   const location = useLocation();
   const currentRoute = location.pathname;
@@ -67,7 +69,7 @@ export default function DesktopKeyboardCard({
           )}
         </div>
 
-        <Info keyboard={keyboard} />
+        {showInfo && <Info keyboard={keyboard} />}
       </div>
     </>
   );
