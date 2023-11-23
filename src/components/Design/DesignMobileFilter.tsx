@@ -9,6 +9,10 @@ export default function DesignMobileFilter({
   filters,
   mobileFiltersOpen,
   setMobileFiltersOpen,
+}: {
+  filters: FilterSection[];
+  mobileFiltersOpen: boolean;
+  setMobileFiltersOpen: (state: boolean) => void;
 }) {
   return (
     <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -92,10 +96,14 @@ export default function DesignMobileFilter({
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="radio"
-                                    defaultChecked={option.checked}
+                                    defaultChecked={
+                                      section.defaultValue === option.value
+                                    }
                                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     onChange={(e) => {
-                                      section.onChange(e.target.value);
+                                      if (section.onChange) {
+                                        section.onChange(e.target.value);
+                                      }
                                     }}
                                   />
                                   <label

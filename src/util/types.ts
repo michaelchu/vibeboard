@@ -16,7 +16,8 @@ export type FilterSection = {
   id: string;
   name: string;
   defaultOpen?: boolean;
-  onChange: (value: string) => void;
+  defaultValue?: string;
+  onChange?: (value: string) => void;
   options?: FilterOption[];
   element?: React.ReactNode;
 };

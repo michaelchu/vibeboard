@@ -19,23 +19,18 @@ export default function DesignSection({
   keyboardRef: React.MutableRefObject<null>;
   isLoading: boolean;
 }) {
-  const [color, setColor] = useState(themeData.keyboardColor || "black");
-  const [keyCapColor, setKeyCapColor] = useState(themeData.keyCapColor || "");
-  const [shape, setShape] = useState(themeData.keyboardShape || "angular");
-  const [platform, setPlatform] = useState(themeData.platform || "win");
-  const [layout, setLayout] = useState(themeData.keyboardLayout || "65_keys");
-
+  const [newThemeData, setNewThemeData] = useState(themeData);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectedColor, setSelectedColor] = useState("red-500");
 
   const handleSetLayout = (layout: string) => {
-    setLayout(layout);
-    setTempKeyboard(directory[platform][layout]);
+    setNewThemeData({ ...newThemeData, ...{ keyboardLayout: layout } });
+    setTempKeyboard(directory[newThemeData.platform][layout]);
   };
 
   const handleSetPlatform = (platform: string) => {
-    setPlatform(platform);
-    setTempKeyboard(directory[platform][layout]);
+    setNewThemeData({ ...newThemeData, ...{ platform: platform } });
+    setTempKeyboard(directory[platform][newThemeData.platform]);
   };
 
   const handleOnClick = (key_id: string) => {
@@ -51,7 +46,6 @@ export default function DesignSection({
     {
       id: "color",
       name: "Color Picker",
-      onChange: handleSetLayout,
       element: (
         <ColorPicker
           selectedColor={selectedColor}
@@ -63,12 +57,13 @@ export default function DesignSection({
       id: "layout",
       name: "Layout",
       onChange: handleSetLayout,
+      defaultValue: newThemeData.keyboardSize,
       options: [
         { value: "40_keys", label: "40%" },
         { value: "40_ortho", label: "40% Ortho" },
         { value: "50_ortho", label: "50% Ortho" },
         { value: "60_keys", label: "60%" },
-        { value: "65_keys", label: "65%", checked: true },
+        { value: "65_keys", label: "65%" },
         { value: "75_keys", label: "75%" },
         { value: "80_keys", label: "80%" },
         { value: "100_keys", label: "90%" },
@@ -78,15 +73,18 @@ export default function DesignSection({
       id: "platform",
       name: "Platform",
       onChange: handleSetPlatform,
+      defaultValue: newThemeData.platform,
       options: [
-        { value: "win", label: "Windows", checked: true },
+        { value: "win", label: "Windows" },
         { value: "mac", label: "Mac OS" },
       ],
     },
     {
       id: "case_color",
       name: "Case Color",
-      onChange: setColor,
+      onChange: (keyboardColor: string) =>
+        setNewThemeData({ ...newThemeData, ...{ keyboardColor } }),
+      defaultValue: newThemeData.keyboardColor,
       options: [
         { value: "white", label: "White" },
         { value: "red", label: "Red" },
@@ -95,24 +93,28 @@ export default function DesignSection({
         { value: "green", label: "Green" },
         { value: "blue", label: "Blue" },
         { value: "purple", label: "Purple" },
-        { value: "black", label: "Black", checked: true },
+        { value: "black", label: "Black" },
       ],
     },
     {
       id: "case_style",
       name: "Case Style",
-      onChange: setShape,
+      onChange: (keyboardShape: string) =>
+        setNewThemeData({ ...newThemeData, ...{ keyboardShape } }),
+      defaultValue: newThemeData.keyboardShape,
       options: [
-        { value: "angular", label: "Angular", checked: true },
+        { value: "angular", label: "Angular" },
         { value: "rounded", label: "Rounded" },
       ],
     },
     {
       id: "key_cap_style",
       name: "Key Cap Color",
-      onChange: setKeyCapColor,
+      onChange: (keyCapColor: string) =>
+        setNewThemeData({ ...newThemeData, ...{ keyCapColor } }),
+      defaultValue: newThemeData.keyCapColor,
       options: [
-        { value: "dark", label: "Dark", checked: true },
+        { value: "dark", label: "Dark" },
         { value: "darker", label: "Darker" },
         { value: "light", label: "Light" },
       ],
@@ -158,9 +160,9 @@ export default function DesignSection({
               <Keyboard
                 ref={keyboardRef}
                 keys={tempKeyboard}
-                color={color}
-                shape={shape}
-                keyCapColor={keyCapColor}
+                color={newThemeData.keyboardColor}
+                shape={newThemeData.keyboardShape}
+                keyCapColor={newThemeData.keyCapColor}
                 selectedColor={selectedColor}
                 handleOnClick={handleOnClick}
               />

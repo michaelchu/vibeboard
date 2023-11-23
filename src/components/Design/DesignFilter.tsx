@@ -38,10 +38,12 @@ export default function DesignFilter({
                           name={`${section.id}[]`}
                           defaultValue={option.value}
                           type="radio"
-                          defaultChecked={option.checked}
+                          defaultChecked={section.defaultValue === option.value}
                           className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                           onChange={(e) => {
-                            section.onChange(e.target.value);
+                            if (section.onChange) {
+                              section.onChange(e.target.value);
+                            }
                           }}
                         />
                         <label
