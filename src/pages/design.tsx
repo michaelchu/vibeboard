@@ -26,14 +26,21 @@ function DesignPage() {
   const auth = useAuth();
   const router = useRouter();
   const keyboardRef = useRef(null);
+
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isOwner, setIsOwner] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
   const [themeData, setThemeData] = useState({
     themeTitle: "",
     themeDesc: "",
+    keyboardColor: "black",
+    keyCapColor: "dark",
+    shape: "angular",
+    platform: "win",
+    layout: "65_keys",
   });
-  const [isLoading, setIsLoading] = useState(true);
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
-  const [isOwner, setIsOwner] = useState(true);
 
   const {
     data,
@@ -129,22 +136,20 @@ function DesignPage() {
         <NotFoundPage />
       ) : (
         <>
+          <Meta title="VibeBoard - Design your Keyboard" />
           <Header />
           <Toast />
           <DesignHeader
             setTempKeyboard={setTempKeyboard}
             setModalOpen={setModalOpen}
           />
-
-          <Meta title="VibeBoard - Design your Keyboard" />
-          <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
-            <DesignSection
-              tempKeyboard={tempKeyboard}
-              setTempKeyboard={setTempKeyboard}
-              keyboardRef={keyboardRef}
-              isLoading={isLoading}
-            />
-          </div>
+          <DesignSection
+            themeData={themeData}
+            tempKeyboard={tempKeyboard}
+            setTempKeyboard={setTempKeyboard}
+            keyboardRef={keyboardRef}
+            isLoading={isLoading}
+          />
           <DesignModal
             themeData={themeData}
             setThemeData={setThemeData}

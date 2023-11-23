@@ -21,7 +21,6 @@ export default function DesignSection({
   const [platform, setPlatform] = useState("win");
   const [layout, setLayout] = useState("65_keys");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
   const [selectedColor, setSelectedColor] = useState("red-500");
 
   const directory = {
@@ -61,7 +60,7 @@ export default function DesignSection({
     const updatedKeys = tempKeyboard.map((k) =>
       k.key_id === key_id
         ? { ...k, ...{ key_id, key_label_color: selectedColor } }
-        : k,
+        : k
     );
     setTempKeyboard(updatedKeys);
   };
@@ -139,7 +138,7 @@ export default function DesignSection({
   ];
 
   return (
-    <div>
+    <div className="container xl:max-w-7xl mx-auto p-4 lg:p-8">
       {/* Mobile filter dialog */}
       <DesignMobileFilter
         filters={filters}

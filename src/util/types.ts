@@ -18,6 +18,10 @@ export type FilterSection = {
 export type ThemeData = {
   themeTitle: string;
   themeDesc: string;
+  keyboardColor: string;
+  shape: string;
+  platform: string;
+  layout: string;
 };
 
 export interface DesignModalProps {
