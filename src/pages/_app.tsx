@@ -69,6 +69,7 @@ function App() {
               <Switch>
                 <Route exact path="/" component={IndexPage} />
                 <Route exact path="/dashboard" component={DashboardPage} />
+                <Route exact path="/keyboard/add" component={DesignPage} />
                 <Route
                   exact
                   path="/keyboard/:action/:theme_id"

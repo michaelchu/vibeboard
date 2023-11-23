@@ -29,10 +29,10 @@ export async function uploadScreenshot(
   title: string,
   blob: Blob,
 ): Promise<string> {
-  const fileName = `${title || "untitled"}.jpeg`;
+  const fileName = `${title}.png`;
   const { error: uploadError } = await supabase.storage
     .from("keyboards")
-    .upload(fileName, blob, { contentType: "image/jpeg", upsert: true });
+    .upload(fileName, blob, { contentType: "image/png", upsert: true });
 
   if (uploadError) {
     console.error("Upload error message:", uploadError.message);

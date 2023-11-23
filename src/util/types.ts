@@ -32,6 +32,7 @@ export type ThemeData = {
   keyboardLayout: string;
   platform: string;
   owner?: string;
+  imagePath: string;
 };
 
 export interface DesignModalProps {

@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import DesignSection from "../components/Design/DesignSection.tsx";
@@ -35,6 +36,7 @@ function DesignPage() {
     keyboardSize: "65_keys",
     keyboardLayout: "QWERTY",
     platform: "win",
+    imagePath: "",
   });
   const [tempKeyboard, setTempKeyboard] = useState(win_65);
 
@@ -74,6 +76,7 @@ function DesignPage() {
             keyboardSize: currentKeyboard.keyboard_size,
             keyboardLayout: currentKeyboard.keyboard_layout,
             platform: currentKeyboard.platform,
+            imagePath: currentKeyboard.image_path,
           },
         });
         setTempKeyboard(currentKeyboardWithColors);
@@ -92,7 +95,7 @@ function DesignPage() {
 
     await createKeyboardTheme(
       {
-        theme_name: themeData.themeName || null,
+        theme_name: themeData.themeName,
         description: themeData.description,
         keyboard_color: themeData.keyboardColor,
         key_cap_color: themeData.keyCapColor,
@@ -127,7 +130,7 @@ function DesignPage() {
     try {
       const screenshotBlob: Blob = await generateScreenshot(keyboardRef);
       const imagePath: string = await uploadScreenshot(
-        themeData.themeName,
+        uuidv4(), // This will prevent overwriting existing image file, https://github.com/orgs/supabase/discussions/5737
         screenshotBlob,
       );
       await createTheme(imagePath);
