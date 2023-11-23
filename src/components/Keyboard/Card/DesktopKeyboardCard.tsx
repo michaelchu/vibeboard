@@ -30,8 +30,10 @@ Usage:
 
 export default function DesktopKeyboardCard({
   keyboard,
+  setIsModalOpen,
 }: {
   keyboard: KeyboardProps;
+  setIsModalOpen: (state: boolean) => void;
 }) {
   const location = useLocation();
   const currentRoute = location.pathname;
@@ -49,7 +51,11 @@ export default function DesktopKeyboardCard({
             </h2>
           </div>
           <div>
-            <KeyboardActionButtonGroup route={currentRoute} id={keyboard.id} />
+            <KeyboardActionButtonGroup
+              setIsModalOpen={setIsModalOpen}
+              route={currentRoute}
+              id={keyboard.id}
+            />
           </div>
         </div>
 

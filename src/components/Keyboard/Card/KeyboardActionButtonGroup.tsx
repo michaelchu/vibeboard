@@ -8,24 +8,27 @@ import { Link } from "react-router-dom";
 export default function KeyboardActionButtonGroup({
   route,
   id,
+  setIsModalOpen,
 }: {
   route: string;
   id: string;
+  setIsModalOpen: (state: boolean) => void;
 }) {
   return (
     <>
       {route === "/dashboard" ? (
-        <div className="flex space-x-2">
+        <div className="isolate inline-flex rounded-md shadow-sm">
           <Link
             to={`/keyboard/edit/${id}`}
-            className="hover:border-gray-300 hover:text-gray-900 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200"
+            className="relative inline-flex items-center rounded-l-md bg-gray-700 px-3 py-2 text-gray-300 ring-1 ring-inset ring-gray-900 hover:bg-gray-500 focus:z-10"
           >
             <PencilSquareIcon className={"w-5 h-5"} />
           </Link>
           <Link
             to={"#"}
             type="button"
-            className="hover:border-gray-300 hover:text-gray-900 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:border-gray-600 dark:hover:text-gray-200"
+            onClick={() => setIsModalOpen(true)}
+            className="relative -ml-px inline-flex items-center rounded-r-md bg-gray-700 px-3 py-2 text-red-500 ring-1 ring-inset ring-gray-900 hover:bg-gray-500 focus:z-10"
           >
             <TrashIcon className={"w-5 h-5"} />
           </Link>

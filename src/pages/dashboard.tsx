@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
@@ -9,10 +9,12 @@ import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";
 import Spinner from "../components/Spinner.tsx";
 import Pagination from "../components/Pagination.tsx";
+import DeleteModal from "../components/DeleteModal.tsx";
 
 function DashboardPage() {
   const auth = useAuth();
   const { data, isLoading } = useKeyboardByUser(auth.user.id);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <Header />
@@ -47,13 +49,18 @@ function DashboardPage() {
         </div>
       ) : (
         <>
-          <KeyboardCardList data={data} />
+          <KeyboardCardList data={data} setIsModalOpen={setIsModalOpen} />
           <div className={"py-10 px-5 sm:p-20"}>
             <Pagination />
           </div>
         </>
       )}
       {/* END Page Section */}
+      <DeleteModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        handleDelete={() => {}}
+      />
     </>
   );
 }
