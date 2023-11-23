@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import Meta from "../components/Meta";
 import { requireAuth, useAuth } from "../util/auth.jsx";
 import DesignSection from "../components/Design/DesignSection.tsx";
@@ -130,7 +129,7 @@ function DesignPage() {
     try {
       const screenshotBlob: Blob = await generateScreenshot(keyboardRef);
       const imagePath: string = await uploadScreenshot(
-        uuidv4(), // This will prevent overwriting existing image file, https://github.com/orgs/supabase/discussions/5737
+        `${auth.user.id}?t=${new Date().getTime()}`, //https://github.com/orgs/supabase/discussions/5737
         screenshotBlob,
       );
       await createTheme(imagePath);
