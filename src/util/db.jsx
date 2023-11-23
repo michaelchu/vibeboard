@@ -115,6 +115,17 @@ export async function createKeyboardTheme(themeData, keyboardData) {
   // await client.invalidateQueries(["items"]);
 }
 
+export async function deleteItem(id, owner_id) {
+  const response = await supabase
+    .from("keyboard_themes")
+    .delete()
+    .eq("id", id)
+    .then(handle);
+  // Invalidate and refetch queries that could have old data
+  await Promise.all([client.invalidateQueries(["keyboard", { owner_id }])]);
+  return response;
+}
+
 /**** HELPERS ****/
 
 // Get response data or throw error if there is one

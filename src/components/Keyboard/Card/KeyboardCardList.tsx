@@ -7,10 +7,12 @@ export default function KeyboardCardList({
   data,
   setIsModalOpen,
   showInfo,
+  setSelectedKeyboard,
 }: {
   data: KeyboardProps[];
   setIsModalOpen?: (state: boolean) => void;
   showInfo?: boolean;
+  setSelectedKeyboard?: (id: string) => void;
 }) {
   const isMobile = useMobile();
   return (
@@ -24,6 +26,7 @@ export default function KeyboardCardList({
                 keyboard={keyboard}
                 setIsModalOpen={setIsModalOpen}
                 showInfo={showInfo}
+                setSelectedKeyboard={setSelectedKeyboard}
               />
             ))}
           </div>

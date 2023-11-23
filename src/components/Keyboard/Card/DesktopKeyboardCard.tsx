@@ -32,10 +32,12 @@ export default function DesktopKeyboardCard({
   keyboard,
   setIsModalOpen,
   showInfo = true,
+  setSelectedKeyboard,
 }: {
   keyboard: KeyboardProps;
   setIsModalOpen?: (state: boolean) => void;
   showInfo?: boolean;
+  setSelectedKeyboard?: (id: string) => void;
 }) {
   const location = useLocation();
   const currentRoute = location.pathname;
@@ -54,6 +56,7 @@ export default function DesktopKeyboardCard({
           </div>
           <div>
             <KeyboardActionButtonGroup
+              setSelectedKeyboard={setSelectedKeyboard}
               setIsModalOpen={setIsModalOpen}
               route={currentRoute}
               id={keyboard.id}

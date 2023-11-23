@@ -4,17 +4,29 @@ import { requireAuth, useAuth } from "../util/auth.jsx";
 import Dropdown from "../components/Dropdown.tsx";
 import { Link } from "react-router-dom";
 import KeyboardCardList from "../components/Keyboard/Card/KeyboardCardList.tsx";
-import { useKeyboardByUser } from "../util/db.jsx";
+import { deleteItem, useKeyboardByUser } from "../util/db.jsx";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import Header from "../components/Header.tsx";
 import Spinner from "../components/Spinner.tsx";
 import Pagination from "../components/Pagination.tsx";
 import DeleteModal from "../components/DeleteModal.tsx";
+import toast from "react-hot-toast";
 
 function DashboardPage() {
   const auth = useAuth();
   const { data, isLoading } = useKeyboardByUser(auth.user.id);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedKeyboard, setSelectedKeyboard] = useState("");
+
+  const handleDelete = () => {
+    console.log("Deleting keyboard...");
+    deleteItem(selectedKeyboard, auth.user.id)
+      .then(() => toast.success("Keyboard successfully deleted."))
+      .catch((error: { message: any }) =>
+        toast.error(`Error while deleting keyboard: ${error.message}`),
+      );
+  };
+
   return (
     <>
       <Header />
@@ -53,6 +65,7 @@ function DashboardPage() {
             data={data}
             setIsModalOpen={setIsModalOpen}
             showInfo={false}
+            setSelectedKeyboard={setSelectedKeyboard}
           />
           <div className={"py-10 px-5 sm:p-20"}>
             <Pagination />
@@ -63,9 +76,7 @@ function DashboardPage() {
       <DeleteModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}
-        handleDelete={() => {
-          console.log("Deleting keyboard...");
-        }}
+        handleDelete={handleDelete}
       />
     </>
   );
